@@ -1,0 +1,33 @@
+﻿@model   WebApplication7.Models.IndexViewModel
+@{
+    ViewBag.Title = "Destroy any users u want";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.Users)
+        {
+            <div class="col-md-4">
+                <li> @Html.DisplayFor(modelItem => item.Email)</li>
+            </div>
+            <div class="col-md-1">
+
+                @using (Html.BeginForm("DeleteUser", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    <button type="submit" value="@item.Email" name="emai" class="btn btn-primary">Delete</button>
+                }
+            </div>
+        }
+    </dl>
+
+    <dl class="dl-horizontal">
+        <div class="row">
+
+        </div>
+    </dl>
+</div>
+
