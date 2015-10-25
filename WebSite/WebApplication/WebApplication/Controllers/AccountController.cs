@@ -158,8 +158,7 @@ namespace WebApplication.Controllers
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "email confirmation",
-                               "Dear "+user.Email+ " To complete the registration please go to: "
-                                                               + callbackUrl );
+                               "Dear "+user.Email+ " To complete the registration please click " + " <a href=\"" + callbackUrl + "\">HERE</a>");
                     return View("DisplayEmail");
                 }
                 AddErrors(result);
