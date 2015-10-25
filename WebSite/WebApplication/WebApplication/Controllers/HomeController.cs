@@ -4,20 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            List<ApplicationUser> model = new List<ApplicationUser>();
-              if (User.Identity.IsAuthenticated)
-               {
-                   using (var context = new ApplicationDbContext())
+            List<Demotivator> model = new List<Demotivator>();
+                   using (var context = new Entities())
                    {
-                        model = context.Users.Where(x => x.EmailConfirmed == true).ToList();
+                    model = context.Demotivators.ToList();
                    }
-               }
             return View(model);
         }
 
@@ -33,23 +32,6 @@ namespace WebApplication.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-        
-        [Authorize]
-        public ActionResult DeleteUser(string userId)
-        {
-                   
-            using (var context = new ApplicationDbContext())
-            {
-                var user = context.Users.Find(userId);
-                             
-                context.Users.Remove(user);
-                context.SaveChanges();
-                if (user.Email == User.Identity.Name)
-                    HttpContext.GetOwinContext().Authentication.SignOut(Microsoft.AspNet.Identity.DefaultAuthenticationTypes.ApplicationCookie);
-
-            }
-            return RedirectToAction("Index");
         }
     }
 }

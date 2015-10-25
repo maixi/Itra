@@ -7,6 +7,8 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Model.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUsers" EntityType="Model.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Demotivators" EntityType="Model.Store.Demotivators" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DemotivatorRatings" EntityType="Model.Store.DemotivatorRatings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comments" EntityType="Model.Store.Comments" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AspNetUserRoles" EntityType="Model.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Model.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -26,6 +28,22 @@
     </AssociationSet>
     <AssociationSet Name="AspNetUserDemotivator" Association="Model.Store.AspNetUserDemotivator">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Demotivator" EntitySet="Demotivators" />
+    </AssociationSet>
+    <AssociationSet Name="DemotivatorRatingDemotivator" Association="Model.Store.DemotivatorRatingDemotivator">
+      <End Role="DemotivatorRating" EntitySet="DemotivatorRatings" />
+      <End Role="Demotivator" EntitySet="Demotivators" />
+    </AssociationSet>
+    <AssociationSet Name="DemotivatorRatingAspNetUser" Association="Model.Store.DemotivatorRatingAspNetUser">
+      <End Role="DemotivatorRating" EntitySet="DemotivatorRatings" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="CommentAspNetUser" Association="Model.Store.CommentAspNetUser">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <AssociationSet Name="CommentDemotivator" Association="Model.Store.CommentDemotivator">
+      <End Role="Comment" EntitySet="Comments" />
       <End Role="Demotivator" EntitySet="Demotivators" />
     </AssociationSet>
   </EntityContainer>
@@ -97,6 +115,25 @@
     <Property Name="BottomLine" Type="nvarchar(max)" Nullable="false" />
     <Property Name="AspNetUserId" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>
+  <EntityType Name="DemotivatorRatings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mark" Type="int" Nullable="false" />
+    <Property Name="Demotivator_Id" Type="int" Nullable="false" />
+    <Property Name="AspNetUser_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PublicationDate" Type="datetime" Nullable="false" />
+    <Property Name="CommentText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AspNetUser_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Demotivator_Id" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetUserRoles">
     <Key>
       <PropertyRef Name="AspNetRoles_Id" />
@@ -142,6 +179,54 @@
       </Principal>
       <Dependent Role="Demotivator">
         <PropertyRef Name="AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DemotivatorRatingDemotivator">
+    <End Role="DemotivatorRating" Type="Model.Store.DemotivatorRatings" Multiplicity="*" />
+    <End Role="Demotivator" Type="Model.Store.Demotivators" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Demotivator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DemotivatorRating">
+        <PropertyRef Name="Demotivator_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DemotivatorRatingAspNetUser">
+    <End Role="DemotivatorRating" Type="Model.Store.DemotivatorRatings" Multiplicity="*" />
+    <End Role="AspNetUser" Type="Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DemotivatorRating">
+        <PropertyRef Name="AspNetUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommentAspNetUser">
+    <End Role="Comment" Type="Model.Store.Comments" Multiplicity="*" />
+    <End Role="AspNetUser" Type="Model.Store.AspNetUsers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="AspNetUser_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommentDemotivator">
+    <End Role="Comment" Type="Model.Store.Comments" Multiplicity="*" />
+    <End Role="Demotivator" Type="Model.Store.Demotivators" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Demotivator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Demotivator_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

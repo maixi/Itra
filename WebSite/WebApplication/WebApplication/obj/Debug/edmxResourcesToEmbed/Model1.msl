@@ -72,12 +72,61 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DemotivatorRatings">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DemotivatorRating)">
+        <MappingFragment StoreEntitySet="DemotivatorRatings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
       </EndProperty>
       <EndProperty Name="AspNetUsers">
         <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DemotivatorRatingDemotivator" TypeName="Model.DemotivatorRatingDemotivator" StoreEntitySet="DemotivatorRatings">
+      <EndProperty Name="Demotivator">
+        <ScalarProperty Name="Id" ColumnName="Demotivator_Id" />
+      </EndProperty>
+      <EndProperty Name="DemotivatorRating">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DemotivatorRatingAspNetUser" TypeName="Model.DemotivatorRatingAspNetUser" StoreEntitySet="DemotivatorRatings">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUser_Id" />
+      </EndProperty>
+      <EndProperty Name="DemotivatorRating">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentAspNetUser" TypeName="Model.CommentAspNetUser" StoreEntitySet="Comments">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="AspNetUser_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CommentDemotivator" TypeName="Model.CommentDemotivator" StoreEntitySet="Comments">
+      <EndProperty Name="Demotivator">
+        <ScalarProperty Name="Id" ColumnName="Demotivator_Id" />
+      </EndProperty>
+      <EndProperty Name="Comment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

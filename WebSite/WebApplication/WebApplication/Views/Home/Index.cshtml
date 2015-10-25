@@ -1,4 +1,5 @@
 ﻿
+@model List<Demotivator>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -6,4 +7,9 @@
 {
     <div>Log in</div>
 }
-
+    @foreach (var dem in Model)
+    {
+        <div>
+            <img src="@Html.DisplayFor(Model => dem.DemotivatorUrl)" class="img-thumbnail"/>
+        </div>
+    }
