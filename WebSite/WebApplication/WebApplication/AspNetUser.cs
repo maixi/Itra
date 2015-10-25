@@ -21,6 +21,7 @@ namespace WebApplication
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
             this.AspNetRoles = new HashSet<AspNetRole>();
             this.Demotivators = new HashSet<Demotivator>();
+            this.Comments = new HashSet<Comment>();
         }
     
         public string Id { get; set; }
@@ -44,5 +45,8 @@ namespace WebApplication
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Demotivator> Demotivators { get; set; }
+        public virtual DemotivatorRating DemotivatorRating { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

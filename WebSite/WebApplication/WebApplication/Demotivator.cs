@@ -14,6 +14,13 @@ namespace WebApplication
     
     public partial class Demotivator
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Demotivator()
+        {
+            this.DemotivatorRatings = new HashSet<DemotivatorRating>();
+            this.Comments = new HashSet<Comment>();
+        }
+    
         public int Id { get; set; }
         public string DemotivatorName { get; set; }
         public double Rate { get; set; }
@@ -26,5 +33,9 @@ namespace WebApplication
         public string AspNetUserId { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DemotivatorRating> DemotivatorRatings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

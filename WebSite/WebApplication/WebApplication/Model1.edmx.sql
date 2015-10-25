@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/25/2015 01:20:35
--- Generated from EDMX file: C:\Users\George\Dropbox\Itransition\WebSite\WebApplication\WebApplication\Model1.edmx
+-- Date Created: 10/25/2015 05:09:52
+-- Generated from EDMX file: C:\Users\George\Dropbox\Itransition\Itra\WebSite\WebApplication\WebApplication\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -84,6 +84,25 @@ CREATE TABLE [dbo].[Demotivators] (
 );
 GO
 
+-- Creating table 'DemotivatorRatings'
+CREATE TABLE [dbo].[DemotivatorRatings] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Mark] int  NOT NULL,
+    [Demotivator_Id] int  NOT NULL,
+    [AspNetUser_Id] nvarchar(128)  NOT NULL
+);
+GO
+
+-- Creating table 'Comments'
+CREATE TABLE [dbo].[Comments] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [PublicationDate] datetime  NOT NULL,
+    [CommentText] nvarchar(max)  NOT NULL,
+    [AspNetUser_Id] nvarchar(128)  NOT NULL,
+    [Demotivator_Id] int  NOT NULL
+);
+GO
+
 -- Creating table 'AspNetUserRoles'
 CREATE TABLE [dbo].[AspNetUserRoles] (
     [AspNetRoles_Id] nvarchar(128)  NOT NULL,
@@ -128,6 +147,18 @@ GO
 -- Creating primary key on [Id] in table 'Demotivators'
 ALTER TABLE [dbo].[Demotivators]
 ADD CONSTRAINT [PK_Demotivators]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'DemotivatorRatings'
+ALTER TABLE [dbo].[DemotivatorRatings]
+ADD CONSTRAINT [PK_DemotivatorRatings]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Comments'
+ALTER TABLE [dbo].[Comments]
+ADD CONSTRAINT [PK_Comments]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -208,6 +239,66 @@ GO
 CREATE INDEX [IX_FK_AspNetUserDemotivator]
 ON [dbo].[Demotivators]
     ([AspNetUserId]);
+GO
+
+-- Creating foreign key on [Demotivator_Id] in table 'DemotivatorRatings'
+ALTER TABLE [dbo].[DemotivatorRatings]
+ADD CONSTRAINT [FK_DemotivatorRatingDemotivator]
+    FOREIGN KEY ([Demotivator_Id])
+    REFERENCES [dbo].[Demotivators]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DemotivatorRatingDemotivator'
+CREATE INDEX [IX_FK_DemotivatorRatingDemotivator]
+ON [dbo].[DemotivatorRatings]
+    ([Demotivator_Id]);
+GO
+
+-- Creating foreign key on [AspNetUser_Id] in table 'DemotivatorRatings'
+ALTER TABLE [dbo].[DemotivatorRatings]
+ADD CONSTRAINT [FK_DemotivatorRatingAspNetUser]
+    FOREIGN KEY ([AspNetUser_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_DemotivatorRatingAspNetUser'
+CREATE INDEX [IX_FK_DemotivatorRatingAspNetUser]
+ON [dbo].[DemotivatorRatings]
+    ([AspNetUser_Id]);
+GO
+
+-- Creating foreign key on [AspNetUser_Id] in table 'Comments'
+ALTER TABLE [dbo].[Comments]
+ADD CONSTRAINT [FK_CommentAspNetUser]
+    FOREIGN KEY ([AspNetUser_Id])
+    REFERENCES [dbo].[AspNetUsers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CommentAspNetUser'
+CREATE INDEX [IX_FK_CommentAspNetUser]
+ON [dbo].[Comments]
+    ([AspNetUser_Id]);
+GO
+
+-- Creating foreign key on [Demotivator_Id] in table 'Comments'
+ALTER TABLE [dbo].[Comments]
+ADD CONSTRAINT [FK_CommentDemotivator]
+    FOREIGN KEY ([Demotivator_Id])
+    REFERENCES [dbo].[Demotivators]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CommentDemotivator'
+CREATE INDEX [IX_FK_CommentDemotivator]
+ON [dbo].[Comments]
+    ([Demotivator_Id]);
 GO
 
 -- --------------------------------------------------
