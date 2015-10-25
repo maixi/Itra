@@ -1,0 +1,91 @@
+﻿@model WebApplication.Demotivator
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Demotivator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DemotivatorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemotivatorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemotivatorUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemotivatorUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BottomLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BottomLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

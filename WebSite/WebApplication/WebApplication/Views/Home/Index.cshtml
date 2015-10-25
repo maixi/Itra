@@ -1,0 +1,9 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (!User.Identity.IsAuthenticated)
+{
+    <div>Log in</div>
+}
+
