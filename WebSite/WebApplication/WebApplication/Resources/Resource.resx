@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackToList" xml:space="preserve">
+    <value>К списку демотиваторов</value>
+  </data>
+  <data name="BottomLine" xml:space="preserve">
+    <value>Нижняя линия</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Выберите язык</value>
   </data>
@@ -137,6 +143,48 @@
   </data>
   <data name="CreateLink" xml:space="preserve">
     <value>Добавить нового пользователся</value>
+  </data>
+  <data name="CreatorName" xml:space="preserve">
+    <value>Имя создателя</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DeleteSure" xml:space="preserve">
+    <value>Вы уверены что хотите удалить этот демотиватор?</value>
+  </data>
+  <data name="DeleteTitle" xml:space="preserve">
+    <value>Удаление</value>
+  </data>
+  <data name="DemCreate" xml:space="preserve">
+    <value>Создание демотиватора</value>
+  </data>
+  <data name="DemoDate" xml:space="preserve">
+    <value>Дата создания</value>
+  </data>
+  <data name="DemoDetails" xml:space="preserve">
+    <value>Детали</value>
+  </data>
+  <data name="DemoEdit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="DemoName" xml:space="preserve">
+    <value>Название Демотиватора</value>
+  </data>
+  <data name="DemoRate" xml:space="preserve">
+    <value>Рейтинг</value>
+  </data>
+  <data name="DemoSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Demotivator" xml:space="preserve">
+    <value>Демотиватор</value>
+  </data>
+  <data name="DemoUrl" xml:space="preserve">
+    <value>Ссылка на картинку демотиватора</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Домашняя</value>
@@ -159,10 +207,22 @@
   <data name="NameRequired" xml:space="preserve">
     <value>Поле Имя должно быть заполнено</value>
   </data>
+  <data name="OriginalDemoUrl" xml:space="preserve">
+    <value>Ссылка на первоначальную картинку демотиватора</value>
+  </data>
   <data name="Registration" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="TopLine" xml:space="preserve">
+    <value>Верхняя линия</value>
+  </data>
   <data name="WelcomeWord" xml:space="preserve">
     <value>Здравствуйте ,</value>
+  </data>
+  <data name="EnglishOrRussian" xml:space="preserve">
+    <value>en/ru?</value>
+  </data>
+  <data name="Okey" xml:space="preserve">
+    <value>OK</value>
   </data>
 </root>

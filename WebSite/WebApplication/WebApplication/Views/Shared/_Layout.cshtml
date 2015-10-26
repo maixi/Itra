@@ -30,11 +30,11 @@
             @using (Html.BeginForm("ChangeCulture", "Home"))
             {
                 <select name="lang">
-                    <option disabled selected>@Resources.Resource.ChooseLang</option>
+                    <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
                     <option value="ru">Русский</option>
                     <option value="en">English</option>
                 </select>
-                <input type="submit" name="submit" value="@Resources.Resource.ChooseLang">
+                <input type="submit" name="submit" value=@Resources.Resource.Okey>
             }
         </div>
     </div>

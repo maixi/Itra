@@ -10,18 +10,19 @@
 }
 else
 {
-<h2>Create</h2>
+<h2>@Resources.Resource.Create</h2>
 
     using (Html.BeginForm())
     {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Demotivator</h4>
+        <h4>@Resources.Resource.Demotivator</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.DemotivatorName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label( Resources.Resource.DemoName , htmlAttributes: new { @class = "control-label col-md-2" })
+           
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DemotivatorName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DemotivatorName, "", new { @class = "text-danger" })
@@ -29,14 +30,14 @@ else
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Rate, htmlAttributes: new { @class = "control-label col-md-2" })
+           @Html.Label(Resources.Resource.DemoRate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.DemotivatorUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+           @Html.Label(Resources.Resource.DemoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DemotivatorUrl, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.DemotivatorUrl, "", new { @class = "text-danger" })
@@ -44,7 +45,7 @@ else
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OriginalImageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+           @Html.Label(Resources.Resource.OriginalDemoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.OriginalImageUrl, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.OriginalImageUrl, "", new { @class = "text-danger" })
@@ -52,7 +53,7 @@ else
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TopLine, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Resources.Resource.TopLine, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TopLine, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TopLine, "", new { @class = "text-danger" })
@@ -60,7 +61,7 @@ else
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BottomLine, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label(Resources.Resource.BottomLine, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BottomLine, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BottomLine, "", new { @class = "text-danger" })
@@ -68,14 +69,14 @@ else
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value=@Resources.Resource.Create class="btn btn-default" />
             </div>
         </div>
     </div>
     }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Resource.BackToList, "Index")
 </div>
 }
 @section Scripts {
