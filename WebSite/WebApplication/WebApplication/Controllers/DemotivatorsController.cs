@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using WebApplication;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-
 namespace WebApplication.Controllers
 {
     public class DemotivatorsController : Controller
