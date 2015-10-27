@@ -322,6 +322,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Маркетинг.
+        /// </summary>
+        public static string Marketing {
+            get {
+                return ResourceManager.GetString("Marketing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на www.maixiwow@mail.ru.
+        /// </summary>
+        public static string MarketingEmail {
+            get {
+                return ResourceManager.GetString("MarketingEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
         public static string Name {
@@ -358,11 +376,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Т..
+        /// </summary>
+        public static string PhoneLetter {
+            get {
+                return ResourceManager.GetString("PhoneLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Регистрация.
         /// </summary>
         public static string Registration {
             get {
                 return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Демо.
+        /// </summary>
+        public static string SiteAdress {
+            get {
+                return ResourceManager.GetString("SiteAdress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Демотиваторы.
+        /// </summary>
+        public static string SiteName {
+            get {
+                return ResourceManager.GetString("SiteName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на +375-29-610-85-00.
+        /// </summary>
+        public static string SitePhoneNumber {
+            get {
+                return ResourceManager.GetString("SitePhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Поддержка.
+        /// </summary>
+        public static string Support {
+            get {
+                return ResourceManager.GetString("Support", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на www.maixiwow@mail.ru.
+        /// </summary>
+        public static string SupportEmail {
+            get {
+                return ResourceManager.GetString("SupportEmail", resourceCulture);
             }
         }
         

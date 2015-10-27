@@ -225,4 +225,28 @@
   <data name="Okey" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="Marketing" xml:space="preserve">
+    <value>Маркетинг</value>
+  </data>
+  <data name="MarketingEmail" xml:space="preserve">
+    <value>www.maixiwow@mail.ru</value>
+  </data>
+  <data name="PhoneLetter" xml:space="preserve">
+    <value>Т.</value>
+  </data>
+  <data name="SiteAdress" xml:space="preserve">
+    <value>Демо</value>
+  </data>
+  <data name="SiteName" xml:space="preserve">
+    <value>Демотиваторы</value>
+  </data>
+  <data name="SitePhoneNumber" xml:space="preserve">
+    <value>+375-29-610-85-00</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Поддержка</value>
+  </data>
+  <data name="SupportEmail" xml:space="preserve">
+    <value>www.maixiwow@mail.ru</value>
+  </data>
 </root>

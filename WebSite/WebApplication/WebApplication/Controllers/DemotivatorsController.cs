@@ -19,7 +19,7 @@ namespace WebApplication.Controllers
     [Culture]
     public class DemotivatorsController : Controller
     {
-        public ActionResult ChangeCulture(string lang)
+   /*     public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
             // Список культур
@@ -42,7 +42,7 @@ namespace WebApplication.Controllers
             }
             Response.Cookies.Add(cookie);
             return Redirect(returnUrl);
-        }
+        }*/
         private Entities db = new Entities();
 
         // GET: Demotivators

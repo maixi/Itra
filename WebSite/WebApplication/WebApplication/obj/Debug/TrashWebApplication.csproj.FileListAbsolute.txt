@@ -435,3 +435,13 @@ D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\en\WebApplication.re
 D:\finalTask\Itra\WebSite\WebApplication\WebApplication\obj\Debug\WebApplication.Resources.Resource.resources
 D:\finalTask\Itra\WebSite\WebApplication\WebApplication\obj\Debug\WebApplication.Resources.Resource.en.resources
 D:\finalTask\Itra\WebSite\WebApplication\WebApplication\obj\Debug\en\WebApplication.resources.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\IronRuby.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\IronRuby.Libraries.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\IronRuby.Libraries.Yaml.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\Microsoft.Dynamic.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\Microsoft.Scripting.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\Microsoft.Scripting.Metadata.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\SassAndCoffee.AspNet.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\SassAndCoffee.Core.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\SassAndCoffee.JavaScript.dll
+D:\finalTask\Itra\WebSite\WebApplication\WebApplication\bin\SassAndCoffee.Ruby.dll
