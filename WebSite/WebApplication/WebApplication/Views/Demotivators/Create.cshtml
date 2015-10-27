@@ -55,8 +55,8 @@ else
             <div class="form-group">
                 @Html.Label(Resources.Resource.DemoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.DemotivatorUrl, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DemotivatorUrl, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.DemoJSONInfo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DemoJSONInfo, "", new { @class = "text-danger" })
                 </div>
             </div>
 

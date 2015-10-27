@@ -64,7 +64,7 @@
           <ScalarProperty Name="Rate" ColumnName="Rate" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="CreatorName" ColumnName="CreatorName" />
-          <ScalarProperty Name="DemotivatorUrl" ColumnName="DemotivatorUrl" />
+          <ScalarProperty Name="DemoJSONInfo" ColumnName="DemoJSONInfo" />
           <ScalarProperty Name="OriginalImageUrl" ColumnName="OriginalImageUrl" />
           <ScalarProperty Name="TopLine" ColumnName="TopLine" />
           <ScalarProperty Name="BottomLine" ColumnName="BottomLine" />

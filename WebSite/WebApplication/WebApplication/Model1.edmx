@@ -114,7 +114,7 @@
     <Property Name="Rate" Type="float" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="CreatorName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DemotivatorUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DemoJSONInfo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OriginalImageUrl" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TopLine" Type="nvarchar(max)" Nullable="false" />
     <Property Name="BottomLine" Type="nvarchar(max)" Nullable="false" />
@@ -408,7 +408,7 @@
           <Property Name="Rate" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" />
           <Property Name="CreatorName" Type="String" Nullable="false" />
-          <Property Name="DemotivatorUrl" Type="String" Nullable="false" />
+          <Property Name="DemoJSONInfo" Type="String" Nullable="false" />
           <Property Name="OriginalImageUrl" Type="String" Nullable="false" />
           <Property Name="TopLine" Type="String" Nullable="false" />
           <Property Name="BottomLine" Type="String" Nullable="false" />
@@ -533,7 +533,7 @@
           <ScalarProperty Name="Rate" ColumnName="Rate" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="CreatorName" ColumnName="CreatorName" />
-          <ScalarProperty Name="DemotivatorUrl" ColumnName="DemotivatorUrl" />
+          <ScalarProperty Name="DemoJSONInfo" ColumnName="DemoJSONInfo" />
           <ScalarProperty Name="OriginalImageUrl" ColumnName="OriginalImageUrl" />
           <ScalarProperty Name="TopLine" ColumnName="TopLine" />
           <ScalarProperty Name="BottomLine" ColumnName="BottomLine" />

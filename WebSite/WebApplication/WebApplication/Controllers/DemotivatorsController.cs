@@ -79,7 +79,7 @@ namespace WebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator)
+        public ActionResult Create([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemoJSONInfo,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator)
         {
             if (ModelState.IsValid)
             {
