@@ -7,9 +7,21 @@
 {
     <div>Log in</div>
 }
-    @foreach (var dem in Model)
-    {
-        <div>
-            <img src="@Html.DisplayFor(Model => dem.DemotivatorUrl)" class="img-thumbnail"/>
-        </div>
-    }
+<head>
+    <script language="JavaScript">
+    var bigsize = "300"; //Размер большой картинки
+    var smallsize = "150"; //Размер маленькой картинки
+    function changeSizeImage(im) {
+     if(im.height == bigsize) im.height = smallsize;
+        else im.height = bigsize;
+}
+    </script>
+</head>
+    <body>
+        @foreach (var dem in Model)
+        {
+            <div>
+                <img src="@Html.DisplayFor(Model => dem.DemotivatorUrl)"   height="150" onclick="changeSizeImage(this)"  />
+            </div>
+        }
+    </body>
