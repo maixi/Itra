@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css")угу
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -25,25 +25,25 @@
                     <li>@Html.ActionLink(Resources.Resource.Create, "Create", "Demotivators")</li>
                     <li>@Html.ActionLink(Resources.Resource.Contact, "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-            @using (Html.BeginForm("ChangeCulture", "Home"))
-            {
+                 @Html.Partial("_LoginPartial")
+                <div>
+                 @using (Html.BeginForm("ChangeCulture", "Home"))
+                {
                 <select name="lang">
-                    <option disabled selected>@Resources.Resource.ChooseLang</option>
+                    <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
                     <option value="ru">Русский</option>
                     <option value="en">English</option>
                 </select>
-                <input type="submit" name="submit" value="@Resources.Resource.ChooseLang">
-            }
+                <input type="submit" name="submit" value=@Resources.Resource.Okey>
+                 }
+                </div>
+            </div>
+           
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year @Resources.Resource.CopyRight</p>
-        </footer>
+        <hr />        
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@Resources.Resource.DemoDetails</h2>
 
 <div>
-    <h4>Demotivator</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.DemotivatorName)
+            @Html.Label(Resources.Resource.DemoName)
         </dt>
 
         <dd>
@@ -20,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Rate)
+            @Html.Label(Resources.Resource.DemoRate)
         </dt>
 
         <dd>
@@ -28,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.Label(Resources.Resource.DemoDate)
         </dt>
 
         <dd>
@@ -36,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreatorName)
+            @Html.Label(Resources.Resource.CreatorName)
         </dt>
 
         <dd>
@@ -44,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DemotivatorUrl)
+            @Html.Label(Resources.Resource.DemoUrl)
         </dt>
 
         <dd>
@@ -52,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OriginalImageUrl)
+            @Html.Label(Resources.Resource.OriginalDemoUrl)
         </dt>
 
         <dd>
@@ -60,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TopLine)
+            @Html.Label(Resources.Resource.TopLine)
         </dt>
 
         <dd>
@@ -68,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BottomLine)
+            @Html.Label(Resources.Resource.BottomLine)
         </dt>
 
         <dd>
@@ -76,7 +75,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            @Html.Label(Resources.Resource.Email)
         </dt>
 
         <dd>
@@ -86,6 +85,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <input type="submit" value=@Resources.Resource.DemoEdit class="btn btn-default" /> 
+    
+</p>
+<p>
+    @Html.ActionLink(Resources.Resource.BackToList, "Index")
 </p>

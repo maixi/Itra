@@ -4,40 +4,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Resources.Resource.Create, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DemotivatorName)
+            @Html.Label(Resources.Resource.DemoName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rate)
+            @Html.Label(Resources.Resource.DemoRate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.Label(Resources.Resource.DemoDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatorName)
+            @Html.Label(Resources.Resource.CreatorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DemotivatorUrl)
+            @Html.Label(Resources.Resource.DemoUrl)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OriginalImageUrl)
+            @Html.Label(Resources.Resource.OriginalDemoUrl)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TopLine)
+            @Html.Label(Resources.Resource.TopLine)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BottomLine)
+            @Html.Label(Resources.Resource.BottomLine)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+            @Html.Label(Resources.Resource.Email)
         </th>
         <th></th>
     </tr>
@@ -72,9 +69,9 @@
             @Html.DisplayFor(modelItem => item.AspNetUser.Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink(Resources.Resource.DemoEdit, "Edit", new { id=item.Id }) |
+            @Html.ActionLink(Resources.Resource.DemoDetails, "Details", new { id=item.Id }) |
+            @Html.ActionLink(Resources.Resource.Delete, "Delete", new { id=item.Id })
         </td>
     </tr>
 }

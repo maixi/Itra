@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на К списку демотиваторов.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нижняя линия.
+        /// </summary>
+        public static string BottomLine {
+            get {
+                return ResourceManager.GetString("BottomLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Выберите язык.
         /// </summary>
         public static string ChooseLang {
@@ -124,6 +142,141 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Имя создателя.
+        /// </summary>
+        public static string CreatorName {
+            get {
+                return ResourceManager.GetString("CreatorName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы уверены что хотите удалить этот демотиватор?.
+        /// </summary>
+        public static string DeleteSure {
+            get {
+                return ResourceManager.GetString("DeleteSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удаление.
+        /// </summary>
+        public static string DeleteTitle {
+            get {
+                return ResourceManager.GetString("DeleteTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Создание демотиватора.
+        /// </summary>
+        public static string DemCreate {
+            get {
+                return ResourceManager.GetString("DemCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Дата создания.
+        /// </summary>
+        public static string DemoDate {
+            get {
+                return ResourceManager.GetString("DemoDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Детали.
+        /// </summary>
+        public static string DemoDetails {
+            get {
+                return ResourceManager.GetString("DemoDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Редактировать.
+        /// </summary>
+        public static string DemoEdit {
+            get {
+                return ResourceManager.GetString("DemoEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Название Демотиватора.
+        /// </summary>
+        public static string DemoName {
+            get {
+                return ResourceManager.GetString("DemoName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Рейтинг.
+        /// </summary>
+        public static string DemoRate {
+            get {
+                return ResourceManager.GetString("DemoRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Сохранить.
+        /// </summary>
+        public static string DemoSave {
+            get {
+                return ResourceManager.GetString("DemoSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Демотиватор.
+        /// </summary>
+        public static string Demotivator {
+            get {
+                return ResourceManager.GetString("Demotivator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ссылка на картинку демотиватора.
+        /// </summary>
+        public static string DemoUrl {
+            get {
+                return ResourceManager.GetString("DemoUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на en/ru?.
+        /// </summary>
+        public static string EnglishOrRussian {
+            get {
+                return ResourceManager.GetString("EnglishOrRussian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Домашняя.
         /// </summary>
         public static string Home {
@@ -169,6 +322,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Маркетинг.
+        /// </summary>
+        public static string Marketing {
+            get {
+                return ResourceManager.GetString("Marketing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на www.maixiwow@mail.ru.
+        /// </summary>
+        public static string MarketingEmail {
+            get {
+                return ResourceManager.GetString("MarketingEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Имя.
         /// </summary>
         public static string Name {
@@ -187,11 +358,92 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на OK.
+        /// </summary>
+        public static string Okey {
+            get {
+                return ResourceManager.GetString("Okey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ссылка на первоначальную картинку демотиватора.
+        /// </summary>
+        public static string OriginalDemoUrl {
+            get {
+                return ResourceManager.GetString("OriginalDemoUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Т..
+        /// </summary>
+        public static string PhoneLetter {
+            get {
+                return ResourceManager.GetString("PhoneLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Регистрация.
         /// </summary>
         public static string Registration {
             get {
                 return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Демо.
+        /// </summary>
+        public static string SiteAdress {
+            get {
+                return ResourceManager.GetString("SiteAdress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Демотиваторы.
+        /// </summary>
+        public static string SiteName {
+            get {
+                return ResourceManager.GetString("SiteName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на +375-29-610-85-00.
+        /// </summary>
+        public static string SitePhoneNumber {
+            get {
+                return ResourceManager.GetString("SitePhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Поддержка.
+        /// </summary>
+        public static string Support {
+            get {
+                return ResourceManager.GetString("Support", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на www.maixiwow@mail.ru.
+        /// </summary>
+        public static string SupportEmail {
+            get {
+                return ResourceManager.GetString("SupportEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Верхняя линия.
+        /// </summary>
+        public static string TopLine {
+            get {
+                return ResourceManager.GetString("TopLine", resourceCulture);
             }
         }
         

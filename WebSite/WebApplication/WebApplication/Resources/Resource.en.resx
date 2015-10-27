@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to list</value>
+  </data>
+  <data name="BottomLine" xml:space="preserve">
+    <value>BottomLine</value>
+  </data>
   <data name="ChoouseLang" xml:space="preserve">
     <value>Choose the Language</value>
   </data>
@@ -137,6 +143,48 @@
   </data>
   <data name="CreateLink" xml:space="preserve">
     <value>Add new user</value>
+  </data>
+  <data name="CreatorName" xml:space="preserve">
+    <value>Creator Name</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteSure" xml:space="preserve">
+    <value>Are you sure ?</value>
+  </data>
+  <data name="DeleteTitle" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DemCreate" xml:space="preserve">
+    <value>Create your own demotivator</value>
+  </data>
+  <data name="DemoDate" xml:space="preserve">
+    <value>Date Of Creation</value>
+  </data>
+  <data name="DemoDetails" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DemoEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="DemoName" xml:space="preserve">
+    <value>Demotivator Name</value>
+  </data>
+  <data name="DemoRate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="DemoSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Demotivator" xml:space="preserve">
+    <value>Demotivator</value>
+  </data>
+  <data name="DemoUrl" xml:space="preserve">
+    <value>ImgUrl</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -159,10 +207,40 @@
   <data name="NameRequired" xml:space="preserve">
     <value>The field Name must be fieled</value>
   </data>
+  <data name="OriginalDemoUrl" xml:space="preserve">
+    <value>OriginalUrl</value>
+  </data>
   <data name="Registration" xml:space="preserve">
     <value>Registration</value>
   </data>
+  <data name="TopLine" xml:space="preserve">
+    <value>TopLine</value>
+  </data>
   <data name="WelcomeWord" xml:space="preserve">
     <value>Hello ,</value>
+  </data>
+  <data name="Marketing" xml:space="preserve">
+    <value>Marketing</value>
+  </data>
+  <data name="MarketingEmail" xml:space="preserve">
+    <value>www.maixiwow@mail.ru</value>
+  </data>
+  <data name="PhoneLetter" xml:space="preserve">
+    <value>P.</value>
+  </data>
+  <data name="SiteAdress" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="SiteName" xml:space="preserve">
+    <value>Demotivators</value>
+  </data>
+  <data name="SitePhoneNumber" xml:space="preserve">
+    <value>+375-29-610-85-00</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="SupportEmail" xml:space="preserve">
+    <value>www.maixiwow@mail.ru</value>
   </data>
 </root>
