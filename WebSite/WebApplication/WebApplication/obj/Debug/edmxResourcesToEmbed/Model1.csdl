@@ -145,7 +145,7 @@
     <Property Name="Rate" Type="Double" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" />
     <Property Name="CreatorName" Type="String" Nullable="false" />
-    <Property Name="DemoJSONInfo" Type="String" Nullable="false" />
+    <Property Name="DemotivatorUrl" Type="String" Nullable="false" />
     <Property Name="OriginalImageUrl" Type="String" Nullable="false" />
     <Property Name="TopLine" Type="String" Nullable="false" />
     <Property Name="BottomLine" Type="String" Nullable="false" />

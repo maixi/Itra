@@ -26,7 +26,7 @@ namespace WebApplication
         public double Rate { get; set; }
         public System.DateTime Date { get; set; }
         public string CreatorName { get; set; }
-        public string DemoJSONInfo { get; set; }
+        public string DemotivatorUrl { get; set; }
         public string OriginalImageUrl { get; set; }
         public string TopLine { get; set; }
         public string BottomLine { get; set; }

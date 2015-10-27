@@ -30,17 +30,20 @@
             @using (Html.BeginForm("ChangeCulture", "Home"))
             {
                 <select name="lang">
-                    <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
+                    <option disabled selected>@Resources.Resource.ChooseLang</option>
                     <option value="ru">Русский</option>
                     <option value="en">English</option>
                 </select>
-                <input type="submit" name="submit" value=@Resources.Resource.Okey>
+                <input type="submit" name="submit" value="@Resources.Resource.ChooseLang">
             }
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />        
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year @Resources.Resource.CopyRight</p>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

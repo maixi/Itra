@@ -9,40 +9,10 @@ using System.Web.Mvc;
 using WebApplication;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using WebApplication.Filters;
-using WebApplication.Models;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
-
 namespace WebApplication.Controllers
 {
-    [Culture]
     public class DemotivatorsController : Controller
     {
-   /*     public ActionResult ChangeCulture(string lang)
-        {
-            string returnUrl = Request.UrlReferrer.AbsolutePath;
-            // Список культур
-            List<string> cultures = new List<string>() { "ru", "en" };
-            if (!cultures.Contains(lang))
-            {
-                lang = "ru";
-            }
-            // Сохраняем выбранную культуру в куки
-            HttpCookie cookie = Request.Cookies["lang"];
-            if (cookie != null)
-                cookie.Value = lang;   // если куки уже установлено, то обновляем значение
-            else
-            {
-
-                cookie = new HttpCookie("lang");
-                cookie.HttpOnly = false;
-                cookie.Value = lang;
-                cookie.Expires = DateTime.Now.AddYears(1);
-            }
-            Response.Cookies.Add(cookie);
-            return Redirect(returnUrl);
-        }*/
         private Entities db = new Entities();
 
         // GET: Demotivators
@@ -79,7 +49,7 @@ namespace WebApplication.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemoJSONInfo,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator)
+        public ActionResult Create([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator)
         {
             if (ModelState.IsValid)
             {
