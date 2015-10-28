@@ -304,6 +304,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\Demo.coffee" />
+    <Content Include="Scripts\Galle.coffee" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fabric.js" />
     <Content Include="Scripts\fabric.min.js" />

@@ -7,21 +7,19 @@
 {
     <div>Log in</div>
 }
-<head>
-    <script language="JavaScript">
-    var bigsize = "300"; //Размер большой картинки
-    var smallsize = "150"; //Размер маленькой картинки
-    function changeSizeImage(im) {
-     if(im.height == bigsize) im.height = smallsize;
-        else im.height = bigsize;
-}
-    </script>
-</head>
+<!-- Модальное окно №5 -->
+<a href="#x" class="overlay" id="win5" ></a>
+<div class="popup">
+    <img class="is-image" src="https://pp.vk.me/c625821/v625821838/58f43/lGZdcbZEbfk.jpg" alt="" height="100" />
+    <a class="close" title="Закрыть" href="#close"></a>    
+</div>
     <body>
         @foreach (var dem in Model)
         {
-            <div>
-                <img src="@Html.DisplayFor(Model => dem.DemotivatorUrl)"   height="150" onclick="changeSizeImage(this)"  />
-            </div>
+         
+                <a href="#win5"><img title="" class="clickImg" img src="@Html.DisplayFor(Model => dem.DemotivatorUrl)" height="150"  /></a>
+
         }
     </body>
+
+

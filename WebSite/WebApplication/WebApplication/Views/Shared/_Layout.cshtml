@@ -49,5 +49,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $(".clickImg").click(function () {
+            $(".is-image").attr("src", $(this).attr("src"));
+           
+        });
+    });
+    </script>
 </body>
 </html>
