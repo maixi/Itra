@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 10/25/2015 05:09:52
--- Generated from EDMX file: C:\Users\George\Dropbox\Itransition\Itra\WebSite\WebApplication\WebApplication\Model1.edmx
+-- Date Created: 10/31/2015 01:13:13
+-- Generated from EDMX file: D:\finalTask\Itra\WebSite\WebApplication\WebApplication\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -13,7 +13,44 @@ GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
 
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- --------------------------------------------------
 
+
+IF OBJECT_ID(N'[dbo].[FK_AspNetUserDemotivator]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Demotivators] DROP CONSTRAINT [FK_AspNetUserDemotivator];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DemotivatorRatingDemotivator]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DemotivatorRatings] DROP CONSTRAINT [FK_DemotivatorRatingDemotivator];
+GO
+IF OBJECT_ID(N'[dbo].[FK_DemotivatorRatingAspNetUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DemotivatorRatings] DROP CONSTRAINT [FK_DemotivatorRatingAspNetUser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CommentAspNetUser]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comments] DROP CONSTRAINT [FK_CommentAspNetUser];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CommentDemotivator]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Comments] DROP CONSTRAINT [FK_CommentDemotivator];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- --------------------------------------------------
+
+GO
+IF OBJECT_ID(N'[dbo].[Demotivators]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Demotivators];
+GO
+IF OBJECT_ID(N'[dbo].[DemotivatorRatings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DemotivatorRatings];
+GO
+IF OBJECT_ID(N'[dbo].[Comments]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Comments];
+GO
+IF OBJECT_ID(N'[dbo].[AspNetUserRoles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AspNetUserRoles];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -73,7 +110,7 @@ GO
 CREATE TABLE [dbo].[Demotivators] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [DemotivatorName] nvarchar(max)  NOT NULL,
-    [Rate] float  NOT NULL,
+    [Rate] nvarchar(max)  NOT NULL,
     [Date] datetime  NOT NULL,
     [CreatorName] nvarchar(max)  NOT NULL,
     [DemotivatorUrl] nvarchar(max)  NOT NULL,
