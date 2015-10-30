@@ -142,7 +142,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DemotivatorName" Type="String" Nullable="false" />
-    <Property Name="Rate" Type="String" Nullable="false" />
+    <Property Name="Rate" Type="Double" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" />
     <Property Name="CreatorName" Type="String" Nullable="false" />
     <Property Name="DemotivatorUrl" Type="String" Nullable="false" />

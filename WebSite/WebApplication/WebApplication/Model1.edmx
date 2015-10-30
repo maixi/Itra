@@ -111,7 +111,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DemotivatorName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Rate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Rate" Type="float" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="CreatorName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DemotivatorUrl" Type="nvarchar(max)" Nullable="false" />
@@ -405,7 +405,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DemotivatorName" Type="String" Nullable="false" />
-          <Property Name="Rate" Type="String" Nullable="false" />
+          <Property Name="Rate" Type="Double" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" />
           <Property Name="CreatorName" Type="String" Nullable="false" />
           <Property Name="DemotivatorUrl" Type="String" Nullable="false" />

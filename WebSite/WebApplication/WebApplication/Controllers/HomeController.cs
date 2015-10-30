@@ -16,13 +16,11 @@ namespace WebApplication.Controllers
         public ActionResult Index()
         {
             List<Demotivator> model = new List<Demotivator>();
-          //  List<Comment> model1 = new List<Comment>();
-            using (var context = new Entities())
+                   using (var context = new Entities())
                    {
                     model = context.Demotivators.ToList();
-              //  model1 = context.Comments.ToList();
                    }
-                 return View(model);
+            return View(model);
         }
 
         public ActionResult About()
