@@ -31,5 +31,5 @@ document.getElementById('textin').onclick = ->
   fabric.Image.fromURL imgsrc, (oImg) ->
       canvas.setBackgroundImage oImg
       canvas.backgroundImage.width = canvas.getWidth() - 10
-      canvas.backgroundImage.height = canvas.getHeight() - 10
+      canvas.backgroundImage.height = canvas.getHeight() - 10     
       canvas.renderAll()

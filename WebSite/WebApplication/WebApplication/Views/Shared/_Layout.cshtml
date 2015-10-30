@@ -24,39 +24,52 @@
                     <li>@Html.ActionLink(Resources.Resource.Home, "Index", "Home")</li>
                     <li>@Html.ActionLink(Resources.Resource.Create, "Create", "Demotivators")</li>
                     <li>@Html.ActionLink(Resources.Resource.Contact, "Contact", "Home")</li>
+                    <li>
+                        @using (Html.BeginForm("ChangeCulture", "Home"))
+            {
+                            <select name="lang">
+                                <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
+                                <option value="ru">Русский</option>
+                                <option value="en">English</option>
+                            </select>
+                            <input type="submit" name="submit" value=@Resources.Resource.Okey>
+                        }
+                    </li>
                 </ul>
-                 @Html.Partial("_LoginPartial")
-                <div>
-                 @using (Html.BeginForm("ChangeCulture", "Home"))
-                {
-                <select name="lang">
-                    <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
-                    <option value="ru">Русский</option>
-                    <option value="en">English</option>
-                </select>
-                <input type="submit" name="submit" value=@Resources.Resource.Okey>
-                 }
-                </div>
+                @Html.Partial("_LoginPartial")
             </div>
-           
+
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />        
-    </div>
 
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+  window.onload = function() {
+    try {
+      TagCanvas.Start('myCanvas');
+    } catch(e) {
+      // something went wrong, hide the canvas container
+      document.getElementById('myCanvasContainer').style.display = 'none';
+    }
+  };
+    </script>
+
 
     <script type="text/javascript">
     $(document).ready(function () {
         $(".clickImg").click(function () {
             $(".is-image").attr("src", $(this).attr("src"));
-           
+
         });
     });
     </script>
+    <script src="~/Scripts/tagcanvas.js" type="text/javascript">
+    </script>
 </body>
+
 </html>
