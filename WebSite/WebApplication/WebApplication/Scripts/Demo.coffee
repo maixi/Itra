@@ -1,6 +1,6 @@
 ﻿# CoffeeScript
 canvas = new fabric.Canvas("canvas")
-canvas.cli
+
 document.getElementById('textin').onclick = ->
   str1 = document.getElementById("str11").value
   canvas.add new (fabric.IText)(str1,

@@ -36,6 +36,17 @@ summary {
   display: block;
 }
 
+.canvas-container {
+        position:center;
+        width: 700px;
+        height: 550px;
+        margin: 10px auto;
+        border: 5px solid transparent;
+    }
+.canvas-container.over {
+            border: 1px dashed #000000;
+        }
+
 audio,
 canvas,
 video {
