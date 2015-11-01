@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2d04bf28228452ba4f3218aefc8b39d" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="1.125" PointY="6" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="1.125" PointY="3.625" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" FillColor="Yellow" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Demotivator" Width="1.5" PointX="9.875" PointY="4.75" FillColor="Red" />
+        <AssociationConnector Association="Model.AspNetUserDemotivator" />
+        <EntityTypeShape EntityType="Model.DemotivatorRate" Width="1.5" PointX="7.5" PointY="3.5" FillColor="Red" />
+        <AssociationConnector Association="Model.DemotivatorDemotivatorRate" />
+        <EntityTypeShape EntityType="Model.Comment" Width="1.5" PointX="7.5" PointY="8.625" FillColor="Black" />
+        <AssociationConnector Association="Model.AspNetUserComment" />
+        <AssociationConnector Association="Model.DemotivatorComment" />
+        <AssociationConnector Association="Model.AspNetUserDemotivatorRate" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

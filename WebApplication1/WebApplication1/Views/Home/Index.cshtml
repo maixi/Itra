@@ -1,0 +1,53 @@
+﻿@model List<Demotivator>
+@{
+    ViewBag.Title = "Home Page";
+}
+@if (!User.Identity.IsAuthenticated)
+{
+    <div>Log in</div>
+}
+<a href="#x" class="overlay" id="win5"></a>
+<div class="popup">
+    <img class="is-image" src="" alt="" height="100" />
+    <a class="close" title="Закрыть" href="#close"></a>
+</div>
+<head>
+    <meta charset="utf-8">
+    <title>nth-child</title>
+    <style>
+        table {
+            width: 100%; /* Ширина таблицы */
+            border-spacing: 10px; /* Расстояние между ячейками */
+            border-color: #000000;
+            float: left;
+            background-color: #ff6a00;
+        }
+    </style>
+</head>
+<table border="1">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            @for (int j = 0; j < 4; j++)
+            {
+                <td>
+                    <a href="#win5"> <img class="clickImg" src="@Html.DisplayFor(Model => Model[i].DemotivatorUrl)" height="150"</a>
+                </td>}
+
+        </tr>
+    }
+</table>
+<footer>
+    <div id="myCanvasContainer" style="width:100%;float:left;">
+
+        <canvas width="1300" height="300" id="myCanvas">
+            <!--       <p>Anything in here will be replaced on browsers that support the canvas element</p>-->
+
+            <li><a href="/fish">SJDHLKASJHDKLSA</a></li>
+            <li><a href="/chips">Chips</a></li>
+            <li><a href="/salt">Salt</a></li>
+            <li><a href="/vinegar">Vinegar</a></li>
+
+        </canvas>
+    </div>
+</footer>

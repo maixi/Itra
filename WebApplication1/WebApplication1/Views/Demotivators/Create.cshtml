@@ -1,0 +1,85 @@
+﻿@model WebApplication1.Demotivator
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div>PLease, log in</div>
+}
+else
+{
+    <h2>@Resources.Resource.Create</h2>
+
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4>@Resources.Resource.Demotivator</h4>
+            <hr />
+            <div class="col-sm-5">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+
+                    <div style="display:block">
+                        <span>Введите Url картинки</span>
+                        <form class="form-inline">
+                            <input type="text" value="" id="ImageUrl" />
+                            <input type="button" value="Preview" id="PreviewBtn" class="btn btn-success" />
+                        </form>
+
+                        <div class="col-md-10">
+                            <input type="file" name="upload" id="uploadFileBtn" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label(Resources.Resource.DemoName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DemotivatorName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DemotivatorName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label(Resources.Resource.TopLine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TopLine, new { htmlAttributes = new { @class = "form-control", id = "topLine" } })
+                        @Html.ValidationMessageFor(model => model.TopLine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label(Resources.Resource.BottomLine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BottomLine, new { htmlAttributes = new { @class = "form-control", id = "bottomLine" } })
+                        @Html.ValidationMessageFor(model => model.BottomLine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value=@Resources.Resource.Create class="btn btn-default" />
+                    </div>
+                </div>
+                @Html.ActionLink(Resources.Resource.BackToList, "Index")
+            </div>
+            <div class="col-sm-7">
+                <div id="canvas-container">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+
+        </div>
+    }
+}
+@Scripts.Render("~/bundles/jquery")
+<script src="~/Scripts/fabric.js"></script>
+<script src="~/Scripts/UploadFile.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
