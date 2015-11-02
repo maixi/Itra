@@ -28,8 +28,8 @@
                     <li>@Html.ActionLink("New", "Index", "Home")</li>
                     <li>
                         @using (Html.BeginForm("ChangeCulture", "Home"))
-            {
-                            <select name="lang">
+                        {
+                            <select name="lang" >
                                 <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
                                 <option value="ru">Русский</option>
                                 <option value="en">English</option>

@@ -10,7 +10,7 @@
              {
      <ul data-bind="foreach: PostComments">       
         <li class="commentHolder">
-                        <img src="~/images/user.png"><p><a data-bind="text: @item.AspNetUser.UserName">@item.AspNetUser.UserName</a>: <span>@item.CommentText</span></p>                                   
+                       <p><a data-bind="text: @item.AspNetUser.UserName">@item.AspNetUser.UserName</a>: <span>@item.CommentText</span></p>                              
         </li>        
     </ul>         
               }    
@@ -34,9 +34,7 @@
     data: formData,
     contentType: false,
     processData: false,
-    success: function (data) {
-        alert("dsadsa");
-    }
+ 
   });
 });
 </script>
