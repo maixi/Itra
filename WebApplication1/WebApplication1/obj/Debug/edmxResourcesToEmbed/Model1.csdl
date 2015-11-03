@@ -61,6 +61,7 @@
     <NavigationProperty Name="Demotivators" Relationship="Model.AspNetUserDemotivator" FromRole="AspNetUser" ToRole="Demotivator" />
     <NavigationProperty Name="Comments" Relationship="Model.AspNetUserComment" FromRole="AspNetUser" ToRole="Comment" />
     <NavigationProperty Name="DemotivatorRates" Relationship="Model.AspNetUserDemotivatorRate" FromRole="AspNetUser" ToRole="DemotivatorRate" />
+    <NavigationProperty Name="Likes" Relationship="Model.AspNetUserLike" FromRole="AspNetUser" ToRole="Like" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -112,30 +113,60 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="DemotivatorRates" EntityType="Model.DemotivatorRate" />
     <EntitySet Name="Demotivators" EntityType="Model.Demotivator" />
+    <EntitySet Name="Comments" EntityType="Model.Comment" />
+    <EntitySet Name="Likes" EntityType="Model.Like" />
+    <AssociationSet Name="DemotivatorRateDemotivator" Association="Model.DemotivatorRateDemotivator">
+      <End Role="DemotivatorRate" EntitySet="DemotivatorRates" />
+      <End Role="Demotivator" EntitySet="Demotivators" />
+    </AssociationSet>
     <AssociationSet Name="AspNetUserDemotivator" Association="Model.AspNetUserDemotivator">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Demotivator" EntitySet="Demotivators" />
     </AssociationSet>
-    <EntitySet Name="DemotivatorRates" EntityType="Model.DemotivatorRate" />
-    <AssociationSet Name="DemotivatorDemotivatorRate" Association="Model.DemotivatorDemotivatorRate">
-      <End Role="Demotivator" EntitySet="Demotivators" />
-      <End Role="DemotivatorRate" EntitySet="DemotivatorRates" />
-    </AssociationSet>
-    <EntitySet Name="Comments" EntityType="Model.Comment" />
-    <AssociationSet Name="AspNetUserComment" Association="Model.AspNetUserComment">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Comment" EntitySet="Comments" />
-    </AssociationSet>
     <AssociationSet Name="DemotivatorComment" Association="Model.DemotivatorComment">
       <End Role="Demotivator" EntitySet="Demotivators" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserComment" Association="Model.AspNetUserComment">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Comment" EntitySet="Comments" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserDemotivatorRate" Association="Model.AspNetUserDemotivatorRate">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="DemotivatorRate" EntitySet="DemotivatorRates" />
     </AssociationSet>
+    <AssociationSet Name="CommentLike" Association="Model.CommentLike">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="Like" EntitySet="Likes" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserLike" Association="Model.AspNetUserLike">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="Like" EntitySet="Likes" />
+    </AssociationSet>
+    <EntitySet Name="tag_to_dem" EntityType="Model.tag_to_dem" />
+    <EntitySet Name="tags" EntityType="Model.tag" />
+    <AssociationSet Name="tag_to_demDemotivator" Association="Model.tag_to_demDemotivator">
+      <End Role="tag_to_dem" EntitySet="tag_to_dem" />
+      <End Role="Demotivator" EntitySet="Demotivators" />
+    </AssociationSet>
+    <AssociationSet Name="tag_to_demtag" Association="Model.tag_to_demtag">
+      <End Role="tag_to_dem" EntitySet="tag_to_dem" />
+      <End Role="tag" EntitySet="tags" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="DemotivatorRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mark" Type="String" Nullable="false" />
+    <NavigationProperty Name="Demotivator" Relationship="Model.DemotivatorRateDemotivator" FromRole="DemotivatorRate" ToRole="Demotivator" />
+    <Property Name="DemotivatorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserDemotivatorRate" FromRole="DemotivatorRate" ToRole="AspNetUser" />
+    <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Demotivator">
     <Key>
       <PropertyRef Name="Id" />
@@ -149,37 +180,41 @@
     <Property Name="OriginalImageUrl" Type="String" Nullable="false" />
     <Property Name="TopLine" Type="String" Nullable="false" />
     <Property Name="BottomLine" Type="String" Nullable="false" />
+    <NavigationProperty Name="DemotivatorRates" Relationship="Model.DemotivatorRateDemotivator" FromRole="Demotivator" ToRole="DemotivatorRate" />
     <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserDemotivator" FromRole="Demotivator" ToRole="AspNetUser" />
     <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="DemotivatorRates" Relationship="Model.DemotivatorDemotivatorRate" FromRole="Demotivator" ToRole="DemotivatorRate" />
+    <Property Name="CommentId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Comments" Relationship="Model.DemotivatorComment" FromRole="Demotivator" ToRole="Comment" />
+    <NavigationProperty Name="tag_to_dem" Relationship="Model.tag_to_demDemotivator" FromRole="Demotivator" ToRole="tag_to_dem" />
   </EntityType>
-  <Association Name="AspNetUserDemotivator">
-    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="Model.Demotivator" Role="Demotivator" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Demotivator">
-        <PropertyRef Name="AspNetUserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="DemotivatorRate">
+  <EntityType Name="Comment">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Mark" Type="String" Nullable="false" />
-    <NavigationProperty Name="Demotivator" Relationship="Model.DemotivatorDemotivatorRate" FromRole="DemotivatorRate" ToRole="Demotivator" />
+    <Property Name="PublicationDate" Type="DateTime" Nullable="false" />
+    <Property Name="CommentText" Type="String" Nullable="false" />
+    <Property Name="CommentLikes" Type="String" Nullable="true" />
+    <NavigationProperty Name="Demotivator" Relationship="Model.DemotivatorComment" FromRole="Comment" ToRole="Demotivator" />
     <Property Name="DemotivatorId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserDemotivatorRate" FromRole="DemotivatorRate" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserComment" FromRole="Comment" ToRole="AspNetUser" />
+    <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Likes" Relationship="Model.CommentLike" FromRole="Comment" ToRole="Like" />
+  </EntityType>
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsLiked" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Comment" Relationship="Model.CommentLike" FromRole="Like" ToRole="Comment" />
+    <Property Name="CommentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserLike" FromRole="Like" ToRole="AspNetUser" />
     <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
   </EntityType>
-  <Association Name="DemotivatorDemotivatorRate">
-    <End Type="Model.Demotivator" Role="Demotivator" Multiplicity="1" />
+  <Association Name="DemotivatorRateDemotivator">
     <End Type="Model.DemotivatorRate" Role="DemotivatorRate" Multiplicity="*" />
+    <End Type="Model.Demotivator" Role="Demotivator" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Demotivator">
         <PropertyRef Name="Id" />
@@ -189,26 +224,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Comment">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PublicationDate" Type="DateTime" Nullable="false" />
-    <Property Name="CommentText" Type="String" Nullable="false" />
-    <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserComment" FromRole="Comment" ToRole="AspNetUser" />
-    <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Demotivator" Relationship="Model.DemotivatorComment" FromRole="Comment" ToRole="Demotivator" />
-    <Property Name="DemotivatorId" Type="Int32" Nullable="false" />
-  </EntityType>
-  <Association Name="AspNetUserComment">
+  <Association Name="AspNetUserDemotivator">
     <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="Model.Comment" Role="Comment" Multiplicity="*" />
+    <End Type="Model.Demotivator" Role="Demotivator" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Comment">
+      <Dependent Role="Demotivator">
         <PropertyRef Name="AspNetUserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -225,6 +248,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="AspNetUserComment">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="AspNetUserDemotivatorRate">
     <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
     <End Type="Model.DemotivatorRate" Role="DemotivatorRate" Multiplicity="*" />
@@ -234,6 +269,73 @@
       </Principal>
       <Dependent Role="DemotivatorRate">
         <PropertyRef Name="AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommentLike">
+    <End Type="Model.Comment" Role="Comment" Multiplicity="1" />
+    <End Type="Model.Like" Role="Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="CommentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserLike">
+    <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="Model.Like" Role="Like" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Like">
+        <PropertyRef Name="AspNetUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tag_to_dem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Demotivator" Relationship="Model.tag_to_demDemotivator" FromRole="tag_to_dem" ToRole="Demotivator" />
+    <Property Name="DemotivatorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tag" Relationship="Model.tag_to_demtag" FromRole="tag_to_dem" ToRole="tag" />
+    <Property Name="tagId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Count" Type="String" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <NavigationProperty Name="tag_to_dem" Relationship="Model.tag_to_demtag" FromRole="tag" ToRole="tag_to_dem" />
+  </EntityType>
+  <Association Name="tag_to_demDemotivator">
+    <End Type="Model.tag_to_dem" Role="tag_to_dem" Multiplicity="*" />
+    <End Type="Model.Demotivator" Role="Demotivator" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Demotivator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tag_to_dem">
+        <PropertyRef Name="DemotivatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tag_to_demtag">
+    <End Type="Model.tag_to_dem" Role="tag_to_dem" Multiplicity="*" />
+    <End Type="Model.tag" Role="tag" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="tag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tag_to_dem">
+        <PropertyRef Name="tagId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

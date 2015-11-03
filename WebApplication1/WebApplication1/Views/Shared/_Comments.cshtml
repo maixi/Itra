@@ -1,23 +1,25 @@
 ﻿@model IEnumerable<Comment>
 
-    @{
-        }
+@{
+}
 
 <script src="~/Scripts/jquery.autosize-min.js"></script>
 <div class="commentSection">
-        <input type="hidden" value="@ViewData["id"]" id="idDem" />
-        @foreach (var item in Model)
-             {
-     <ul data-bind="foreach: PostComments">       
-        <li class="commentHolder">
-                       <p><a data-bind="text: @item.AspNetUser.UserName">@item.AspNetUser.UserName</a>: <span>@item.CommentText</span></p>                              
-        </li>        
-    </ul>         
-              }    
-        <div style="display: block" class="publishComment">
-                <textarea class="commentTextArea" id="CommentText" data-bind="value: newCommentMessage, jqAutoresize: {}" placeholder="write a comment..."></textarea>
-                <input type="button" value="Text" class="btnComment" data-bind="click: addComment" id="btnAddComment" />       
-    </div>   
+    <input type="hidden" value="@ViewData["id"]" id="idDem" />
+    <div id="comments">
+    @foreach (var item in Model)
+    {
+        <ul data-bind="foreach: PostComments">
+            <li class="commentHolder">
+                <p><a data-bind="text: @item.AspNetUser.UserName">@item.AspNetUser.UserName</a>: <span>@item.CommentText</span></p>
+
+            </li>
+        </ul>
+    }</div>
+    <div style="display: block" class="publishComment">
+        <textarea class="commentTextArea" id="CommentText" data-bind="value: newCommentMessage, jqAutoresize: {}" placeholder="write a comment..."></textarea>
+        <input type="button" value="Text" class="btnComment" data-bind="click: addComment" id="btnAddComment" />
+    </div>
 </div>
 
 <script>
@@ -34,10 +36,12 @@
     data: formData,
     contentType: false,
     processData: false,
- 
+    success: function (returnFckingJson) {
+        $("#comments").append("<ul data-bind=\"foreach: PostComments\"><li class=\"commentHolder\"\n<p><a data-bind=\"text:\">" + returnFckingJson.UserName + "</a>: <span>" + returnFckingJson.Text + "</span></p>\n</li>\n</ul> ")
+    }
   });
+
 });
 </script>
-
 
 

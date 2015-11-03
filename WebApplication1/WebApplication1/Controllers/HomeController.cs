@@ -10,6 +10,8 @@ using WebApplication1.Filters;
 using System.Data.Entity;
 using System.Data;
 using Microsoft.AspNet.Identity;
+
+
 namespace WebApplication1.Controllers
 {
     [Culture]
@@ -39,6 +41,7 @@ namespace WebApplication1.Controllers
 
             return View();
         }
+
         public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;
@@ -156,7 +159,7 @@ namespace WebApplication1.Controllers
                 {
                     AspNetUserId = User.Identity.GetUserId(),
                     Mark = thisVote.ToString(),
-                    DemotivatorId = autoId,                    
+                    DemotivatorId = autoId,
                 };
 
                 db.DemotivatorRates.Add(vm);

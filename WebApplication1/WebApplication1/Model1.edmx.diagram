@@ -4,23 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e2d04bf28228452ba4f3218aefc8b39d" Name="Diagram1" ZoomLevel="88">
-        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="1.125" PointY="6" IsExpanded="true" FillColor="Yellow" />
-        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" FillColor="Yellow" />
-        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="1.125" PointY="3.625" IsExpanded="true" FillColor="Yellow" />
-        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" FillColor="Yellow" />
-        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" FillColor="Yellow" />
+      <Diagram DiagramId="6474ee3ce3244ab4ad2f7dc7d5f4bf13" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetRole" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetUserClaim" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetUserLogin" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" FillColor="Yellow" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model.Demotivator" Width="1.5" PointX="9.875" PointY="4.75" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.DemotivatorRate" Width="1.5" PointX="5.625" PointY="1.125" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.Demotivator" Width="1.5" PointX="8.875" PointY="1.875" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.Comment" Width="1.5" PointX="5.625" PointY="7" FillColor="Black" />
+        <EntityTypeShape EntityType="Model.Like" Width="1.5" PointX="5.625" PointY="4.125" FillColor="64, 0, 64" />
+        <AssociationConnector Association="Model.DemotivatorRateDemotivator" />
         <AssociationConnector Association="Model.AspNetUserDemotivator" />
-        <EntityTypeShape EntityType="Model.DemotivatorRate" Width="1.5" PointX="7.5" PointY="3.5" FillColor="Red" />
-        <AssociationConnector Association="Model.DemotivatorDemotivatorRate" />
-        <EntityTypeShape EntityType="Model.Comment" Width="1.5" PointX="7.5" PointY="8.625" FillColor="Black" />
-        <AssociationConnector Association="Model.AspNetUserComment" />
         <AssociationConnector Association="Model.DemotivatorComment" />
+        <AssociationConnector Association="Model.AspNetUserComment" />
         <AssociationConnector Association="Model.AspNetUserDemotivatorRate" />
+        <AssociationConnector Association="Model.CommentLike" />
+        <AssociationConnector Association="Model.AspNetUserLike" />
+        <EntityTypeShape EntityType="Model.tag_to_dem" Width="1.5" PointX="11.125" PointY="3.625" FillColor="64, 0, 0" />
+        <EntityTypeShape EntityType="Model.tag" Width="1.5" PointX="11.125" PointY="6.125" FillColor="64, 0, 0" />
+        <AssociationConnector Association="Model.tag_to_demDemotivator" />
+        <AssociationConnector Association="Model.tag_to_demtag" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

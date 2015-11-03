@@ -12,33 +12,18 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Demotivator
+    public partial class tag
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Demotivator()
+        public tag()
         {
-            this.DemotivatorRates = new HashSet<DemotivatorRate>();
-            this.Comments = new HashSet<Comment>();
             this.tag_to_dem = new HashSet<tag_to_dem>();
         }
     
         public int Id { get; set; }
-        public string DemotivatorName { get; set; }
-        public string Rate { get; set; }
-        public System.DateTime Date { get; set; }
-        public string CreatorName { get; set; }
-        public string DemotivatorUrl { get; set; }
-        public string OriginalImageUrl { get; set; }
-        public string TopLine { get; set; }
-        public string BottomLine { get; set; }
-        public string AspNetUserId { get; set; }
-        public int CommentId { get; set; }
+        public string Count { get; set; }
+        public string Name { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DemotivatorRate> DemotivatorRates { get; set; }
-        public virtual AspNetUser AspNetUser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tag_to_dem> tag_to_dem { get; set; }
     }

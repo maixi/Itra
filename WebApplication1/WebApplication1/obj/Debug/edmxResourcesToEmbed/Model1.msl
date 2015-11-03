@@ -56,6 +56,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DemotivatorRates">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.DemotivatorRate)">
+        <MappingFragment StoreEntitySet="DemotivatorRates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="DemotivatorId" ColumnName="DemotivatorId" />
+          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Demotivators">
       <EntityTypeMapping TypeName="IsTypeOf(Model.Demotivator)">
         <MappingFragment StoreEntitySet="Demotivators">
@@ -69,16 +79,7 @@
           <ScalarProperty Name="TopLine" ColumnName="TopLine" />
           <ScalarProperty Name="BottomLine" ColumnName="BottomLine" />
           <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DemotivatorRates">
-      <EntityTypeMapping TypeName="IsTypeOf(Model.DemotivatorRate)">
-        <MappingFragment StoreEntitySet="DemotivatorRates">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Mark" ColumnName="Mark" />
-          <ScalarProperty Name="DemotivatorId" ColumnName="DemotivatorId" />
-          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -88,8 +89,37 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PublicationDate" ColumnName="PublicationDate" />
           <ScalarProperty Name="CommentText" ColumnName="CommentText" />
-          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+          <ScalarProperty Name="CommentLikes" ColumnName="CommentLikes" />
           <ScalarProperty Name="DemotivatorId" ColumnName="DemotivatorId" />
+          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Likes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Like)">
+        <MappingFragment StoreEntitySet="Likes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsLiked" ColumnName="IsLiked" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tag_to_dem">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.tag_to_dem)">
+        <MappingFragment StoreEntitySet="tag_to_dem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DemotivatorId" ColumnName="DemotivatorId" />
+          <ScalarProperty Name="tagId" ColumnName="tagId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tags">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.tag)">
+        <MappingFragment StoreEntitySet="tags">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

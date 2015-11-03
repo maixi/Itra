@@ -30,8 +30,11 @@ namespace WebApplication1
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<Demotivator> Demotivators { get; set; }
         public virtual DbSet<DemotivatorRate> DemotivatorRates { get; set; }
+        public virtual DbSet<Demotivator> Demotivators { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Like> Likes { get; set; }
+        public virtual DbSet<tag_to_dem> tag_to_dem { get; set; }
+        public virtual DbSet<tag> tags { get; set; }
     }
 }

@@ -12,24 +12,14 @@ namespace WebApplication1
     using System;
     using System.Collections.Generic;
     
-    public partial class Comment
+    public partial class Like
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Comment()
-        {
-            this.Likes = new HashSet<Like>();
-        }
-    
         public int Id { get; set; }
-        public System.DateTime PublicationDate { get; set; }
-        public string CommentText { get; set; }
-        public string CommentLikes { get; set; }
-        public int DemotivatorId { get; set; }
+        public bool IsLiked { get; set; }
+        public int CommentId { get; set; }
         public string AspNetUserId { get; set; }
     
-        public virtual Demotivator Demotivator { get; set; }
+        public virtual Comment Comment { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Like> Likes { get; set; }
     }
 }

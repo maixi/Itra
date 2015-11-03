@@ -13,18 +13,18 @@ using WebApplication1.Filters;
 using WebApplication1.Models;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-
+using System.Threading.Tasks;
 namespace WebApplication1.Controllers
 {
     [Culture]
     public class DemotivatorsController : Controller
-    {      
+    {
         private Entities db = new Entities();
 
         // GET: Demotivators
         public ActionResult Index()
         {
-        
+
             var demotivators = db.Demotivators.Include(d => d.AspNetUser);
             return View(demotivators.ToList());
         }
@@ -145,16 +145,21 @@ namespace WebApplication1.Controllers
             }
             base.Dispose(disposing);
         }
-        public void AddComment(string TextMessange, int IdDem)
+        public JsonResult AddComment(string TextMessange, int IdDem)
         {
             var comment = new Comment();
             comment.PublicationDate = DateTime.Now;
-            comment.AspNetUserId = User.Identity.GetUserId();
+            comment.AspNetUserId = User.Identity.GetUserId();        
             comment.CommentText = TextMessange;
             comment.DemotivatorId = IdDem;
             db.Comments.Add(comment);
             db.SaveChanges();
-
+            var returnFckingJson = new
+            {
+                UserName = User.Identity.Name,
+                Text = comment.CommentText
+            };
+            return Json(returnFckingJson, JsonRequestBehavior.AllowGet);
         }
     }
 }
