@@ -33,19 +33,20 @@ namespace WebApplication1.Hubs
                                Message = post.CommentText,
                                PostedBy = post.AspNetUserId,
                                PostedByName = post.AspNetUser.UserName,
-                               PostedByAvatar = imgFolder +  defaultAvatar,
+                               PostedByAvatar = imgFolder + defaultAvatar,
                                PostedDate = post.PublicationDate,
                                PostId = post.Id,
                            }).ToArray();
-                Clients.All.loadPosts(ret);
+                Clients.All.loadPosts(ret, DemId);
             }
         }
 
         public void AddPost(Comment post, string UserId, int DemId1)
         {
-            post.AspNetUserId = UserId;        
+            post.AspNetUserId = UserId;
             post.PublicationDate = DateTime.Now;
             post.DemotivatorId = DemId1;
+            
             using (Entities db = new Entities())
             {
                 db.Comments.Add(post);
@@ -56,16 +57,16 @@ namespace WebApplication1.Hubs
                     Message = post.CommentText,
                     PostedBy = post.AspNetUserId,
                     PostedByName = usr.UserName,
-                    PostedByAvatar = imgFolder +  defaultAvatar,
+                    PostedByAvatar = imgFolder + defaultAvatar,
                     PostedDate = post.PublicationDate,
                     PostId = post.Id
                 };
 
                 Clients.Caller.addPost(ret);
-                Clients.Others.newPost(ret);
+                Clients.Others.newPost(ret, DemId1);
             }
         }
 
-        
+
     }
 }

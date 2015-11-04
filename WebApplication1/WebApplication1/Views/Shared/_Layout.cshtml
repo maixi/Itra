@@ -27,20 +27,7 @@
                     <li>@Html.ActionLink("Popular", "TopDemotivators", "Demotivators")</li>
                     <li>@Html.ActionLink("New", "NewDemotivators", "Demotivators")</li>
                     <li>
-                    @using (Html.BeginForm("ChangeCulture", "Home"))
-                        {
-                        <div class="dropdown" style="margin-top:10px; background-color: #ff6a00;">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                @Resources.Resource.EnglishOrRussian;
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">                                                            
-                                <li>ru</li>
-                                <li>en</li>                              
-                            </ul>
-                        </div>
-                        }
-                    </li>
+                   
 
                     <li>
                         @using (Html.BeginForm("ChangeCulture", "Home"))
@@ -74,7 +61,7 @@
       TagCanvas.Start('myCanvas');
     } catch(e) {
       // something went wrong, hide the canvas container
-      document.getElementById('myCanvasContainer').style.display = 'none';
+      
     }
   };
     </script>

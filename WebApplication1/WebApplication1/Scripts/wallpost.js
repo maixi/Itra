@@ -1,12 +1,4 @@
-﻿/*  It's user control for wall operations like to add/display status and comments. 
-*   Developed By: Brij Mohan
-*   Website: http://techbrij.com
-*   Developed On: 29 May 2013
-*  
-*/
-
-
-function getTimeAgo(varDate) {
+﻿function getTimeAgo(varDate) {
     if (varDate) {
         return $.timeago(varDate.toString().slice(-1) == 'Z' ? varDate : varDate + 'Z');
     }
@@ -23,7 +15,7 @@ function Post(data, hub) {
     self.PostId = data.PostId;
     self.Message = ko.observable(data.Message || "");
     self.PostedBy = data.PostedBy || "";
-    self.PostedByName = data.PostedByame || "";
+    self.PostedByName = data.PostedByName || "";
     self.PostedByAvatar = data.PostedByAvatar || "";
     self.PostedDate = data.PostedDate;
     self.error = ko.observable();
@@ -32,7 +24,7 @@ function Post(data, hub) {
     self.newCommentMessage = ko.observable();
     self.hub = hub;
     self.addComment = function () {
-        self.hub.server.addComment({ "PostId": self.Id, "Message": self.CommentMessage() }).done(function (comment) {
+        self.hub.server.addComment({ "PostId": self.PostId, "Message": self.newCommentMessage() }).done(function (comment) {
             self.PostComments.push(new Comment(comment));
             self.newCommentMessage('');
         }).fail(function (err) {
@@ -50,7 +42,7 @@ function Post(data, hub) {
 
 
     if (data.PostComments) {
-        var mappedPosts = $.map(data.Comments, function (item) { return new Comment(item); });
+        var mappedPosts = $.map(data.PostComments, function (item) { return new Comment(item); });
         self.PostComments(mappedPosts);
     }
 
@@ -90,28 +82,33 @@ function viewModel() {
 
     self.init = function () {
         self.error(null);
-        self.hub.server.getPosts().fail(function (err) {
+        var DemId = document.getElementById("DemId").value;
+        self.hub.server.getPosts(DemId).fail(function (err) {
             self.error(err);
         });
     }
 
     self.addPost = function () {
         self.error(null);
+        var DemId1 = document.getElementById("DemId").value;
         var UserId = document.getElementById("UserId").value;
-        self.hub.server.addPost({ "Text": self.newMessage() }, UserId).fail(function (err) {
+        self.hub.server.addPost({ "CommentText": self.newMessage() }, UserId, DemId1).fail(function (err) {
             self.error(err);
         });
     }
 
     self.loadNewPosts = function () {
-        self.posts(self.newPosts().concat(self.posts()));
+        self.posts(self.posts().concat(self.newPosts()));
         self.newPosts([]);
     }
 
     //functions called by the Hub
-    self.hub.client.loadPosts = function (data) {
-        var mappedPosts = $.map(data, function (item) { return new Post(item, self.hub); });
-        self.posts(mappedPosts);
+    self.hub.client.loadPosts = function (data, DemId) {
+        var DemId1 = document.getElementById("DemId").value;
+        if (DemId == DemId1) {
+            var mappedPosts = $.map(data, function (item) { return new Post(item, self.hub); });
+            self.posts(mappedPosts);
+        }
     }
 
     self.hub.client.addPost = function (post) {
@@ -119,8 +116,11 @@ function viewModel() {
         self.newMessage('');
     }
 
-    self.hub.client.newPost = function (post) {
-        self.newPosts.splice(-1, 0, new Post(post, self.hub));
+    self.hub.client.newPost = function (post, DemId1) {
+        var DemId2 = document.getElementById("DemId").value;
+        if (DemId1 == DemId2) {
+            self.newPosts.splice(-1, 0, new Post(post, self.hub));
+        }
     }
 
     self.hub.client.error = function (err) {
