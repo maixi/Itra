@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<Comment>
 
-@{
+@{   
+   
 }
 
+<script src="~/Scripts/jquery.timeago.js"></script> 
 <script src="~/Scripts/jquery.autosize-min.js"></script>
 <div class="commentSection">
     <input type="hidden" value="@ViewData["id"]" id="idDem" />
@@ -11,10 +13,13 @@
     {
         <ul data-bind="foreach: PostComments">
             <li class="commentHolder">
-                <p><a data-bind="text: @item.AspNetUser.UserName">@item.AspNetUser.UserName</a>: <span>@item.CommentText</span></p>
-
+                <p><a data-bind="text: @item.AspNetUser.UserName">@item.AspNetUser.UserName </a>: <span> @item.CommentText</span><img src="~/images/whiteStar.gif" id ="imgLike" /><span id="likecount">0 Likes</span> </p> 
+                <div class="commentFooter"> <span class="timeago" title="@item.PublicationDate.ToString("o")" id="Tire"></span>&nbsp;</div>
             </li>
         </ul>
+        <script>
+        $("span.timeago").timeago();
+        </script>
     }</div>
     <div style="display: block" class="publishComment">
         <textarea class="commentTextArea" id="CommentText" data-bind="value: newCommentMessage, jqAutoresize: {}" placeholder="write a comment..."></textarea>
@@ -23,6 +28,11 @@
 </div>
 
 <script>
+    var Count = 0;
+    $('#imgLike').click(function () { 
+        Count += 1;
+        $('#likecount').text(Count + "  Likes")
+    })
     $('#btnAddComment').click(function() {
         var formData,Text, IdDem;
         IdDem = document.getElementById('idDem').value;
@@ -36,8 +46,9 @@
     data: formData,
     contentType: false,
     processData: false,
-    success: function (returnFckingJson) {
-        $("#comments").append("<ul data-bind=\"foreach: PostComments\"><li class=\"commentHolder\"\n<p><a data-bind=\"text:\">" + returnFckingJson.UserName + "</a>: <span>" + returnFckingJson.Text + "</span></p>\n</li>\n</ul> ")
+    success: function (ret) {
+        $("#comments").append("<ul data-bind=\"foreach: PostComments\">\n<li class=\"commentHolder\">\n" + ret.UserName + "</a>: <span>" + ret.Text + "</span></p>\n<div class=\"commentFooter\"> <span class=\"timeago\" title=\"" + ret.PublicationDate + "\" id=\"Tire\"></span>&nbsp;</div>\n</li>\n</ul>");
+        $("span.timeago").last().timeago();
     }
   });
 

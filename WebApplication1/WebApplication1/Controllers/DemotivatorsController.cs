@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
         // GET: Demotivators
         public ActionResult Index()
         {
-
+            
             var demotivators = db.Demotivators.Include(d => d.AspNetUser);
             return View(demotivators.ToList());
         }
@@ -45,6 +45,15 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Demotivators/Create
+        public ActionResult TopDemotivators()
+        {
+            List<Demotivator> model = new List<Demotivator>();
+            using (var context = new Entities())
+            {
+                model = context.Demotivators.ToList();
+            }
+            return View(model);
+        }
         public ActionResult Create()
         {
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -154,12 +163,15 @@ namespace WebApplication1.Controllers
             comment.DemotivatorId = IdDem;
             db.Comments.Add(comment);
             db.SaveChanges();
-            var returnFckingJson = new
+            var ret = new
             {
                 UserName = User.Identity.Name,
-                Text = comment.CommentText
+                PublicationDate = comment.PublicationDate,
+                Text = comment.CommentText,
+                UserId = User.Identity.GetUserId()
             };
-            return Json(returnFckingJson, JsonRequestBehavior.AllowGet);
+            
+            return Json(ret, JsonRequestBehavior.AllowGet);
         }
     }
 }

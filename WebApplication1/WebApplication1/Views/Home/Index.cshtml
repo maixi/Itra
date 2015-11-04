@@ -10,7 +10,11 @@
 <div class="popup">
     <img class="is-image" src="" alt="" height="100" />
     <a class="close" title="Закрыть" href="#close"></a>
+    
 </div>
+<link rel="stylesheet" href="~/Content/lightbox.css">
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/lightbox.js"></script>
 <head>
     <meta charset="utf-8">
     <title>nth-child</title>
@@ -24,19 +28,15 @@
         }
     </style>
 </head>
-<table border="1">
-    @for (int i = 0; i < Model.Count; i++)
+<dl class="dl-horizontal">
+    @foreach (var item in Model)
     {
-        <tr>
-            @for (int j = 0; j < 4; j++)
-            {
-                <td>
-                    <a href="#win5"> <img class="clickImg" src="@Html.DisplayFor(Model => Model[i].DemotivatorUrl)" height="150"</a>
-                </td>}
 
-        </tr>
+        <a class="example-image-link" href=@item.OriginalImageUrl data-lightbox="example-1"><img class="example-image" src=@item.OriginalImageUrl alt="image-1" width="100" height="111" /></a>
+
     }
-</table>
+
+</dl>
 <footer>
     <div id="myCanvasContainer" style="width:100%;float:left;">
 
