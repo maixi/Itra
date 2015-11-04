@@ -14,7 +14,7 @@ else
 {
     <h2>@Resources.Resource.Create</h2>
 
-    using (Html.BeginForm())
+    using (Html.BeginForm("Create", "Demotivators", FormMethod.Post, htmlAttributes: new { id = "Form" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-horizontal">
@@ -23,18 +23,24 @@ else
             <div class="col-sm-5">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    
-                            <div style="display:block">
-                            <span >Введите Url картинки</span>
-                                <form class="form-inline">
-                                    <input type="text" value="" id="ImageUrl" />
-                                    <input type="button" value="Preview" id="PreviewBtn" class="btn btn-success" />
-                                </form>
-                            
-                                <div class="col-md-10">
-                                    <input type="file" name="upload" id="uploadFileBtn" />
-                                </div>
+                    <div class="col-md-10">
+                        <span>Введите Url картинки</span>
                     </div>
+                    <div class="col-md-10">
+                        <form class="form-inline">
+                            <input type="text" value="" id="ImageUrl" />
+                            <input type="button" value="Preview" id="PreviewBtn" class="btn btn-success" />
+                        </form>
+                    </div>
+
+                    <div class="col-md-10">
+                        <input type="file" id="uploadFileBtn" accept="image/*" name="imagefile" />
+                        <input type="hidden" id="DemotivatorFile" name="DemotivatorFile" /> 
+                    </div>
+                </div>
+                <div class="btn-group invisible" data-toggle="buttons-radio" id="buttons-div">
+                    <button name="lol" type="button" class="btn btn-info" id="horizont-btn">horizontal</button>
+                    <button name="lol" type="button" class="btn" id="vertical-btn">vertical</button>
                 </div>
                 <div class="form-group">
                     @Html.Label(Resources.Resource.DemoName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -52,7 +58,8 @@ else
                         @Html.ValidationMessageFor(model => model.TopLine, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
+                @Html.EditorFor(model => model.DemotivatorUrl, new { htmlAttributes = new { @class = "form-control", id = "DemotivatorUrl", type = "hidden" } })
+                @Html.EditorFor(model => model.OriginalImageUrl, new { htmlAttributes = new { @class = "form-control", id = "OriginalImageUrl", type = "hidden" } })
                 <div class="form-group">
                     @Html.Label(Resources.Resource.BottomLine, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -63,14 +70,14 @@ else
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value=@Resources.Resource.Create class="btn btn-default" />
+                        <input type="submit" value="Create" class="btn btn-default" id="Create"/>
                     </div>
                 </div>
                 @Html.ActionLink(Resources.Resource.BackToList, "Index")
             </div>
             <div class="col-sm-7">
                 <div id="canvas-container">
-                    <canvas id="canvas" ></canvas>
+                    <canvas id="canvas"></canvas>
                 </div>
             </div>
 
