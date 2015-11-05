@@ -2,18 +2,13 @@
 @{
     ViewBag.Title = "Home Page";
 }
-@if (!User.Identity.IsAuthenticated)
-{
-    <div>Log in</div>
-}
 <a href="#x" class="overlay" id="win5"></a>
-<div class="popup">
-    <img class="is-image" src="" alt="" height="100" />
-    <a class="close" title="Закрыть" href="#close"></a>
-    
-</div>
-<link rel="stylesheet" href="~/Content/lightbox.css">
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="~/Content/lightbox.css" />
+<link rel="stylesheet" href="~/Content/owl.carousel.css" />
+<link rel="stylesheet" href="~/Content/owl.theme.css" />
+<link rel="stylesheet" href="~/Content/owl.transitions.css" />
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/owl.carousel.js"></script>
 <script src="~/Scripts/lightbox.js"></script>
 <head>
     <meta charset="utf-8">
@@ -26,17 +21,40 @@
             float: left;
             background-color: #ff6a00;
         }
+
+        #owl-demo .item {
+            margin: 3px;
+            height:inherit;
+            align-items:center;
+        }
+
+            #owl-demo .item img {
+                width: 100%;
+                height:auto;
+                
+            }
     </style>
 </head>
+<h1>Новое</h1>
+<hr />
 <dl class="dl-horizontal">
-    @foreach (var item in Model)
-    {
+    
+    <div class="owl-carousel" id="owl-demo">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <a class="example-image-link" href=@item.DemotivatorUrl data-lightbox="example-1">
+                <img class="example-image"  src=@item.DemotivatorUrl alt="image-1" />
+                </a>
+                <div class="td" id="ShowRe">@Html.Partial("_VoteShow", item.Rate)</div>
+            </div>
+        }
+    </div>
 
-        <a class="example-image-link" href=@item.DemotivatorUrl data-lightbox="example-1"><img class="example-image" src=@item.DemotivatorUrl alt="image-1" width="100" height="111" /></a>
-
-    }
 
 </dl>
+<h1>Лучшее</h1>
+<hr />
 <footer>
     <div id="myCanvasContainer" style="width:100%;float:left;">
 
@@ -51,3 +69,20 @@
         </canvas>
     </div>
 </footer>
+<script>
+    $(document).ready(function () {
+
+        $("#owl-demo").owlCarousel({
+
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [979, 3],
+            pagination: true
+            
+
+        });
+
+    });
+</script>

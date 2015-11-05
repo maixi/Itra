@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/03/2015 02:02:59
--- Generated from EDMX file: D:\finalTaskDBSHIT\WebApplication1\WebApplication1\Model1.edmx
+-- Date Created: 11/05/2015 16:40:17
+-- Generated from EDMX file: C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -16,6 +16,7 @@ GO
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
+
 
 IF OBJECT_ID(N'[dbo].[FK_DemotivatorRateDemotivator]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[DemotivatorRates] DROP CONSTRAINT [FK_DemotivatorRateDemotivator];
@@ -48,6 +49,7 @@ GO
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
+
 
 IF OBJECT_ID(N'[dbo].[DemotivatorRates]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DemotivatorRates];

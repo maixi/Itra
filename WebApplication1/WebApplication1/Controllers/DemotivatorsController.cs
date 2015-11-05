@@ -73,7 +73,7 @@ namespace WebApplication1.Controllers
                 demotivator.CreatorName = User.Identity.Name;
                 demotivator.AspNetUserId = User.Identity.GetUserId();
                 demotivator.Date = DateTime.Now;
-                demotivator.Rate ="0.0.0.0.0";
+                demotivator.Rate ="0,0,0,0,0";
                 db.Demotivators.Add(demotivator);
                 db.SaveChanges();
                 return RedirectToAction("Index");

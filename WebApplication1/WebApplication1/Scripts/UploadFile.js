@@ -40,8 +40,8 @@ $(document).ready(function () {
     $("#PreviewBtn").click(UploadImageFromUrl);
     $("#topLine")[0].oninput = writeHeadLine;
     $("#bottomLine")[0].oninput = writeTextLine;
-    $("#vertical-btn").click(ChangeVerticalOrientation);
-    $("#horizont-btn").click(ChangeHorizontalOrientation);
+    $("#vertical-btn").click(VerticalOrientation);
+    $("#horizont-btn").click(HorizontalOrientation);
     form = $("#Form");
 });
 
@@ -60,33 +60,34 @@ function UploadImage(Url) {
         canvas.clear();
         image = oImg;
         var prop = 1, imgwidth, imgheight;
-        var imgwidth = oImg.getWidth()
-        imgheight = oImg.getHeight();
+        var imgwidth = image.getWidth()
+        imgheight = image.getHeight();
         if (imgwidth > 640 || imgwidth < 490) {
             if (imgwidth < 490) prop = 490 / imgwidth;
             else prop = 640 / imgwidth;
         }
         InitializeCanvas((imgwidth * prop) + 60, (imgheight * prop) + 200);
-        oImg.setWidth(imgwidth * prop);
-        oImg.setHeight(imgheight * prop);
-        Topstring.set('top', oImg.getHeight() + 50);
+        image.setWidth(imgwidth * prop);
+        image.setHeight(imgheight * prop);
+        if (image.getHeight() > 1000) image.setHeight(1000);
+        Topstring.set('top', image.getHeight() + 50);
         Topstring.set('left', canvas.getWidth() / 2);
-        Bottomstring.set('top', oImg.getHeight() + 120);
+        Bottomstring.set('top', image.getHeight() + 120);
         Bottomstring.set('left', canvas.getWidth() / 2);
         canvas.add(Topstring);
         canvas.add(Bottomstring);
-        oImg.set('top', 40);
-        oImg.set('left', 30);
+        image.set('top', 40);
+        image.set('left', 30);
         rectangle = new fabric.Rect({
-            width: oImg.getWidth() + 5,
-            height: oImg.getHeight() + 5,
+            width: image.getWidth() + 5,
+            height: image.getHeight() + 5,
             left: 25,
             top: 35,
             stroke: 'white',
             strokeWidth: 5
         })
         canvas.add(rectangle);
-        canvas.add(oImg);
+        canvas.add(image);
         canvas.renderAll();
         if (Url != null) {
             $("#buttons-div").removeClass('invisible');
@@ -113,26 +114,43 @@ function writeTextLine() {
     canvas.renderAll();
 }
 
-function ChangeVerticalOrientation() {
-    $(this).addClass("active");
+function VerticalOrientation() {
+    $(this).addClass("disabled");
     $(this).addClass("btn-info");
-    $("#horizont-btn").removeClass("active");
+    $("#horizont-btn").removeClass("disabled");
     $("#horizont-btn").removeClass("btn-info");
+    canvas.setWidth(canvas.getWidth() / 1.2);
+    canvas.setHeight(canvas.getHeight() * 1.2);
+    image.setWidth(image.getWidth() / 1.2);
+    image.setHeight(image.getHeight() * 1.2);
+    rectangle.setWidth(rectangle.getWidth() / 1.2);
+    rectangle.setHeight(rectangle.getHeight() * 1.2);
     image.set('top', 90);
     rectangle.set('top', 85)
     Topstring.set('top', 20)
+    Topstring.set('left', Topstring.get('left') / 1.2);
+    Bottomstring.set('left', Bottomstring.get('left') / 1.2);
+    Bottomstring.set('top', Bottomstring.get('top') * 1.2);
     canvas.renderAll();
 }
-function ChangeHorizontalOrientation() {
-    $(this).addClass("active");
+function HorizontalOrientation() {
+    $(this).addClass("disabled");
     $(this).addClass("btn-info");
-    $("#vertical-btn").removeClass("active");
+    $("#vertical-btn").removeClass("disabled");
     $("#vertical-btn").removeClass("btn-info");
+    canvas.setWidth(canvas.getWidth() * 1.2);
+    canvas.setHeight(canvas.getHeight() / 1.2);
+    image.setWidth(image.getWidth() * 1.2);
+    image.setHeight(image.getHeight() / 1.2);
+    rectangle.setWidth(rectangle.getWidth() * 1.2);
+    rectangle.setHeight(rectangle.getHeight() / 1.2);
     image.set('top', 40);
     rectangle.set('top', 35)
     Topstring.set('top', image.getHeight() + 50);
+    Topstring.set('left', Topstring.get('left')*1.2);
+    Bottomstring.set('left', Bottomstring.get('left') * 1.2);
+    Bottomstring.set('top', Bottomstring.get('top') / 1.2);
     canvas.renderAll();
-    //var file = getFileToUpload(image.getSrc());
 }
 
 
