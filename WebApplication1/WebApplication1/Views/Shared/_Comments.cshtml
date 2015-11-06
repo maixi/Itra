@@ -10,7 +10,7 @@
 
 <ul id="msgHolder" data-bind="foreach: posts">
     <li class="postHolder">
-        <img data-bind="attr: { src: PostedByAvatar }"><p><a data-bind="text: PostedByName"></a>: <span data-bind="    html: Message"></span></p>
+        <img data-bind="attr: { src: PostedByAvatar }"><p><a data-bind="text: PostedByName, attr: {href: PostedBy}"></a>: <span data-bind="    html: Message"></span></p>
         <div class="postFooter">
             <span class="timeago" data-bind="text: PostedDate"></span>&nbsp;
         </div>

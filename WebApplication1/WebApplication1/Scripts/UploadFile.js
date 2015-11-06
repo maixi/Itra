@@ -42,7 +42,16 @@ $(document).ready(function () {
     $("#bottomLine")[0].oninput = writeTextLine;
     $("#vertical-btn").click(VerticalOrientation);
     $("#horizont-btn").click(HorizontalOrientation);
+    $("#addTagBtn").click(AddTag)
+    $("#TextTag")[0].onkeyup = ValidationTagString;
+    $("#TextTag")[0].onkeydown = ValidationTagString;
     form = $("#Form");
+    $(function () {
+        $("[data-autocomplete-source]").each(function () {
+            var target = $(this);
+            target.autocomplete({ source: target.attr("data-autocomplete-source") });
+        });
+    });
 });
 
 function UploadImageFromComputer() {
@@ -50,9 +59,6 @@ function UploadImageFromComputer() {
 
 }
 function UploadImageFromUrl() {
-    img = new Image();
-    img.setAttribute('crossOrigin', 'anonymous');
-    img.src = $("#ImageUrl")[0].value;
     UploadImage($("#ImageUrl")[0].value)
 }
 function UploadImage(Url) {
@@ -91,8 +97,13 @@ function UploadImage(Url) {
         canvas.renderAll();
         if (Url != null) {
             $("#buttons-div").removeClass('invisible');
+            $("#tagdiv").removeClass('invisible');
         }
-        else $("#buttons-div").addClass('invisible');
+        else {
+            $("#buttons-div").addClass('invisible');
+            $("#tagdiv").addClass('invisible');
+        }
+
     }, { crossOrigin: 'Anonymous' });
 }
 function InitializeCanvas(Width, Height) {
@@ -147,13 +158,36 @@ function HorizontalOrientation() {
     image.set('top', 40);
     rectangle.set('top', 35)
     Topstring.set('top', image.getHeight() + 50);
-    Topstring.set('left', Topstring.get('left')*1.2);
+    Topstring.set('left', Topstring.get('left') * 1.2);
     Bottomstring.set('left', Bottomstring.get('left') * 1.2);
     Bottomstring.set('top', Bottomstring.get('top') / 1.2);
     canvas.renderAll();
 }
+function ValidationTagString() {
+    var value = $("#TextTag").val();
+    var rep = /[-\.;":',]/;
+    if (rep.test(value)) {
+        value = value.replace(rep, '');
+        $("#TextTag").val(value)
+    }
+}
 
+function AddTag() {
+    var labelstr, hiddenstr;
+    if ($("#hiddentags").val() == "") {
+        hiddenstr = $("#hiddentags").val() + $("#TextTag").val();
+    }
+    else { hiddenstr = $("#hiddentags").val() + "," + $("#TextTag").val(); }
+    if ($("#TagLabel").val() == "Tags:")
+    { labelstr = $("#TagLabel").val() + $("#TextTag").val(); }
+    else {
+        labelstr = $("#TagLabel").val() + "," + $("#TextTag").val();
+    }
+    $("#TagLabel").val(labelstr);
+    $("#hiddentags").val(hiddenstr);
+    alert($("#hiddentags").val());
 
+}
 $('#Create').on('click', function (e) {
 
     e.preventDefault();
@@ -184,4 +218,3 @@ $('#Create').on('click', function (e) {
     }
     return;
 });
-

@@ -421,6 +421,7 @@
     <Content Include="Views\Shared\_VoteNow.cshtml" />
     <Content Include="Views\Shared\_VoteShow.cshtml" />
     <Content Include="Views\Demotivators\TopDemotivators.cshtml" />
+    <Content Include="Views\Account\UserAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

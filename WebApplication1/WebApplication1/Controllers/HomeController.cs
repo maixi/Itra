@@ -23,8 +23,11 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             HomeViewModel home = new HomeViewModel();
-           
-            var demotivators = db.Demotivators.Include(s => s.AspNetUser).ToList();
+
+            var demotivators = db.Demotivators.Include(s => s.Comments).
+                Include(s => s.AspNetUser).
+                Include(s => s.DemotivatorRates).
+                ToList();
             home.demotivators = demotivators;
           
             home.DemCount = db.Demotivators.Count();

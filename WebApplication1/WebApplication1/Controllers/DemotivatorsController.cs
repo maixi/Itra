@@ -15,7 +15,6 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.Threading.Tasks;
 using System.IO;
-using WebApplication1.Resources;
 
 namespace WebApplication1.Controllers
 {
@@ -69,16 +68,17 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DemotivatorName,TopLine,BottomLine,OriginalImageUrl,DemotivatorUrl")] Demotivator demotivator)
+        public ActionResult Create([Bind(Include = "DemotivatorName,TopLine,BottomLine,OriginalImageUrl,DemotivatorUrl")] Demotivator demotivator, string Tags)
         {
             if (ModelState.IsValid)
             {
                 demotivator.CreatorName = User.Identity.Name;
                 demotivator.AspNetUserId = User.Identity.GetUserId();
                 demotivator.Date = DateTime.Now;
-                demotivator.Rate ="0,0,0,0,0";
-                db.Demotivators.Add(demotivator);
+                demotivator.Rate = "0,0,0,0,0";
+                Demotivator dem = db.Demotivators.Add(demotivator);
                 db.SaveChanges();
+                AddTags(Tags, dem);
                 return RedirectToAction("Index");
             }
 
@@ -107,7 +107,7 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator)
+        public ActionResult Edit([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator, string Tags)
         {
             if (ModelState.IsValid)
             {
@@ -170,6 +170,36 @@ namespace WebApplication1.Controllers
                 CommentText = comment.CommentText
             };
             return Json(ret, JsonRequestBehavior.AllowGet);
+        }
+        public void AddTags(string tagsline, Demotivator demotivator)
+        {
+            var tags = tagsline.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            foreach (var tagName in tags)
+            {
+                if (!db.tags.Any(t => t.Name == tagName))
+                {
+                    tag tag = db.tags.Add(new tag() { Name = tagName, Count = 0.ToString() });
+                    db.SaveChanges();
+                    var temp = db.tag_to_dem.Add(new tag_to_dem() { Demotivator = demotivator, tag = tag });
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var tag = db.tags.First(x => x.Name == tagName);
+                    tag.Count = Int32.Parse(tag.Count) + 1.ToString();
+                    db.Entry(tag).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                }
+            }
+
+        }
+        public ActionResult AutocompleteSearch(string term)
+        {
+            var models = db.tags.Where(a => a.Name.Contains(term))
+                .Select(a => new { value = a.Name })
+                .Distinct();
+            return Json(models, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult Upload()

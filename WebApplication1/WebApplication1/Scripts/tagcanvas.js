@@ -1897,10 +1897,7 @@
         if (!tc.ly && ap > s)
             tc.pitch = ap > tc.z0 ? tc.pitch * tc.decel : 0;
     };
-    TCproto.Zoom = function (r) {
-        this.z2 = this.z1 * (1 / r);
-        this.drawn = 0;
-    };
+  
     TCproto.Clicked = function (e) {
         var a = this.active;
         try {
