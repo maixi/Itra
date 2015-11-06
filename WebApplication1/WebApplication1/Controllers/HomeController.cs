@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication1.Models;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
-using WebApplication1.Filters;
-using System.Data.Entity;
 using System.Data;
+using System.Data.Entity;
+using System.Net;
+using WebApplication1;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using WebApplication1.Models;
+using WebApplication1.Filters;
 
 
 namespace WebApplication1.Controllers
@@ -20,12 +22,13 @@ namespace WebApplication1.Controllers
         private Entities db = new Entities();
         public ActionResult Index()
         {
-            List<Demotivator> model = new List<Demotivator>();
-            using (var context = new Entities())
-            {
-                model = context.Demotivators.ToList();
-            }
-            return View(model);
+            HomeViewModel home = new HomeViewModel();
+           
+            var demotivators = db.Demotivators.Include(s => s.AspNetUser).ToList();
+            home.demotivators = demotivators;
+          
+            home.DemCount = db.Demotivators.Count();
+            return View(home);
         }
 
         public ActionResult About()
