@@ -7,10 +7,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
-
+using WebApplication1.Filters;
+using System.Globalization;
 namespace WebApplication1.Controllers
 {
     [Authorize]
+    [Culture]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

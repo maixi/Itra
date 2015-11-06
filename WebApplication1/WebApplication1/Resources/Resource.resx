@@ -123,6 +123,15 @@
   <data name="BottomLine" xml:space="preserve">
     <value>Нижняя линия</value>
   </data>
+  <data name="ChangeParams" xml:space="preserve">
+    <value>Изменение параметров учетной записи</value>
+  </data>
+  <data name="ChangePassForm" xml:space="preserve">
+    <value>Форма смены пароля</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Смена пароля</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Выберите язык</value>
   </data>
@@ -147,6 +156,9 @@
   <data name="CreatorName" xml:space="preserve">
     <value>Имя создателя</value>
   </data>
+  <data name="CurrentPassWord" xml:space="preserve">
+    <value>Старый пароль</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
   </data>
@@ -169,7 +181,7 @@
     <value>Редактировать</value>
   </data>
   <data name="DemoName" xml:space="preserve">
-    <value>Название Демотиватора</value>
+    <value>Название </value>
   </data>
   <data name="DemoRate" xml:space="preserve">
     <value>Рейтинг</value>
@@ -186,6 +198,9 @@
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="EnglishOrRussian" xml:space="preserve">
+    <value>en/ru?</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Домашняя</value>
   </data>
@@ -201,29 +216,8 @@
   <data name="MainName" xml:space="preserve">
     <value>Демотиваторы</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Имя</value>
-  </data>
-  <data name="NameRequired" xml:space="preserve">
-    <value>Поле Имя должно быть заполнено</value>
-  </data>
-  <data name="OriginalDemoUrl" xml:space="preserve">
-    <value>Ссылка на первоначальную картинку демотиватора</value>
-  </data>
-  <data name="Registration" xml:space="preserve">
-    <value>Регистрация</value>
-  </data>
-  <data name="TopLine" xml:space="preserve">
-    <value>Верхняя линия</value>
-  </data>
-  <data name="WelcomeWord" xml:space="preserve">
-    <value>Здравствуйте ,</value>
-  </data>
-  <data name="EnglishOrRussian" xml:space="preserve">
-    <value>en/ru?</value>
-  </data>
-  <data name="Okey" xml:space="preserve">
-    <value>OK</value>
+  <data name="Management" xml:space="preserve">
+    <value>Управление</value>
   </data>
   <data name="Marketing" xml:space="preserve">
     <value>Маркетинг</value>
@@ -231,8 +225,32 @@
   <data name="MarketingEmail" xml:space="preserve">
     <value>www.maixiwow@mail.ru</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Поле Имя должно быть заполнено</value>
+  </data>
+  <data name="NewPassWord" xml:space="preserve">
+    <value>Новый пароль</value>
+  </data>
+  <data name="NewPassWordConfirm" xml:space="preserve">
+    <value>Повторите пароль</value>
+  </data>
+  <data name="Okey" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OriginalDemoUrl" xml:space="preserve">
+    <value>Ссылка на первоначальную картинку демотиватора</value>
+  </data>
+  <data name="PassWord" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
   <data name="PhoneLetter" xml:space="preserve">
     <value>Т.</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
   </data>
   <data name="SiteAdress" xml:space="preserve">
     <value>Демо</value>
@@ -248,5 +266,17 @@
   </data>
   <data name="SupportEmail" xml:space="preserve">
     <value>www.maixiwow@mail.ru</value>
+  </data>
+  <data name="TopLine" xml:space="preserve">
+    <value>Верхняя линия</value>
+  </data>
+  <data name="WelcomeWord" xml:space="preserve">
+    <value>Здравствуйте ,</value>
+  </data>
+  <data name="Best" xml:space="preserve">
+    <value>Лучшее из лучших</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Новое</value>
   </data>
 </root>

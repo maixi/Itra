@@ -123,16 +123,7 @@
   <data name="BottomLine" xml:space="preserve">
     <value>BottomLine</value>
   </data>
-  <data name="ChangeParams" xml:space="preserve">
-    <value>Change account settings</value>
-  </data>
-  <data name="ChangePassForm" xml:space="preserve">
-    <value>Change password form</value>
-  </data>
-  <data name="ChangePassword" xml:space="preserve">
-    <value>Change password</value>
-  </data>
-  <data name="ChouseLang" xml:space="preserve">
+  <data name="ChoouseLang" xml:space="preserve">
     <value>Choose the Language</value>
   </data>
   <data name="Contact" xml:space="preserve">
@@ -156,9 +147,6 @@
   <data name="CreatorName" xml:space="preserve">
     <value>Creator Name</value>
   </data>
-  <data name="CurrentPassWord" xml:space="preserve">
-    <value>Current password</value>
-  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -181,7 +169,7 @@
     <value>Edit</value>
   </data>
   <data name="DemoName" xml:space="preserve">
-    <value>Name</value>
+    <value>Demotivator Name</value>
   </data>
   <data name="DemoRate" xml:space="preserve">
     <value>Rate</value>
@@ -213,8 +201,23 @@
   <data name="MainName" xml:space="preserve">
     <value>Demotivators</value>
   </data>
-  <data name="Management" xml:space="preserve">
-    <value>Management</value>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>The field Name must be fieled</value>
+  </data>
+  <data name="OriginalDemoUrl" xml:space="preserve">
+    <value>OriginalUrl</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="TopLine" xml:space="preserve">
+    <value>TopLine</value>
+  </data>
+  <data name="WelcomeWord" xml:space="preserve">
+    <value>Hello ,</value>
   </data>
   <data name="Marketing" xml:space="preserve">
     <value>Marketing</value>
@@ -222,29 +225,8 @@
   <data name="MarketingEmail" xml:space="preserve">
     <value>www.maixiwow@mail.ru</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="NameRequired" xml:space="preserve">
-    <value>The field Name must be fieled</value>
-  </data>
-  <data name="NewPassWord" xml:space="preserve">
-    <value>New password</value>
-  </data>
-  <data name="NewPassWordConfirm" xml:space="preserve">
-    <value>New password confirm</value>
-  </data>
-  <data name="OriginalDemoUrl" xml:space="preserve">
-    <value>OriginalUrl</value>
-  </data>
-  <data name="PassWord" xml:space="preserve">
-    <value>Password</value>
-  </data>
   <data name="PhoneLetter" xml:space="preserve">
     <value>P.</value>
-  </data>
-  <data name="Registration" xml:space="preserve">
-    <value>Registration</value>
   </data>
   <data name="SiteAdress" xml:space="preserve">
     <value>Demo</value>
@@ -260,17 +242,5 @@
   </data>
   <data name="SupportEmail" xml:space="preserve">
     <value>www.maixiwow@mail.ru</value>
-  </data>
-  <data name="TopLine" xml:space="preserve">
-    <value>TopLine</value>
-  </data>
-  <data name="WelcomeWord" xml:space="preserve">
-    <value>Hello ,</value>
-  </data>
-  <data name="Best" xml:space="preserve">
-    <value>Best of the best of the russian contest</value>
-  </data>
-  <data name="New" xml:space="preserve">
-    <value>New</value>
   </data>
 </root>

@@ -35,30 +35,29 @@
             }
     </style>
 </head>
-<h1>Новое</h1>
+<h1>@Resources.Resource.New</h1>
 <hr />
 <dl class="dl-horizontal">
-    
+    <!--title="<a href=&quot;/Demotivators/Details/item.Id&quot;>Click Here To Full Info</a>"-->
+    <!--&qout;&lt;&gt;-->
     <div class="owl-carousel" id="owl-demo">
         @foreach (var item in Model)
-        {
-            <div class="item">
-                <a class="example-image-link" href=@item.DemotivatorUrl data-lightbox="example-1">
+        {           
+            <div class="item" >
+                <a class="example-image-link" title="<a href=&quot;/Demotivators/Details/@item.Id&quot;> Click Here To Full Info</a>" href=@item.DemotivatorUrl data-lightbox="example-1">
                 <img class="example-image"  src=@item.DemotivatorUrl alt="image-1" />
                 </a>
                 <div class="td" id="ShowRe">@Html.Partial("_VoteShow", item.Rate)</div>
             </div>
         }
     </div>
-
-
 </dl>
-<h1>Лучшее</h1>
+<h1>@Resources.Resource.Best</h1>
 <hr />
 <footer>
-    <div id="myCanvasContainer" style="width:100%;float:left;">
+    <div id="myCanvasContainer" style="width:inherit;float:inherit;">
 
-        <canvas width="1300" height="300" id="myCanvas">
+        <canvas width="1138" height="300" id="myCanvas">
             <!--       <p>Anything in here will be replaced on browsers that support the canvas element</p>-->
 
             <li><a href="/fish">SJDHLKASJHDKLSA</a></li>
@@ -74,7 +73,7 @@
 
         $("#owl-demo").owlCarousel({
 
-            autoPlay: 3000, //Set AutoPlay to 3 seconds
+            autoPlay: 5000, //Set AutoPlay to 3 seconds
 
             items: 4,
             itemsDesktop: [1199, 3],

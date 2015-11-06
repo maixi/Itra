@@ -6,8 +6,6 @@
 }
 
 <h2>@Resources.Resource.DemoDetails</h2>
-
-<div>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -47,7 +45,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DemotivatorUrl)
+            <img src="@Model.DemotivatorUrl" />
         </dd>
 
         <dt>
@@ -81,13 +79,14 @@
         <dd>
             @Html.DisplayFor(model => model.AspNetUser.Email)
         </dd>
-
+        @{string DemotivatorIdForEdit = Model.Id.ToString();} 
     </dl>
 </div>
 <p>
-    <input type="submit" value=@Resources.Resource.DemoEdit class="btn btn-default" />
-
+   
+    @Html.ActionLink(Resources.Resource.DemoEdit, "Edit/"+ DemotivatorIdForEdit)
 </p>
+
 <p>
     <div class="tr" style="background-color:#f1f1f1;">
         <div class="td0">Please rate</div>
@@ -97,7 +96,7 @@
             <div class="td" id="ShowRe">@Html.Partial("_VoteShow", Model.Rate)</div>
         }
         <div class="td" id="ShowRes">@Html.Partial("_Comments", Model.Comments, new ViewDataDictionary { { "id", @Model.Id } })</div>
-  
+   
     @Html.ActionLink(Resources.Resource.BackToList, "Index")
 </p>
 <script src="~/Scripts/jquery.timeago.js"></script>

@@ -15,13 +15,15 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.Threading.Tasks;
 using System.IO;
+using WebApplication1.Resources;
+
 namespace WebApplication1.Controllers
 {
+    
     [Culture]
     public class DemotivatorsController : Controller
     {
-        private Entities db = new Entities();
-
+        private Entities db = new Entities();      
         // GET: Demotivators
         public ActionResult Index()
         {
@@ -59,6 +61,7 @@ namespace WebApplication1.Controllers
         {
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
+            
         }
 
         // POST: Demotivators/Create
@@ -174,7 +177,7 @@ namespace WebApplication1.Controllers
             bool flag = false;
             List<ImageUploadResult> UploadResultlist = new List<ImageUploadResult>();
             string fileName = "";
-            Account account = new Account("djb7hr8nk", "981823513498862", "ortnIAykexsGNcYTGiMTNjIarvo");
+            Account account = new Account(Resources.GlobalResources.cloudName, Resources.GlobalResources.cloudApi, Resources.GlobalResources.cloudApiSecret);
             CloudinaryDotNet.Cloudinary cloudinary = new Cloudinary(account);
             ImageUploadResult uploadResultImg = new ImageUploadResult();
             ImageUploadResult uploadResultDemotivator = new ImageUploadResult();

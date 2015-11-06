@@ -70,47 +70,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Лучшее из лучших.
-        /// </summary>
-        public static string Best {
-            get {
-                return ResourceManager.GetString("Best", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Нижняя линия.
         /// </summary>
         public static string BottomLine {
             get {
                 return ResourceManager.GetString("BottomLine", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Изменение параметров учетной записи.
-        /// </summary>
-        public static string ChangeParams {
-            get {
-                return ResourceManager.GetString("ChangeParams", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Форма смены пароля.
-        /// </summary>
-        public static string ChangePassForm {
-            get {
-                return ResourceManager.GetString("ChangePassForm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Смена пароля.
-        /// </summary>
-        public static string ChangePassword {
-            get {
-                return ResourceManager.GetString("ChangePassword", resourceCulture);
             }
         }
         
@@ -187,15 +151,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Старый пароль.
-        /// </summary>
-        public static string CurrentPassWord {
-            get {
-                return ResourceManager.GetString("CurrentPassWord", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить.
         /// </summary>
         public static string Delete {
@@ -259,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Название .
+        ///   Ищет локализованную строку, похожую на Название Демотиватора.
         /// </summary>
         public static string DemoName {
             get {
@@ -367,15 +322,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Управление.
-        /// </summary>
-        public static string Management {
-            get {
-                return ResourceManager.GetString("Management", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Маркетинг.
         /// </summary>
         public static string Marketing {
@@ -412,33 +358,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Новое.
-        /// </summary>
-        public static string New {
-            get {
-                return ResourceManager.GetString("New", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Новый пароль.
-        /// </summary>
-        public static string NewPassWord {
-            get {
-                return ResourceManager.GetString("NewPassWord", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Повторите пароль.
-        /// </summary>
-        public static string NewPassWordConfirm {
-            get {
-                return ResourceManager.GetString("NewPassWordConfirm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на OK.
         /// </summary>
         public static string Okey {
@@ -453,15 +372,6 @@ namespace Resources {
         public static string OriginalDemoUrl {
             get {
                 return ResourceManager.GetString("OriginalDemoUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Пароль.
-        /// </summary>
-        public static string PassWord {
-            get {
-                return ResourceManager.GetString("PassWord", resourceCulture);
             }
         }
         

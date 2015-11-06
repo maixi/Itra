@@ -9,10 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
-
+using System.Globalization;
+using WebApplication1.Filters;
 namespace WebApplication1.Controllers
 {
     [Authorize]
+    [Culture]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

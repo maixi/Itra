@@ -1,17 +1,22 @@
 ﻿@{
     ViewBag.Title = Resources.Resource.Contact;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<div class="col-sm-5">
+    <address>
+        @Resources.Resource.SiteName<br />
+        @Resources.Resource.SiteAdress<br />
+        <abbr title="Phone">@Resources.Resource.PhoneLetter:</abbr>
+        @Resources.Resource.SitePhoneNumber
+    </address>
 
-<address>
-    @Resources.Resource.SiteName<br />
-    @Resources.Resource.SiteAdress<br />
-    <abbr title="Phone">@Resources.Resource.PhoneLetter:</abbr>
-    @Resources.Resource.SitePhoneNumber
-</address>
+    <address>
+        <strong>@Resources.Resource.Support:</strong>   <a href="mailto:www.maixiwow@mail.ru">www.maixiwow@mail.ru</a><br />
+        <strong>@Resources.Resource.Marketing:</strong> <a href="mailto:www.maixiwow@mail.ru">qwerty@example.com</a>
 
-<address>
-    <strong>@Resources.Resource.Support:</strong>   <a href="mailto:www.maixiwow@mail.ru">www.maixiwow@mail.ru</a><br />
-    <strong>@Resources.Resource.Marketing:</strong> <a href="mailto:www.maixiwow@mail.ru">qwerty@example.com</a>
-</address>
+    </address>
+    </div>
+<div class="col-sm-7">
+    <h2>3 недели работы по 14+часов в день, это были веселые курсы !:P</h2>
+    <img src="http://res.cloudinary.com/djb7hr8nk/image/upload/v1446755844/www.maixiwow%40mail.rudemotivator667.png" />
+    
+</div>

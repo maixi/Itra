@@ -19,19 +19,18 @@ namespace WebApplication1
     {
         public Task SendAsync(IdentityMessage message)
         {
-            SmtpClient client = new SmtpClient(Resources.EmailResource.smtp, 25);
+            SmtpClient client = new SmtpClient(Resources.GlobalResources.smtp, 25);
 
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential(Resources.EmailResource.from, Resources.EmailResource.pass);
+            client.Credentials = new System.Net.NetworkCredential(Resources.GlobalResources.from, Resources.GlobalResources.pass);
             client.EnableSsl = true;
-
+            
             // создаем письмо: message.Destination - адрес получателя
-            var mail = new MailMessage(Resources.EmailResource.from, message.Destination);
+            var mail = new MailMessage(Resources.GlobalResources.from, message.Destination);
             mail.Subject = message.Subject;
             mail.Body = message.Body;
-            mail.IsBodyHtml = true;
-
+            mail.IsBodyHtml = true;          
             return client.SendMailAsync(mail);
         }
     }

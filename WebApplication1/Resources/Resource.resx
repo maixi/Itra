@@ -118,159 +118,135 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BackToList" xml:space="preserve">
-    <value>Back to list</value>
+    <value>К списку демотиваторов</value>
   </data>
   <data name="BottomLine" xml:space="preserve">
-    <value>BottomLine</value>
+    <value>Нижняя линия</value>
   </data>
-  <data name="ChangeParams" xml:space="preserve">
-    <value>Change account settings</value>
-  </data>
-  <data name="ChangePassForm" xml:space="preserve">
-    <value>Change password form</value>
-  </data>
-  <data name="ChangePassword" xml:space="preserve">
-    <value>Change password</value>
-  </data>
-  <data name="ChouseLang" xml:space="preserve">
-    <value>Choose the Language</value>
+  <data name="ChooseLang" xml:space="preserve">
+    <value>Выберите язык</value>
   </data>
   <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+    <value>Контакты</value>
   </data>
   <data name="CopyRight" xml:space="preserve">
-    <value>Vlad&amp;JoraDemos,All rights reserved</value>
+    <value>Vlad&amp;JoraDemos, Все права защищены !!!</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Country</value>
+    <value>Страна</value>
   </data>
   <data name="CountryRequired" xml:space="preserve">
-    <value>The filed Country must be fieled</value>
+    <value>Поле Страна должно быть заполнено</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Create</value>
+    <value>Создать</value>
   </data>
   <data name="CreateLink" xml:space="preserve">
-    <value>Add new user</value>
+    <value>Добавить нового пользователся</value>
   </data>
   <data name="CreatorName" xml:space="preserve">
-    <value>Creator Name</value>
-  </data>
-  <data name="CurrentPassWord" xml:space="preserve">
-    <value>Current password</value>
+    <value>Имя создателя</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>Удалить</value>
   </data>
   <data name="DeleteSure" xml:space="preserve">
-    <value>Are you sure ?</value>
+    <value>Вы уверены что хотите удалить этот демотиватор?</value>
   </data>
   <data name="DeleteTitle" xml:space="preserve">
-    <value>Delete</value>
+    <value>Удаление</value>
   </data>
   <data name="DemCreate" xml:space="preserve">
-    <value>Create your own demotivator</value>
+    <value>Создание демотиватора</value>
   </data>
   <data name="DemoDate" xml:space="preserve">
-    <value>Date Of Creation</value>
+    <value>Дата создания</value>
   </data>
   <data name="DemoDetails" xml:space="preserve">
-    <value>Details</value>
+    <value>Детали</value>
   </data>
   <data name="DemoEdit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Редактировать</value>
   </data>
   <data name="DemoName" xml:space="preserve">
-    <value>Name</value>
+    <value>Название Демотиватора</value>
   </data>
   <data name="DemoRate" xml:space="preserve">
-    <value>Rate</value>
+    <value>Рейтинг</value>
   </data>
   <data name="DemoSave" xml:space="preserve">
-    <value>Save</value>
+    <value>Сохранить</value>
   </data>
   <data name="Demotivator" xml:space="preserve">
-    <value>Demotivator</value>
+    <value>Демотиватор</value>
   </data>
   <data name="DemoUrl" xml:space="preserve">
-    <value>ImgUrl</value>
+    <value>Ссылка на картинку демотиватора</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Home</value>
+    <value>Домашняя</value>
   </data>
   <data name="IndexHeader" xml:space="preserve">
-    <value>UserList</value>
+    <value>Список пользователей</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Log In</value>
+    <value>Вход</value>
   </data>
   <data name="Logoff" xml:space="preserve">
-    <value>Log Off</value>
+    <value>Выйти</value>
   </data>
   <data name="MainName" xml:space="preserve">
-    <value>Demotivators</value>
+    <value>Демотиваторы</value>
   </data>
-  <data name="Management" xml:space="preserve">
-    <value>Management</value>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>Поле Имя должно быть заполнено</value>
+  </data>
+  <data name="OriginalDemoUrl" xml:space="preserve">
+    <value>Ссылка на первоначальную картинку демотиватора</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="TopLine" xml:space="preserve">
+    <value>Верхняя линия</value>
+  </data>
+  <data name="WelcomeWord" xml:space="preserve">
+    <value>Здравствуйте ,</value>
+  </data>
+  <data name="EnglishOrRussian" xml:space="preserve">
+    <value>en/ru?</value>
+  </data>
+  <data name="Okey" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="Marketing" xml:space="preserve">
-    <value>Marketing</value>
+    <value>Маркетинг</value>
   </data>
   <data name="MarketingEmail" xml:space="preserve">
     <value>www.maixiwow@mail.ru</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="NameRequired" xml:space="preserve">
-    <value>The field Name must be fieled</value>
-  </data>
-  <data name="NewPassWord" xml:space="preserve">
-    <value>New password</value>
-  </data>
-  <data name="NewPassWordConfirm" xml:space="preserve">
-    <value>New password confirm</value>
-  </data>
-  <data name="OriginalDemoUrl" xml:space="preserve">
-    <value>OriginalUrl</value>
-  </data>
-  <data name="PassWord" xml:space="preserve">
-    <value>Password</value>
-  </data>
   <data name="PhoneLetter" xml:space="preserve">
-    <value>P.</value>
-  </data>
-  <data name="Registration" xml:space="preserve">
-    <value>Registration</value>
+    <value>Т.</value>
   </data>
   <data name="SiteAdress" xml:space="preserve">
-    <value>Demo</value>
+    <value>Демо</value>
   </data>
   <data name="SiteName" xml:space="preserve">
-    <value>Demotivators</value>
+    <value>Демотиваторы</value>
   </data>
   <data name="SitePhoneNumber" xml:space="preserve">
     <value>+375-29-610-85-00</value>
   </data>
   <data name="Support" xml:space="preserve">
-    <value>Support</value>
+    <value>Поддержка</value>
   </data>
   <data name="SupportEmail" xml:space="preserve">
     <value>www.maixiwow@mail.ru</value>
-  </data>
-  <data name="TopLine" xml:space="preserve">
-    <value>TopLine</value>
-  </data>
-  <data name="WelcomeWord" xml:space="preserve">
-    <value>Hello ,</value>
-  </data>
-  <data name="Best" xml:space="preserve">
-    <value>Best of the best of the russian contest</value>
-  </data>
-  <data name="New" xml:space="preserve">
-    <value>New</value>
   </data>
 </root>
