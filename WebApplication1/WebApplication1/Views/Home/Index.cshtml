@@ -46,7 +46,7 @@
         @foreach (var item in Model.demotivators)
         {
             LightboxCommentsAndRate =Html.Partial("_VoteNow", item.Id.ToString()).ToString()+ Html.Partial("_VoteShow", item.Rate).ToString() + Html.Partial("_Comments", item.Comments, new ViewDataDictionary { { "id", @item.Id } }).ToString();
-            <div class="item " >
+            <div class="item" >
                 <a class="example-image-link" data-title="@LightboxCommentsAndRate" href=@item.DemotivatorUrl data-lightbox="example-1">
                 <img class="example-image" src=@item.DemotivatorUrl  alt="image-1" />
                 </a>

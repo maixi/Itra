@@ -26,7 +26,10 @@ namespace WebApplication1.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
+        public AccountController()
+        {
 
+        }
         public ApplicationSignInManager SignInManager
         {
             get
