@@ -234,18 +234,17 @@ namespace WebApplication1.Controllers
             {
                 if (!db.tags.Any(t => t.Name == tagName))
                 {
-                    tag tag = db.tags.Add(new tag() { Name = tagName, Count = 0.ToString() });
+                    tag tag = db.tags.Add(new tag() { Name = tagName});
                     db.SaveChanges();
                     var temp = db.tag_to_dem.Add(new tag_to_dem() { Demotivator = demotivator, tag = tag });
                     db.SaveChanges();
                 }
                 else
                 {
-                    var tag = db.tags.First(x => x.Name == tagName);
-                    tag.Count = Int32.Parse(tag.Count) + 1.ToString();
-                    db.Entry(tag).State = EntityState.Modified;
+                    var temp = db.tags.First(x => x.Name == tagName);
+                    temp.tag_to_dem.Add(new tag_to_dem { Demotivator = demotivator, tag = temp });
+                    db.Entry(temp).State = EntityState.Modified;
                     db.SaveChanges();
-
                 }
             }
 

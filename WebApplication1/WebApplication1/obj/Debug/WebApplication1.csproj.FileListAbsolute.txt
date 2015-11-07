@@ -423,7 +423,6 @@ C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ru\
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.EmailResource.resources
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.Resource.resources
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.Resource.en.resources
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.Cache
@@ -867,3 +866,4 @@ D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csp
 D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\en\WebApplication1.resources.dll
 D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.GlobalResources.resources

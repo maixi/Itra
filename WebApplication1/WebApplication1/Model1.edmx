@@ -182,7 +182,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Count" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="AspNetUserRoles">
@@ -668,7 +667,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Count" Type="String" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" />
           <NavigationProperty Name="tag_to_dem" Relationship="Model.tag_to_demtag" FromRole="tag" ToRole="tag_to_dem" />
         </EntityType>
@@ -819,7 +817,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model.tag)">
         <MappingFragment StoreEntitySet="tags">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>

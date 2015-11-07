@@ -5,7 +5,7 @@
 }
 @if (!User.Identity.IsAuthenticated)
 {
-    <text>Please <a href="/Account/Login?ReturnUrl=@Request.Url.AbsolutePath" title="Login to rate">Login</a> to rate</text>
+    <text>Please <a href="/Account/Login?ReturnUrl=@Request.Url.AbsolutePath" title="Login to rate and comment">Login</a> to rate and comment</text>
     return;
 }
 

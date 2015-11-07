@@ -16,12 +16,14 @@
         </div>
     </li>
 </ul>
+@if (User.Identity.IsAuthenticated)
+{
 <div class="notification" data-bind="visible: newPosts().length > 0"><a data-bind="    click: loadNewPosts"> <span data-bind="    text: newPosts().length"></span> new comments(s)</a></div>
 <div class="publishContainer">
     <textarea class="msgTextArea" id="txtMessage" data-bind="value: newMessage, jqAutoresize: {}" style="height:3em;" placeholder="Write comment pls..."></textarea>
     <input type="button" data-url="/Wall/SavePost" value="Comment" id="btnShare" data-bind="click: addPost">
 </div>
-
+}
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 
 <!--Reference the SignalR library. -->

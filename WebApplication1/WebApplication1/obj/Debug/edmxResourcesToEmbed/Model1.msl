@@ -118,7 +118,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model.tag)">
         <MappingFragment StoreEntitySet="tags">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Count" ColumnName="Count" />
           <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -311,7 +311,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Count" Type="String" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" />
     <NavigationProperty Name="tag_to_dem" Relationship="Model.tag_to_demtag" FromRole="tag" ToRole="tag_to_dem" />
   </EntityType>
