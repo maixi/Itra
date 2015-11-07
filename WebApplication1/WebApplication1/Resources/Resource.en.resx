@@ -121,7 +121,7 @@
     <value>Back to list</value>
   </data>
   <data name="BottomLine" xml:space="preserve">
-    <value>BottomLine</value>
+    <value>text</value>
   </data>
   <data name="ChangeParams" xml:space="preserve">
     <value>Change account settings</value>
@@ -262,7 +262,7 @@
     <value>www.maixiwow@mail.ru</value>
   </data>
   <data name="TopLine" xml:space="preserve">
-    <value>TopLine</value>
+    <value>Head</value>
   </data>
   <data name="WelcomeWord" xml:space="preserve">
     <value>Hello ,</value>

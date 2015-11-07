@@ -27,18 +27,17 @@
                     <li>@Html.ActionLink(Resources.Resource.Create, "Create", "Demotivators")</li>
                     <li>@Html.ActionLink(Resources.Resource.Contact, "Contact", "Home")</li>
               
-                    <li>
                    
 
                     <li>
                         @using (Html.BeginForm("ChangeCulture", "Home"))
-                        { <div style="margin-top:12px;">
+                        { <div style="margin-top:10px;">
                             <select name="lang">
                                 <option disabled selected>@Resources.Resource.EnglishOrRussian</option>
                                 <option value="ru">Русский</option>
                                 <option value="en">English</option>
                             </select>
-                            <input type="submit" name="submit" value=@Resources.Resource.Okey>
+                            <input type="submit" name="submit" value=@Resources.Resource.Okey class="btn btn-default">
                             </div>
                         }
                     </li>
@@ -53,7 +52,6 @@
         @RenderBody()
 
     </div>
-    <!--Scripts.Render("~/bundles/jquery")-->
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script type="text/javascript">

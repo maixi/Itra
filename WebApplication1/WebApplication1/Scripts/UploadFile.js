@@ -185,8 +185,7 @@ function AddTag() {
     }
     $("#TagLabel").val(labelstr);
     $("#hiddentags").val(hiddenstr);
-    alert($("#hiddentags").val());
-
+    $("#TextTag").val("");
 }
 $('#Create').on('click', function (e) {
 

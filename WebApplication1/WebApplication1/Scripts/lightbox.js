@@ -102,7 +102,7 @@
       if ($(event.target).attr('id') === 'lightbox') {
         self.end();
       }
-      return false;
+      return true;
     });
 
     this.$outerContainer.on('click', function(event) {

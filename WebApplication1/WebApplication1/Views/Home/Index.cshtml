@@ -24,39 +24,51 @@
             float: left;
             background-color: #ff6a00;
         }
-        #owl-demo .item {
+        .owl-carousel .item {
             margin: 3px;
             height:inherit;
             align-items:center;
         }
 
-            #owl-demo .item img {
+            .owl-carousel .item img {
                 width: 100%;
                 height:auto;
                 
             }
+
     </style>
 </head>
 <h1>@Resources.Resource.New</h1>
 <hr />
 <dl class="dl-horizontal">
-    <!--title="<a href=&quot;/Demotivators/Details/item.Id&quot;>Click Here To Full Info</a>"-->
+    <!--title=""-->
     <!--&qout;&lt;&gt;-->
-    <div class="owl-carousel" id="owl-demo">
-        @foreach (var item in Model.demotivators)
+    <div class="owl-carousel" id="owl-demo-new">
+        @foreach (var item in Model.newDemotivators)
         {
             LightboxCommentsAndRate =Html.Partial("_VoteNow", item.Id.ToString()).ToString()+ Html.Partial("_VoteShow", item.Rate).ToString() + Html.Partial("_Comments", item.Comments, new ViewDataDictionary { { "id", @item.Id } }).ToString();
             <div class="item" >
-                <a class="example-image-link" data-title="@LightboxCommentsAndRate" href=@item.DemotivatorUrl data-lightbox="example-1">
+                <a class="example-image-link" data-title="<a href=&quot;/Demotivators/Details/@item.Id&quot; class=&quot;btn btn-dangers&quot; >Full Info </a>@LightboxCommentsAndRate" href=@item.DemotivatorUrl data-lightbox="example-1">
                 <img class="example-image" src=@item.DemotivatorUrl  alt="image-1" />
                 </a>
-                <div class="td" id="ShowRe">@Html.Partial("_VoteShow", item.Rate)</div>
             </div>
         }
     </div>
 </dl>
 <h1>@Resources.Resource.Best</h1>
 <hr />
+<div class="owl-carousel" id="owl-demo-best">
+    @foreach (var item in Model.bestDemotivators)
+    {
+        LightboxCommentsAndRate = Html.Partial("_VoteNow", item.Id.ToString()).ToString() + Html.Partial("_VoteShow", item.Rate).ToString() + Html.Partial("_Comments", item.Comments, new ViewDataDictionary { { "id", @item.Id } }).ToString();
+        <div class="item">
+            <a class="example-image-link" data-title="<a href=&quot;/Demotivators/Details/@item.Id&quot; class=&quot;btn btn-dangers&quot; >Full Info </a>@LightboxCommentsAndRate" href=@item.DemotivatorUrl data-lightbox="example-1">
+                <img class="example-image" src=@item.DemotivatorUrl  alt="image-1" />
+                </a>
+            <div class="td" id="ShowRe">@Html.Partial("_VoteShow", item.Rate)</div>
+        </div>
+    }
+</div>
 <footer>
     <div id="myCanvasContainer" style="width:inherit;float:inherit;">
 
@@ -74,7 +86,7 @@
 <script>
     $(document).ready(function () {
 
-        $("#owl-demo").owlCarousel({
+        $("#owl-demo-new").owlCarousel({
 
             autoPlay: 5000, //Set AutoPlay to 5 seconds
 
@@ -83,6 +95,17 @@
             itemsDesktopSmall: [979, 3],
             pagination: true
             
+
+        });
+        $("#owl-demo-best").owlCarousel({
+
+            autoPlay: 6000, //Set AutoPlay to 5 seconds
+
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [979, 3],
+            pagination: true
+
 
         });
 

@@ -24,12 +24,16 @@ namespace WebApplication1.Controllers
         {
             HomeViewModel HomeParamsToLoad = new HomeViewModel();
             var tags = db.tags.ToList();
-            var demotivators = db.Demotivators.Include(s => s.Comments).
+            var newDemotivators = db.Demotivators.OrderByDescending(x => x.Date).Take(50).Include(s => s.Comments).
                 Include(s => s.AspNetUser).
                 Include(s => s.DemotivatorRates).
-                Include(s => s.tag_to_dem).
-                ToList();
-            HomeParamsToLoad.demotivators = demotivators;
+                Include(s => s.tag_to_dem).ToList();
+            var bestDemotivators = db.Demotivators.Include(s => s.Comments).
+                Include(s => s.AspNetUser).
+                Include(s => s.DemotivatorRates).
+                Include(s => s.tag_to_dem).ToList().OrderByDescending(x => getRating(x.Rate)).Take(50).ToList();
+            HomeParamsToLoad.newDemotivators = newDemotivators;
+            HomeParamsToLoad.bestDemotivators = bestDemotivators;
             HomeParamsToLoad.tags = tags;
             HomeParamsToLoad.DemCount = db.Demotivators.Count();
             return View(HomeParamsToLoad);
@@ -48,7 +52,19 @@ namespace WebApplication1.Controllers
 
             return View();
         }
-
+        public double getRating(string rateStr)
+        {
+            var rates = rateStr.Split(',').ToList();
+            double rating = 0;
+            int divider = 0;
+            for (int i = 0; i < rates.Count; i++)
+            {
+                rating += Int32.Parse(rates[i]) * (i + 1);
+                divider += Int32.Parse(rates[i]);
+            }
+            rating /= divider;
+            return rating;
+        }
         public ActionResult ChangeCulture(string lang)
         {
             string returnUrl = Request.UrlReferrer.AbsolutePath;

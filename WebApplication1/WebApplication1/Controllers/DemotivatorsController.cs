@@ -63,15 +63,6 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Demotivators/Create
-        public ActionResult TopDemotivators()
-        {
-            List<Demotivator> model = new List<Demotivator>();
-            using (var context = new Entities())
-            {
-                model = context.Demotivators.ToList();
-            }
-            return View(model);
-        }
         public ActionResult Create()
         {
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email");
@@ -79,9 +70,6 @@ namespace WebApplication1.Controllers
             
         }
 
-        // POST: Demotivators/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DemotivatorName,TopLine,BottomLine,OriginalImageUrl,DemotivatorUrl")] Demotivator demotivator, string Tags)
@@ -118,10 +106,6 @@ namespace WebApplication1.Controllers
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
             return View(demotivator);
         }
-
-        // POST: Demotivators/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator, string Tags)
@@ -137,7 +121,7 @@ namespace WebApplication1.Controllers
         }
         public void  DeleteRate(int id)
         {
-            var rates = db.DemotivatorRates.Where(a => a.DemotivatorId == id).ToList();
+            var rates = db.DemotivatorRates.Where(r => r.DemotivatorId == id).ToList();
             foreach (var item in rates)
             {
                 db.DemotivatorRates.Remove(item);
@@ -145,19 +129,25 @@ namespace WebApplication1.Controllers
         }
         public void DeleteComments(int id)
         {
-            var comments = db.Comments.Where(s => s.DemotivatorId == id).ToList();
+            var comments = db.Comments.Where(c => c.DemotivatorId == id).ToList();
             foreach (var item in comments)
             {
                 db.Comments.Remove(item);
             }
         }
-        public void DeleteTags(int id)
+        public void DeleteTagsToDem(int id)
         {
-            var tags = db.tag_to_dem.Where(s => s.DemotivatorId == id).ToList();
-            foreach (var item in tags)
+            var tags_to_dem = db.tag_to_dem.Where(t => t.DemotivatorId == id).ToList();
+            foreach (var item in tags_to_dem)
             {
                 db.tag_to_dem.Remove(item);
+                DeleteTag(item.tagId);
             }
+        }
+        public void DeleteTag(int id)
+        {
+            var tag = db.tags.FirstOrDefault(t => t.Id == id);
+            if (tag.tag_to_dem.Count==0) db.tags.Remove(tag);
         }
         public void DeleteLikes(int id)
         {
@@ -172,7 +162,7 @@ namespace WebApplication1.Controllers
             DeleteComments(id);
             DeleteRate(id);
             DeleteLikes(id);
-            DeleteTags(id);
+            DeleteTagsToDem(id);
         }
         // GET: Demotivators/Delete/5
         public ActionResult Delete(int? id)
@@ -229,26 +219,26 @@ namespace WebApplication1.Controllers
         }
         public void AddTags(string tagsline, Demotivator demotivator)
         {
-            var tags = tagsline.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            var tags = tagsline.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList().Distinct();
+            
             foreach (var tagName in tags)
             {
-                if (!db.tags.Any(t => t.Name == tagName))
+                var TagName = tagName.TrimEnd(' ');
+                if (!db.tags.Any(t => t.Name == TagName))
                 {
-                    tag tag = db.tags.Add(new tag() { Name = tagName});
-                    db.SaveChanges();
+                    tag tag = db.tags.Add(new tag() { Name = TagName});
                     var temp = db.tag_to_dem.Add(new tag_to_dem() { Demotivator = demotivator, tag = tag });
-                    db.SaveChanges();
                 }
                 else
                 {
-                    var temp = db.tags.First(x => x.Name == tagName);
-                    temp.tag_to_dem.Add(new tag_to_dem { Demotivator = demotivator, tag = temp });
-                    db.Entry(temp).State = EntityState.Modified;
-                    db.SaveChanges();
+                    var temp = db.tags.First(x => x.Name == TagName);
+                        temp.tag_to_dem.Add(new tag_to_dem { Demotivator = demotivator, tag = temp });
+                        db.Entry(temp).State = EntityState.Modified;
                 }
             }
 
         }
+        
         public ActionResult AutocompleteSearch(string term)
         {
             var models = db.tags.Where(a => a.Name.Contains(term))
