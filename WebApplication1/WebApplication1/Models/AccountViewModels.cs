@@ -1,8 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using System;
 namespace WebApplication1.Models
 {
+    public class UserAccountModel
+    {
+        
+        public AspNetUser User { get; set; }
+        public ICollection<Demotivator> Demotivator { get; set; }
+        public Single Rate { get; set; }
+    }
+
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]

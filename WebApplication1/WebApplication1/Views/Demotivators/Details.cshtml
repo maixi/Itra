@@ -9,85 +9,43 @@
 
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.Label(Resources.Resource.DemoName)
-        </dt>
+    <div class="col-xs-5">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label(Resources.Resource.DemoName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DemotivatorName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DemotivatorName)
+            </dd>
 
-        <dt>
-            @Html.Label(Resources.Resource.DemoRate)
-        </dt>
+            <dt>
+                @Html.Label(Resources.Resource.DemoRate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Rate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Rate)
+            </dd>
 
-        <dt>
-            @Html.Label(Resources.Resource.DemoDate)
-        </dt>
+            <dt>
+                @Html.Label(Resources.Resource.DemoDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
 
-        <dt>
-            @Html.Label(Resources.Resource.CreatorName)
-        </dt>
+            <dt>
+                @Html.Label(Resources.Resource.CreatorName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatorName)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.DemoUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DemotivatorUrl)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.OriginalDemoUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OriginalImageUrl)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.TopLine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TopLine)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.BottomLine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BottomLine)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AspNetUser.Email)
-        </dd>
-
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.CreatorName)
+            </dd>                             
+        </dl>
+    </div>
+    <div class="col-xs-7"><img src="@Model.DemotivatorUrl"width="50%" height="50%" /></div>
 </div>
-<p>
-    <input type="submit" value=@Resources.Resource.DemoEdit class="btn btn-default" />
-
-</p>
 <p>
     <div class="tr" style="background-color:#f1f1f1;">
         <div class="td0">Please rate</div>

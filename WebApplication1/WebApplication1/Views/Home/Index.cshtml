@@ -24,7 +24,6 @@
             float: left;
             background-color: #ff6a00;
         }
-
         #owl-demo .item {
             margin: 3px;
             height:inherit;
@@ -47,9 +46,9 @@
         @foreach (var item in Model.demotivators)
         {
             LightboxCommentsAndRate =Html.Partial("_VoteNow", item.Id.ToString()).ToString()+ Html.Partial("_VoteShow", item.Rate).ToString() + Html.Partial("_Comments", item.Comments, new ViewDataDictionary { { "id", @item.Id } }).ToString();
-            <div class="item" >
+            <div class="item " >
                 <a class="example-image-link" data-title="@LightboxCommentsAndRate" href=@item.DemotivatorUrl data-lightbox="example-1">
-                <img class="example-image"  src=@item.DemotivatorUrl alt="image-1" />
+                <img class="example-image" src=@item.DemotivatorUrl  alt="image-1" />
                 </a>
                 <div class="td" id="ShowRe">@Html.Partial("_VoteShow", item.Rate)</div>
             </div>
@@ -63,12 +62,12 @@
 
         <canvas width="1138" height="300" id="myCanvas">
             <!--       <p>Anything in here will be replaced on browsers that support the canvas element</p>-->
+            @foreach (var tags in Model.tags)
+            {
+          <!--  <li><a href="/Demotivators/TagResultDemosList/tags.Id">tags.Name</a></li>  -->
+                @Html.ActionLink(tags.Name, "TagResultDemosList", "Demotivators", new { @id = tags.Id }, new { @title = "Найдено демотиваторов: " })
 
-            <li><a href="/fish">SJDHLKASJHDKLSA</a></li>
-            <li><a href="/chips">Chips</a></li>
-            <li><a href="/salt">Salt</a></li>
-            <li><a href="/vinegar">Vinegar</a></li>
-
+            }
         </canvas>
     </div>
 </footer>

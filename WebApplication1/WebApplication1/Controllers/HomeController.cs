@@ -22,16 +22,17 @@ namespace WebApplication1.Controllers
         private Entities db = new Entities();
         public ActionResult Index()
         {
-            HomeViewModel home = new HomeViewModel();
-
+            HomeViewModel HomeParamsToLoad = new HomeViewModel();
+            var tags = db.tags.ToList();
             var demotivators = db.Demotivators.Include(s => s.Comments).
                 Include(s => s.AspNetUser).
                 Include(s => s.DemotivatorRates).
+                Include(s => s.tag_to_dem).
                 ToList();
-            home.demotivators = demotivators;
-          
-            home.DemCount = db.Demotivators.Count();
-            return View(home);
+            HomeParamsToLoad.demotivators = demotivators;
+            HomeParamsToLoad.tags = tags;
+            HomeParamsToLoad.DemCount = db.Demotivators.Count();
+            return View(HomeParamsToLoad);
         }
 
         public ActionResult About()

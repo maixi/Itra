@@ -8,9 +8,8 @@ namespace WebApplication1.Models
     public class HomeViewModel
     {
         public ICollection<Demotivator> demotivators { get; set; }
-      
-        public int DemCount { get; set; }
-        
+        public ICollection<tag> tags { get; set; }
+        public int DemCount { get; set; }       
     }
 
 }

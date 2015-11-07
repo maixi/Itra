@@ -2130,7 +2130,7 @@
         centreFunc: Nop,
         splitWidth: 0,
         animTiming: 'Smooth',
-        clickToFront: false,
+        clickToFront: true,
         fadeIn: 0,
         padding: 0,
         bgColour: null,

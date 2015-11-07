@@ -9,8 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
-using System.Globalization;
 using WebApplication1.Filters;
+using System.Collections.Generic;
+using System.Net;
 namespace WebApplication1.Controllers
 {
     [Authorize]
@@ -18,11 +19,7 @@ namespace WebApplication1.Controllers
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
-
-        public AccountController()
-        {
-        }
+        private ApplicationUserManager _userManager;    
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -53,7 +50,17 @@ namespace WebApplication1.Controllers
                 _userManager = value;
             }
         }
-
+        Entities db = new Entities();
+        [AllowAnonymous]
+        public  ActionResult UserAccount (string id)
+        {       
+            AspNetUser user =  db.AspNetUsers.Find(id);          
+            var demotivators = db.Demotivators.Where(d => d.AspNetUserId == user.Id).ToList();
+            UserAccountModel User = new UserAccountModel();
+            User.Demotivator = demotivators;
+            User.User = user;
+            return View(User);
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -62,6 +69,7 @@ namespace WebApplication1.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+     
 
         //
         // POST: /Account/Login

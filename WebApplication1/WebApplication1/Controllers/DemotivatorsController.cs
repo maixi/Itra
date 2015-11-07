@@ -30,7 +30,23 @@ namespace WebApplication1.Controllers
             var demotivators = db.Demotivators.Include(d => d.AspNetUser);
             return View(demotivators.ToList());
         }
+        //poisk po demwotivatoram i ih vivdod
+        [AllowAnonymous]
+        public ActionResult TagResultDemosList(int id)
+        {
+            var tags = db.tag_to_dem.Where(d => d.tagId == id).ToList();
+            List<Demotivator> demotivators = new List<Demotivator>();
+            foreach (var item in tags)
+            {
+                var demotivator1 = db.Demotivators.Where(s => s.Id == item.DemotivatorId).ToList();
+                foreach (var item1 in demotivator1)
+                {
+                    demotivators.Add(item1);
+                }
 
+            }
+            return View(demotivators);
+        }
         // GET: Demotivators/Details/5
         public ActionResult Details(int? id)
         {
@@ -77,8 +93,9 @@ namespace WebApplication1.Controllers
                 demotivator.Date = DateTime.Now;
                 demotivator.Rate = "0,0,0,0,0";
                 Demotivator dem = db.Demotivators.Add(demotivator);
-                db.SaveChanges();
                 AddTags(Tags, dem);
+                db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
 
@@ -118,7 +135,45 @@ namespace WebApplication1.Controllers
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
             return View(demotivator);
         }
-
+        public void  DeleteRate(int id)
+        {
+            var rates = db.DemotivatorRates.Where(a => a.DemotivatorId == id).ToList();
+            foreach (var item in rates)
+            {
+                db.DemotivatorRates.Remove(item);
+            }
+        }
+        public void DeleteComments(int id)
+        {
+            var comments = db.Comments.Where(s => s.DemotivatorId == id).ToList();
+            foreach (var item in comments)
+            {
+                db.Comments.Remove(item);
+            }
+        }
+        public void DeleteTags(int id)
+        {
+            var tags = db.tag_to_dem.Where(s => s.DemotivatorId == id).ToList();
+            foreach (var item in tags)
+            {
+                db.tag_to_dem.Remove(item);
+            }
+        }
+        public void DeleteLikes(int id)
+        {
+            var likes = db.Likes.Where(h => h.CommentId == id).ToList();
+            foreach (var item in likes)
+            {
+                db.Likes.Remove(item);
+            }
+        }
+        public void DeleteALL (int id)
+        {
+            DeleteComments(id);
+            DeleteRate(id);
+            DeleteLikes(id);
+            DeleteTags(id);
+        }
         // GET: Demotivators/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -141,6 +196,7 @@ namespace WebApplication1.Controllers
         {
             Demotivator demotivator = db.Demotivators.Find(id);
             db.Demotivators.Remove(demotivator);
+            DeleteALL(id);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

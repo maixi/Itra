@@ -202,7 +202,7 @@
   Lightbox.prototype.changeImage = function(imageNumber) {
     var self = this;
 
-    this.disableKeyboardNav();
+    
     var $image = this.$lightbox.find('.lb-image');
 
     this.$overlay.fadeIn(this.options.fadeDuration);
@@ -312,7 +312,7 @@
     this.updateNav();
     this.updateDetails();
     this.preloadNeighboringImages();
-    this.enableKeyboardNav();
+    
   };
 
   // Display previous and next navigation if appropriate.
