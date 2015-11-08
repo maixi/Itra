@@ -61,6 +61,11 @@ namespace WebApplication1.Controllers
             var demotivators = db.Demotivators.Where(d => d.AspNetUserId == user.Id).ToList();
             UserAccountModel User = new UserAccountModel();
             User.Demotivator = demotivators;
+            double averageRate = 0;
+            foreach (var dem in demotivators)
+                averageRate += getRating(dem.Rate);
+            if (demotivators.Count!=0) User.Rate = averageRate / demotivators.Count;
+            else User.Rate = 0;
             User.User = user;
             return View(User);
         }
@@ -172,7 +177,11 @@ namespace WebApplication1.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "email confirmation",
                                "Dear " + user.Email + " To complete the registration please click " + " <a href=\"" + callbackUrl + "\">HERE</a>");
-                    return View("DisplayEmail");
+                    using (var elastic = new Elastic())
+                    {
+                        elastic.Add(user);
+                    }
+                        return View("DisplayEmail");
                 }
                 AddErrors(result);
             }
@@ -216,15 +225,8 @@ namespace WebApplication1.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -236,8 +238,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        //
-        // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
@@ -458,7 +458,20 @@ namespace WebApplication1.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-
+        public double getRating(string rateStr)
+        {
+            var rates = rateStr.Split(',').ToList();
+            double rating = 0;
+            int divider = 0;
+            for (int i = 0; i < rates.Count; i++)
+            {
+                rating += Int32.Parse(rates[i]) * (i + 1);
+                divider += Int32.Parse(rates[i]);
+            }
+            if (divider != 0) rating /= divider;
+            else rating = 0;
+            return rating;
+        }
         internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)

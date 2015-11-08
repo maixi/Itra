@@ -24,14 +24,12 @@ namespace WebApplication1.Controllers
         {
             HomeViewModel HomeParamsToLoad = new HomeViewModel();
             var tags = db.tags.ToList();
-            var newDemotivators = db.Demotivators.OrderByDescending(x => x.Date).Take(50).Include(s => s.Comments).
+            var demotivators=db.Demotivators.Include(s => s.Comments).
                 Include(s => s.AspNetUser).
                 Include(s => s.DemotivatorRates).
                 Include(s => s.tag_to_dem).ToList();
-            var bestDemotivators = db.Demotivators.Include(s => s.Comments).
-                Include(s => s.AspNetUser).
-                Include(s => s.DemotivatorRates).
-                Include(s => s.tag_to_dem).ToList().OrderByDescending(x => getRating(x.Rate)).Take(50).ToList();
+            var newDemotivators = demotivators.OrderByDescending(x => x.Date).Take(50).ToList();
+            var bestDemotivators = demotivators.OrderByDescending(x => getRating(x.Rate)).Take(50).ToList();
             HomeParamsToLoad.newDemotivators = newDemotivators;
             HomeParamsToLoad.bestDemotivators = bestDemotivators;
             HomeParamsToLoad.tags = tags;

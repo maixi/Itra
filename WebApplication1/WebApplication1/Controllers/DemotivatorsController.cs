@@ -15,7 +15,6 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.Threading.Tasks;
 using System.IO;
-
 namespace WebApplication1.Controllers
 {
     
@@ -83,8 +82,11 @@ namespace WebApplication1.Controllers
                 Demotivator dem = db.Demotivators.Add(demotivator);
                 AddTags(Tags, dem);
                 db.SaveChanges();
-                
-                return RedirectToAction("Index");
+                using (var elastic = new Elastic())
+                {
+                    elastic.Add(dem);
+                }
+                    return RedirectToAction("Index");
             }
 
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
@@ -187,7 +189,11 @@ namespace WebApplication1.Controllers
             Demotivator demotivator = db.Demotivators.Find(id);
             db.Demotivators.Remove(demotivator);
             DeleteALL(id);
-            db.SaveChanges();
+            using (var elastic = new Elastic())
+            {
+                elastic.Delete(demotivator);
+            }
+                db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -238,7 +244,6 @@ namespace WebApplication1.Controllers
             }
 
         }
-        
         public ActionResult AutocompleteSearch(string term)
         {
             var models = db.tags.Where(a => a.Name.Contains(term))

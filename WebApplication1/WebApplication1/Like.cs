@@ -15,7 +15,6 @@ namespace WebApplication1
     public partial class Like
     {
         public int Id { get; set; }
-        public bool IsLiked { get; set; }
         public int CommentId { get; set; }
         public string AspNetUserId { get; set; }
     

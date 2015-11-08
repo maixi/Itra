@@ -531,7 +531,6 @@ C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ru\Mi
 C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
-C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.EmailResource.resources
 C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.Resource.resources
 C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.Resource.en.resources
 C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.Cache
@@ -867,3 +866,18 @@ D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\en\WebApplication1.
 D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\githubShit\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.GlobalResources.resources
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.pdb
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.xml
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.pdb
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.xml
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Resources.GlobalResources.resources
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.dll
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.dll
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.pdb
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.xml
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.pdb
+C:\Users\Gorg\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.xml

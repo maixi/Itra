@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.SearchModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/lightbox.css">
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/lightbox.js"></script>
+<h1>Search result to : @Model.term</h1>
+<hr />
+<h4>Result by Demotivator Name:</h4>
+<hr />
+@foreach (var item in Model.Demotivators)
+{
+    <a class="example-image-link" href=@item.DemotivatorUrl data-lightbox="example-1"><img class="example-image" src=@item.DemotivatorUrl alt="image-1" width= ="100%" height="100" /></a>
+}
+<h4>Result by User Name:</h4>
+<hr />
+@foreach (var item in Model.Users)
+{
+    <label>Click @Html.ActionLink(" here ", "UserAccount/" + item.Id, "Account") To open your profile</label>
+}
