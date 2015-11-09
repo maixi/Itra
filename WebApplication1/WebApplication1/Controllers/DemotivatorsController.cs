@@ -80,11 +80,13 @@ namespace WebApplication1.Controllers
                 demotivator.Date = DateTime.Now;
                 demotivator.Rate = "0,0,0,0,0";
                 Demotivator dem = db.Demotivators.Add(demotivator);
+                db.SaveChanges();
                 using (var elastic = new Elastic())
                 {
                     elastic.Add(dem);
                 }
                 AddTags(Tags, dem);
+                db.Entry(dem).State= EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -139,15 +141,14 @@ namespace WebApplication1.Controllers
                 trueDem.DemotivatorUrl = demotivator.DemotivatorUrl;
                 trueDem.TopLine = demotivator.TopLine;
                 trueDem.BottomLine = demotivator.BottomLine;
-                using (var elastic = new Elastic())
-                {
+                                using (var elastic = new Elastic())
+                                   {
                     elastic.Delete(trueDem);
                     elastic.Add(demotivator);
-                }
+                                    }
                 trueDem.DemotivatorName = demotivator.DemotivatorName;
                 db.Entry(trueDem).State = EntityState.Modified;
                 db.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);

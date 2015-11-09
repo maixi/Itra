@@ -19,7 +19,6 @@ namespace WebApplication1
         }
         public void Dispose()
         {
-            //client.Connection.Delete(uri);
         }
         public void Add(Object obj)
         {
@@ -35,13 +34,12 @@ namespace WebApplication1
                                                         .QueryString(qs => qs
                                                         .Query((obj as Demotivator).DemotivatorName)
                                                         .OnFields(f => f.DemotivatorName))));
-            if(obj is ApplicationUser)
+            if (obj is ApplicationUser)
                 client.DeleteByQuery<ApplicationUser>(del => del
                                                         .Query(q => q
                                                         .QueryString(qs => qs
                                                         .Query((obj as ApplicationUser).UserName)
                                                         .OnFields(f => f.UserName))));
-
             client.Refresh();
         }
         public List<Demotivator> SearchByDemotivatorName(string term)
@@ -56,6 +54,7 @@ namespace WebApplication1
                 return result.Hits.Select(t => t.Source).ToList();
             }
             return new List<Demotivator>();
+
         }
         public List<ApplicationUser> SearchByUserName(string term)
         {

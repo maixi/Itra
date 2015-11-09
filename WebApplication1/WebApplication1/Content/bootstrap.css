@@ -313,6 +313,7 @@ th {
 }
 .glyphicon-search:before {
   content: "\e003";
+  color:black;
 }
 .glyphicon-heart:before {
   content: "\e005";

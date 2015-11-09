@@ -127,11 +127,11 @@ function writeTextLine() {
 
 function VerticalOrientation() {
     $(this).prop("disabled", true);
+    $("#horizont-btn").prop("disabled", false);
     $(this).addClass("disabled");
     $(this).addClass("btn-info");
     $("#horizont-btn").removeClass("disabled");
     $("#horizont-btn").removeClass("btn-info");
-    $("#horizont-btn").prop("disabled", false);
     canvas.setWidth(canvas.getWidth() / 1.2);
     canvas.setHeight(canvas.getHeight() * 1.2);
     image.setWidth(image.getWidth() / 1.2);

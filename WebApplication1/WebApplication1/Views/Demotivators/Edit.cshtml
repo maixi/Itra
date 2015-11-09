@@ -7,69 +7,77 @@
 
 <h2>@Resources.Resource.DemoEdit</h2>
 
+@{
+    if (User.Identity.Name == Model.AspNetUser.UserName)
+    {
+        using (Html.BeginForm("Edit", "Demotivators", FormMethod.Post, htmlAttributes: new { id = "Form" }))
+        {
+            @Html.AntiForgeryToken()
 
-@using (Html.BeginForm("Edit", "Demotivators", FormMethod.Post, htmlAttributes: new { id = "Form" }))
-{
-    @Html.AntiForgeryToken()
+            <div class="form-horizontal col-xs-5" >
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+                <div class="form-group">
+                    @Html.Label(Resources.Resource.DemoName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DemotivatorName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DemotivatorName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="file" id="uploadFileBtn" accept="image/*" name="imagefile" />
+                        <input type="hidden" id="DemotivatorFile" name="DemotivatorFile" />
 
-        <div class="form-group">
-            @Html.Label(Resources.Resource.DemoName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DemotivatorName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DemotivatorName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="file" id="uploadFileBtn" accept="image/*" name="imagefile" />
-                <input type="hidden" id="DemotivatorFile" name="DemotivatorFile" />
-            </div>
-        </div>
-        @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
-        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
-        @Html.EditorFor(model => model.CreatorName, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
-        @Html.EditorFor(model => model.DemotivatorUrl, new { htmlAttributes = new { @class = "form-control", type = "hidden", id = "DemotivatorUrl" } })
-        @Html.EditorFor(model => model.OriginalImageUrl, new { htmlAttributes = new { @class = "form-control", type = "hidden", id = "OriginalImageUrl" } })
-        @Html.EditorFor(model => model.AspNetUserId, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                    </div>
 
-        <div class="form-group">
-            @Html.Label(Resources.Resource.TopLine, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TopLine, new { htmlAttributes = new { @class = "form-control" , id= "topLine" } })
-                @Html.ValidationMessageFor(model => model.TopLine, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                </div>
+                @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                @Html.EditorFor(model => model.CreatorName, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
+                @Html.EditorFor(model => model.DemotivatorUrl, new { htmlAttributes = new { @class = "form-control", type = "hidden", id = "DemotivatorUrl" } })
+                @Html.EditorFor(model => model.OriginalImageUrl, new { htmlAttributes = new { @class = "form-control", type = "hidden", id = "OriginalImageUrl" } })
+                @Html.EditorFor(model => model.AspNetUserId, new { htmlAttributes = new { @class = "form-control", type = "hidden" } })
 
-        <div class="form-group">
-            @Html.Label(Resources.Resource.BottomLine, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BottomLine, new { htmlAttributes = new { @class = "form-control" , id = "bottomLine" } })
-                @Html.ValidationMessageFor(model => model.BottomLine, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.Label(Resources.Resource.TopLine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TopLine, new { htmlAttributes = new { @class = "form-control", id = "topLine" } })
+                        @Html.ValidationMessageFor(model => model.TopLine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value=@Resources.Resource.DemoSave class="btn btn-default" id="Edit"/>
+                <div class="form-group">
+                    @Html.Label(Resources.Resource.BottomLine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BottomLine, new { htmlAttributes = new { @class = "form-control", id = "bottomLine" } })
+                        @Html.ValidationMessageFor(model => model.BottomLine, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value=@Resources.Resource.DemoSave class="btn btn-default" id="Edit" />
+                    </div>
+
+                </div>
+                <div class="col-sm-7">
+                    <div id="canvas-container">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-8">
-            <div id="canvas-container">
-                <canvas id="canvas"></canvas>
-            </div>
-        </div>
-    </div>
+        }
+    }
+    else
+    {
+        <p> @Resources.Resource.SryEdit</p>
+    }
 }
-
 <div>
     @Html.ActionLink(Resources.Resource.BackToList, "Index")
 </div>
-
 @Scripts.Render("~/bundles/jquery")
 <link href='@Url.Content("~/Content/themes/base/all.css")' rel="stylesheet" type="text/css" />
 <script src="~/Scripts/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
@@ -78,5 +86,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-

@@ -41,13 +41,17 @@
 
             <dd>
                 @Html.DisplayFor(model => model.CreatorName)
-            </dd>                             
+            </dd>     
+                               
         </dl>
     </div>
     <div class="col-xs-7"><img src="@Model.DemotivatorUrl"width="50%" height="50%" /></div>
 </div>
 <p>
     <div class="tr" style="background-color:#f1f1f1;">
+        <a href=/Demotivators/Delete/@Model.Id class="btn btn-dangers">Delete </a>
+        <a href=/Demotivators/Edit/@Model.Id class="btn btn-dangers">Edit </a>
+       
         <div class="td0">Please rate</div>
         <div class="td">@Html.Partial("_VoteNow", Model.Id.ToString())</div>
         @if (Model.Rate is string)

@@ -30,10 +30,11 @@ namespace WebApplication1.Controllers
                 Include(s => s.tag_to_dem).ToList();
             var newDemotivators = demotivators.OrderByDescending(x => x.Date).Take(50).ToList();
             var bestDemotivators = demotivators.OrderByDescending(x => getRating(x.Rate)).Take(50).ToList();
+            var users = new List <ApplicationUser>();            
             HomeParamsToLoad.tags = tags;
             HomeParamsToLoad.DemCount = db.Demotivators.Count();
             HomeParamsToLoad.newDemotivators = newDemotivators;
-            HomeParamsToLoad.bestDemotivators = bestDemotivators;
+            HomeParamsToLoad.bestDemotivators = bestDemotivators;            
             return View(HomeParamsToLoad);
         }
 

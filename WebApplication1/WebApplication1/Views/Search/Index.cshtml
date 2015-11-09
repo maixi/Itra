@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string LightboxCommentsAndRate;
 }
 <link rel="stylesheet" href="~/Content/lightbox.css">
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
@@ -10,10 +11,15 @@
 <hr />
 <h4>Result by Demotivator Name:</h4>
 <hr />
-@foreach (var item in Model.Demotivators)
-{
-    <a class="example-image-link" href=@item.DemotivatorUrl data-lightbox="example-1"><img class="example-image" src=@item.DemotivatorUrl alt="image-1" width= ="100%" height="100" /></a>
-}
+<dl class="dl-horizontal">
+    @foreach (var item in Model.Demotivators)
+    {
+        LightboxCommentsAndRate = Html.Partial("_VoteNow", item.Id.ToString()).ToString() + Html.Partial("_VoteShow", item.Rate).ToString() + Html.Partial("_Comments", item.Comments, new ViewDataDictionary { { "id", @item.Id } }).ToString();
+        <a class="example-image-link" data-title="<a href=&quot;/Demotivators/Details/@item.Id&quot; class=&quot;btn btn-dangers&quot; >Full Info </a>@LightboxCommentsAndRate" href=@item.DemotivatorUrl data-lightbox="example-1">
+                <img class="example-image" src=@item.DemotivatorUrl  alt="image-1" style="width:18%;height:18%"  />
+                </a>
+    }
+</dl>
 <h4>Result by User Name:</h4>
 <hr />
 @foreach (var item in Model.Users)

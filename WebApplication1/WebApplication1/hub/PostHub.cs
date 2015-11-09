@@ -82,6 +82,7 @@ namespace WebApplication1.Hubs
             post.AspNetUserId = UserId;
             post.PublicationDate = DateTime.Now;
             post.DemotivatorId = DemId1;
+            post.CommentText = HttpUtility.HtmlEncode(post.CommentText);
             using (Entities db = new Entities())
             {
                 db.Comments.Add(post);
@@ -99,7 +100,7 @@ namespace WebApplication1.Hubs
                 };
 
                 Clients.Caller.addPost(ret, DemId1);
-                Clients.Others.newPost(ret, DemId1);
+                Clients.Others.addPost(ret, DemId1);
             }
         }
 

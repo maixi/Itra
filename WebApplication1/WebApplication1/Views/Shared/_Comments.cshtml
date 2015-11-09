@@ -12,7 +12,7 @@
     <li class="postHolder">
         <img data-bind="attr: { src: PostedByAvatar }"><p><a id="lightbox" data-bind="text: PostedByName, attr: {href: PostedBy}"></a>: <span data-bind="    html: Message"></span></p>
         <div class="postFooter" style="width: inherit;">
-            <abbr class="timeago" data-bind="text: PostedDate"></abbr><div style="display: inline; float: right"><button id="Like" data-bind="name: PostId, click: addLike" value="lois" /><span class="like_count" data-bind="text: LikeCount, attr: {id: PostId}"></span></div>
+            <abbr class="timeago" data-bind="text: PostedDate"></abbr><div style="display: inline; float: right"><span style="height:40px;width:40px;" class="like_count glyphicon glyphicon-heart-empty" data-bind="text: LikeCount, attr: {id: PostId}, name: PostId, click: addLike " id="LikeSpan"></span></div>
         </div>
     </li>
 </ul>
@@ -34,7 +34,6 @@
 <script src="~/Scripts/jquery.timeago.js"></script>
 <script src="~/Scripts/knockout-3.3.0.js"></script>
 <script src="~/Scripts/wallpost.js"></script>
-
 
 
 

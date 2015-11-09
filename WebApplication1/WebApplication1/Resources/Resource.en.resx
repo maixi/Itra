@@ -291,4 +291,37 @@
   <data name="RegisterEndMessage" xml:space="preserve">
     <value>Please,end the  registration on your email</value>
   </data>
+  <data name="AllDems" xml:space="preserve">
+    <value>All Demotivators</value>
+  </data>
+  <data name="AverageRate" xml:space="preserve">
+    <value>Your average rating</value>
+  </data>
+  <data name="Click" xml:space="preserve">
+    <value>Click</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>here</value>
+  </data>
+  <data name="Lang" xml:space="preserve">
+    <value>lang</value>
+  </data>
+  <data name="ProfileOpen" xml:space="preserve">
+    <value>to open your profile</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SryDel" xml:space="preserve">
+    <value>Sry, you cant delete this demotivator</value>
+  </data>
+  <data name="SryEdit" xml:space="preserve">
+    <value>Sry,you cant edit this demotivator</value>
+  </data>
+  <data name="TopUserRate" xml:space="preserve">
+    <value>Top rated users</value>
+  </data>
+  <data name="YourDems" xml:space="preserve">
+    <value>Your Demotivators : </value>
+  </data>
 </root>

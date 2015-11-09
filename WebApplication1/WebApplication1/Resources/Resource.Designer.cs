@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Все демотиваторы.
+        /// </summary>
+        public static string AllDems {
+            get {
+                return ResourceManager.GetString("AllDems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ваш средний рейтинг.
+        /// </summary>
+        public static string AverageRate {
+            get {
+                return ResourceManager.GetString("AverageRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на К списку демотиваторов.
         /// </summary>
         public static string BackToList {
@@ -120,6 +138,15 @@ namespace Resources {
         public static string ChooseLang {
             get {
                 return ResourceManager.GetString("ChooseLang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нажмите.
+        /// </summary>
+        public static string Click {
+            get {
+                return ResourceManager.GetString("Click", resourceCulture);
             }
         }
         
@@ -349,6 +376,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сюда.
+        /// </summary>
+        public static string Here {
+            get {
+                return ResourceManager.GetString("Here", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Домашняя.
         /// </summary>
         public static string Home {
@@ -363,6 +399,15 @@ namespace Resources {
         public static string IndexHeader {
             get {
                 return ResourceManager.GetString("IndexHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Язык.
+        /// </summary>
+        public static string Lang {
+            get {
+                return ResourceManager.GetString("Lang", resourceCulture);
             }
         }
         
@@ -511,6 +556,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Чтобы открыть свой профиль.
+        /// </summary>
+        public static string ProfileOpen {
+            get {
+                return ResourceManager.GetString("ProfileOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Конец регистрации.
         /// </summary>
         public static string RegisterEnd {
@@ -534,6 +588,15 @@ namespace Resources {
         public static string Registration {
             get {
                 return ResourceManager.GetString("Registration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Поиск.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
             }
         }
         
@@ -565,6 +628,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Нельзя удалить чужой демотиватор.
+        /// </summary>
+        public static string SryDel {
+            get {
+                return ResourceManager.GetString("SryDel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Нельзя редикатировать чужой демотиватор.
+        /// </summary>
+        public static string SryEdit {
+            get {
+                return ResourceManager.GetString("SryEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Поддержка.
         /// </summary>
         public static string Support {
@@ -592,11 +673,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Топ юзеров по рейтингу.
+        /// </summary>
+        public static string TopUserRate {
+            get {
+                return ResourceManager.GetString("TopUserRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Здравствуйте ,.
         /// </summary>
         public static string WelcomeWord {
             get {
                 return ResourceManager.GetString("WelcomeWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ваши демотиваторы :.
+        /// </summary>
+        public static string YourDems {
+            get {
+                return ResourceManager.GetString("YourDems", resourceCulture);
             }
         }
     }

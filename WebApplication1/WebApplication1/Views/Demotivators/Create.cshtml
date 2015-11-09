@@ -20,15 +20,15 @@ else
         <div class="form-horizontal">
             <h4>@Resources.Resource.Demotivator</h4>
             <hr />
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-10">
                         <span>Введите Url картинки</span>
                     </div>
                     <div class="col-md-10">
-                        <form class="form-inline ">
-                            <input type="url" value="" id="ImageUrl" />
+                        <form class="input-group-btn">
+                            <input type="url" value="" id="ImageUrl"class="form-control" />
                             <input type="button" value="Preview" id="PreviewBtn" class="btn btn-success" />
                         </form>
                     </div>

@@ -297,4 +297,37 @@
   <data name="RegisterEndMessage" xml:space="preserve">
     <value>Пожалуйста,проверьте свою почту ,чтобы закончить регистрацию</value>
   </data>
+  <data name="AllDems" xml:space="preserve">
+    <value>Все демотиваторы</value>
+  </data>
+  <data name="AverageRate" xml:space="preserve">
+    <value>Ваш средний рейтинг</value>
+  </data>
+  <data name="Click" xml:space="preserve">
+    <value>Нажмите</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>Сюда</value>
+  </data>
+  <data name="Lang" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="ProfileOpen" xml:space="preserve">
+    <value>Чтобы открыть свой профиль</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="SryDel" xml:space="preserve">
+    <value>Нельзя удалить чужой демотиватор</value>
+  </data>
+  <data name="SryEdit" xml:space="preserve">
+    <value>Нельзя редикатировать чужой демотиватор</value>
+  </data>
+  <data name="TopUserRate" xml:space="preserve">
+    <value>Топ юзеров по рейтингу</value>
+  </data>
+  <data name="YourDems" xml:space="preserve">
+    <value>Ваши демотиваторы :</value>
+  </data>
 </root>

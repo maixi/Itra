@@ -16,6 +16,13 @@
     <meta charset="utf-8">
     <title>nth-child</title>
     <style>
+        table {
+            width: 100%; /* Ширина таблицы */
+            border-spacing: 10px; /* Расстояние между ячейками */
+            border-color: #000000;
+            float: left;
+            background-color: #ff6a00;
+        }
         .owl-carousel .item {
             margin: 3px;
             height:inherit;
@@ -25,22 +32,15 @@
             .owl-carousel .item img {
                 width: 100%;
                 height:auto;
-                
+                vertical-align:central;
             }
 
     </style>
 </head>
-<form action="~/Search/Index">
-    <div class="search">
-        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" data-autocomplete-source='@Url.Action("AutoCompleteSearch", "Search")' name="term" /><button type="submit" class="btn btn-primary btn-sm">Search</button>
-    </div>
-</form>
 <h1>@Resources.Resource.New</h1>
 <hr />
 <dl class="dl-horizontal">
-    <!--title=""-->
-    <!--&qout;&lt;&gt;-->
-    <div class="owl-carousel" id="owl-demo-new">
+    <div class="owl-carousel;" id="owl-demo-new">
         @foreach (var item in Model.newDemotivators)
         {
             LightboxCommentsAndRate =Html.Partial("_VoteNow", item.Id.ToString()).ToString()+ Html.Partial("_VoteShow", item.Rate).ToString() + Html.Partial("_Comments", item.Comments, new ViewDataDictionary { { "id", @item.Id } }).ToString();
@@ -67,21 +67,19 @@
     }
 </div>
 <footer>          
-         <div>     
-            <div id="myCanvasContainer" class="col-xs-5">
-                <canvas width="500" height="300" id="myCanvas">                  
+        <div>     
+            <div id="myCanvasContainer" class="col-xs-6">
+                <canvas width="550" height="300" id="myCanvas">                  
                     @foreach (var tags in Model.tags)
                     {        
                         @Html.ActionLink(tags.Name, "TagResultDemosList", "Demotivators", new { @id = tags.Id }, new { })
                     }
                 </canvas>
             </div>     
-        <div class="col-xs-4">
-            <p>Топ юзеров по рейтингу : </p>
-        </div>
-        <div class="col-xs-3">
-            <p>Best comment </p>
-        </div>
+            <div class="col-xs-6">
+                     <p>@Resources.Resource.TopUserRate : </p>
+            </div>
+        
     </div>
 </footer>
 <script>
