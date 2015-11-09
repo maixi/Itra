@@ -1,11 +1,7 @@
 ﻿var canvas = new fabric.StaticCanvas("canvas");
 var canvascontainer = $("#canvas-container")[0];
-var image;
-var rectangle;
-var formData;
-var img;
 var form;
-var Topstring = new fabric.IText("Head", {
+var Topstring = new fabric.IText($("#topLine").val(), {
     fill: 'white',
     fontFamily: "Georgia",
     originX: 'center',
@@ -19,7 +15,7 @@ var Topstring = new fabric.IText("Head", {
     hasRotatingPoint: false,
     transparentCorners: false,
 })
-var Bottomstring = new fabric.IText("text", {
+var Bottomstring = new fabric.IText($("#bottomLine").val(), {
     fill: 'white',
     fontFamily: "Georgia",
     originX: "center",
@@ -34,34 +30,33 @@ var Bottomstring = new fabric.IText("text", {
     hasRotatingPoint: false,
     transparentCorners: false
 })
-
 $(document).ready(function () {
     $("#uploadFileBtn").change(UploadImageFromComputer);
-    $("#PreviewBtn").click(UploadImageFromUrl);
+    UploadImage($("#OriginalImageUrl").val())
     $("#topLine")[0].oninput = writeHeadLine;
     $("#bottomLine")[0].oninput = writeTextLine;
-    $("#vertical-btn").click(VerticalOrientation);
-    $("#horizont-btn").click(HorizontalOrientation);
-    $("#addTagBtn").click(AddTag)
-    $("#TextTag")[0].onkeyup = ValidationTagString;
-    $("#TextTag")[0].onkeydown = ValidationTagString;
     form = $("#Form");
-    $(function () {
-        $("[data-autocomplete-source]").each(function () {
-            var target = $(this);
-            target.autocomplete({ source: target.attr("data-autocomplete-source") });
-        });
-    });
 });
-
 function UploadImageFromComputer() {
     UploadImage(URL.createObjectURL($('#uploadFileBtn')[0].files[0]));
-
 }
 function UploadImageFromUrl() {
     UploadImage($("#ImageUrl")[0].value)
 }
+function writeHeadLine() {
+    var str = $('#topLine')[0].value;
+    if (str == "") str = "Head";
+    Topstring.set('text', str);
+    canvas.renderAll();
+}
+
+function writeTextLine() {
+    var str = $('#bottomLine')[0].value;
+    Bottomstring.set('text', str);
+    canvas.renderAll();
+}
 function UploadImage(Url) {
+    if (Url == null) Url=$("#OriginalImageUrl").val()
     fabric.Image.fromURL(Url, function (oImg) {
         canvas.clear();
         image = oImg;
@@ -112,91 +107,15 @@ function InitializeCanvas(Width, Height) {
     canvas.setHeight(Height);
     canvas.renderAll();
 }
-function writeHeadLine() {
-    var str = $('#topLine')[0].value;
-    if (str == "") str = "Head";
-    Topstring.set('text', str);
-    canvas.renderAll();
-}
 
-function writeTextLine() {
-    var str = $('#bottomLine')[0].value;
-    Bottomstring.set('text', str);
-    canvas.renderAll();
-}
-
-function VerticalOrientation() {
-    $(this).prop("disabled", true);
-    $(this).addClass("disabled");
-    $(this).addClass("btn-info");
-    $("#horizont-btn").removeClass("disabled");
-    $("#horizont-btn").removeClass("btn-info");
-    $("#horizont-btn").prop("disabled", false);
-    canvas.setWidth(canvas.getWidth() / 1.2);
-    canvas.setHeight(canvas.getHeight() * 1.2);
-    image.setWidth(image.getWidth() / 1.2);
-    image.setHeight(image.getHeight() * 1.2);
-    rectangle.setWidth(rectangle.getWidth() / 1.2);
-    rectangle.setHeight(rectangle.getHeight() * 1.2);
-    image.set('top', 90);
-    rectangle.set('top', 85)
-    Topstring.set('top', 20)
-    Topstring.set('left', Topstring.get('left') / 1.2);
-    Bottomstring.set('left', Bottomstring.get('left') / 1.2);
-    Bottomstring.set('top', Bottomstring.get('top') * 1.2);
-    canvas.renderAll();
-}
-function HorizontalOrientation() {
-    $(this).prop("disabled", true);
-    $("#vertical-btn").prop("disabled", false);
-    $(this).addClass("disabled");
-    $(this).addClass("btn-info");
-    $("#vertical-btn").removeClass("disabled");
-    $("#vertical-btn").removeClass("btn-info");
-    canvas.setWidth(canvas.getWidth() * 1.2);
-    canvas.setHeight(canvas.getHeight() / 1.2);
-    image.setWidth(image.getWidth() * 1.2);
-    image.setHeight(image.getHeight() / 1.2);
-    rectangle.setWidth(rectangle.getWidth() * 1.2);
-    rectangle.setHeight(rectangle.getHeight() / 1.2);
-    image.set('top', 40);
-    rectangle.set('top', 35)
-    Topstring.set('top', image.getHeight() + 50);
-    Topstring.set('left', Topstring.get('left') * 1.2);
-    Bottomstring.set('left', Bottomstring.get('left') * 1.2);
-    Bottomstring.set('top', Bottomstring.get('top') / 1.2);
-    canvas.renderAll();
-}
-function ValidationTagString() {
-    var value = $("#TextTag").val();
-    var rep = /[-\.;":',]/;
-    if (rep.test(value)) {
-        value = value.replace(rep, '');
-        $("#TextTag").val(value)
-    }
-}
-
-function AddTag() {
-    var labelstr, hiddenstr;
-    if ($("#hiddentags").val() == "") {
-        hiddenstr = $("#hiddentags").val() + $("#TextTag").val();
-    }
-    else { hiddenstr = $("#hiddentags").val() + "," + $("#TextTag").val(); }
-    if ($("#TagLabel").val() == "Tags:")
-    { labelstr = $("#TagLabel").val() + $("#TextTag").val(); }
-    else {
-        labelstr = $("#TagLabel").val() + "," + $("#TextTag").val();
-    }
-    $("#TagLabel").val(labelstr);
-    $("#hiddentags").val(hiddenstr);
-    $("#TextTag").val("");
-}
-$('#Create').on('click', function (e) {
+$('#Edit').on('click', function (e) {
 
     e.preventDefault();
     if (window.FormData !== undefined) {
         var data = new FormData();
-        if (image.getSrc() == $("#ImageUrl")[0].value) data.append("source", $("#ImageUrl")[0].value);
+        //if (image.getSrc() == $("#ImageUrl")[0].value) data.append("source", $("#ImageUrl")[0].value);
+        //else data.append("image", $('#uploadFileBtn')[0].files[0]);
+        if (image.getSrc() == $("#OriginalImageUrl").val()) data.append("source", $("#OriginalImageUrl").val());
         else data.append("image", $('#uploadFileBtn')[0].files[0]);
         data.append("canvas", document.getElementById('canvas').toDataURL());
         $.ajax({

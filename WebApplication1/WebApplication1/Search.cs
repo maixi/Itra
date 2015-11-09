@@ -14,11 +14,12 @@ namespace WebApplication1
         public Elastic()
         {
             uri = new Uri("https://CoiDEDYkj0KsFMyFOQmrwYhyYOmyddEC:@georgemois123.east-us.azr.facetflow.io");
-            var settings = new ConnectionSettings(uri).SetDefaultIndex("2_index");
+            var settings = new ConnectionSettings(uri).SetDefaultIndex("3_index");
             client = new ElasticClient(settings);
         }
         public void Dispose()
         {
+            //client.Connection.Delete(uri);
         }
         public void Add(Object obj)
         {
@@ -34,23 +35,40 @@ namespace WebApplication1
                                                         .QueryString(qs => qs
                                                         .Query((obj as Demotivator).DemotivatorName)
                                                         .OnFields(f => f.DemotivatorName))));
+            if(obj is ApplicationUser)
+                client.DeleteByQuery<ApplicationUser>(del => del
+                                                        .Query(q => q
+                                                        .QueryString(qs => qs
+                                                        .Query((obj as ApplicationUser).UserName)
+                                                        .OnFields(f => f.UserName))));
+
             client.Refresh();
         }
         public List<Demotivator> SearchByDemotivatorName(string term)
         {
-            var result = client.Search<Demotivator>(s => s
-                   .Index("2_index")
-                   .Query(q => q.QueryString(qs => qs.Query(term + "*")
-                   .OnFields(f => f.DemotivatorName))));
-            return result.Hits.Select(t => t.Source).ToList();
+            term = term.TrimStart(' ');
+            if (term != "")
+            {
+                var result = client.Search<Demotivator>(s => s
+                                   .Index("3_index")
+                                   .Query(q => q.QueryString(qs => qs.Query(term + "*")
+                                   .OnFields(f => f.DemotivatorName))));
+                return result.Hits.Select(t => t.Source).ToList();
+            }
+            return new List<Demotivator>();
         }
         public List<ApplicationUser> SearchByUserName(string term)
         {
-            var result = client.Search<ApplicationUser>(s => s
-                     .Index("2_index")
+            term = term.TrimStart(' ');
+            if (term != "")
+            {
+                var result = client.Search<ApplicationUser>(s => s
+                     .Index("3_index")
                      .Query(q => q.QueryString(qs => qs.Query(term + "*")
                      .OnFields(f => f.UserName))));
-            return result.Hits.Select(t => t.Source).ToList();
+                return result.Hits.Select(t => t.Source).ToList();
+            }
+            return new List<ApplicationUser>();
         }
     }
 }

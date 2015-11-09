@@ -1,5 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="bootstrap.js" />
+/// <reference path="editdem.js" />
 /// <reference path="fabric.js" />
 /// <reference path="fabric.require.js" />
 /// <reference path="jquery.autosize-min.js" />

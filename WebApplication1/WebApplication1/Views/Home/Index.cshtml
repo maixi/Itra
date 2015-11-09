@@ -16,13 +16,6 @@
     <meta charset="utf-8">
     <title>nth-child</title>
     <style>
-        table {
-            width: 100%; /* Ширина таблицы */
-            border-spacing: 10px; /* Расстояние между ячейками */
-            border-color: #000000;
-            float: left;
-            background-color: #ff6a00;
-        }
         .owl-carousel .item {
             margin: 3px;
             height:inherit;
@@ -37,6 +30,11 @@
 
     </style>
 </head>
+<form action="~/Search/Index">
+    <div class="search">
+        <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" data-autocomplete-source='@Url.Action("AutoCompleteSearch", "Search")' name="term" /><button type="submit" class="btn btn-primary btn-sm">Search</button>
+    </div>
+</form>
 <h1>@Resources.Resource.New</h1>
 <hr />
 <dl class="dl-horizontal">

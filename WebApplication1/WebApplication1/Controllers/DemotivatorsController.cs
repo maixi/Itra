@@ -80,14 +80,13 @@ namespace WebApplication1.Controllers
                 demotivator.Date = DateTime.Now;
                 demotivator.Rate = "0,0,0,0,0";
                 Demotivator dem = db.Demotivators.Add(demotivator);
+                using (var elastic = new Elastic())
+                {
+                    elastic.Add(dem);
+                }
                 AddTags(Tags, dem);
                 db.SaveChanges();
-
-                using (var elastic = new Elastic())
-                                    {
-                    elastic.Add(dem);
-                                    }
-                                    return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
@@ -131,12 +130,24 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator, string Tags)
+        public ActionResult Edit([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(demotivator).State = EntityState.Modified;
+                Demotivator trueDem = db.Demotivators.First(x => x.Id == demotivator.Id);
+                trueDem.OriginalImageUrl = demotivator.OriginalImageUrl;
+                trueDem.DemotivatorUrl = demotivator.DemotivatorUrl;
+                trueDem.TopLine = demotivator.TopLine;
+                trueDem.BottomLine = demotivator.BottomLine;
+                using (var elastic = new Elastic())
+                {
+                    elastic.Delete(trueDem);
+                    elastic.Add(demotivator);
+                }
+                trueDem.DemotivatorName = demotivator.DemotivatorName;
+                db.Entry(trueDem).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
