@@ -9,7 +9,8 @@ namespace WebApplication1.Models
     {
         public ICollection<Demotivator> newDemotivators { get; set; }
         public ICollection<Demotivator> bestDemotivators { get; set; }      
-        public ICollection<tag> tags { get; set; }        
+        public ICollection<tag> tags { get; set; }
+        public ICollection<AspNetUser> TopUsers { get; set; }       
         
         public int DemCount { get; set; }       
     }

@@ -63,12 +63,11 @@ namespace WebApplication1.Controllers
             UserAccountModel User = new UserAccountModel();
             User.Demotivator = demotivators;
             double averageRate = 0;
-                        foreach (var dem in demotivators)
+            foreach (var dem in demotivators)
                 averageRate += getRating(dem.Rate);
-                       if (demotivators.Count != 0) User.Rate = averageRate / demotivators.Count;
-                       else User.Rate = 0;
+            if (demotivators.Count != 0) User.Rate = averageRate / demotivators.Count;
+            else User.Rate = 0;
             User.User = user;
-           // User.User.Id = user.Id;
             return View(User);
         }
         //

@@ -34,7 +34,8 @@ namespace WebApplication1.Controllers
             HomeParamsToLoad.tags = tags;
             HomeParamsToLoad.DemCount = db.Demotivators.Count();
             HomeParamsToLoad.newDemotivators = newDemotivators;
-            HomeParamsToLoad.bestDemotivators = bestDemotivators;            
+            HomeParamsToLoad.bestDemotivators = bestDemotivators;
+            HomeParamsToLoad.TopUsers = GetTopUserByRating();        
             return View(HomeParamsToLoad);
         }
 
@@ -61,8 +62,24 @@ namespace WebApplication1.Controllers
                 rating += Int32.Parse(rates[i]) * (i + 1);
                 divider += Int32.Parse(rates[i]);
             }
-            rating /= divider;
+            if (divider != 0) rating /= divider;
+            else rating = 0;
             return rating;
+        }
+        public double GetAverageUserRating(List<Demotivator> demotivators)
+        {
+            double averageRate = 0;
+            foreach (var dem in demotivators)
+                averageRate += getRating(dem.Rate);
+            if (demotivators.Count != 0)  averageRate /= demotivators.Count;
+            else averageRate = 0;
+            return averageRate;
+        }
+        public List<AspNetUser> GetTopUserByRating()
+        {
+            var users = db.AspNetUsers.ToList();
+            var top = users.OrderByDescending(u => GetAverageUserRating(db.Demotivators.Where(d => d.AspNetUserId == u.Id).ToList())).Take(5).ToList();
+            return top;
         }
         public ActionResult ChangeCulture(string lang)
         {

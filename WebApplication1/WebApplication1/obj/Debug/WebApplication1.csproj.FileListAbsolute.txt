@@ -877,3 +877,13 @@ D:\githubShit\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.pdb
 D:\githubShit\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.xml
 D:\githubShit\Itra\WebApplication1\WebApplication1\bin\Nest.pdb
 D:\githubShit\Itra\WebApplication1\WebApplication1\bin\Nest.xml
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Lucene.Net.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.dll
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.pdb
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Elasticsearch.Net.xml
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Lucene.Net.pdb
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Lucene.Net.xml
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.pdb
+C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\bin\Nest.xml
