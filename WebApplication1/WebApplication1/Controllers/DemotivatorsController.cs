@@ -15,6 +15,7 @@ using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using System.Threading.Tasks;
 using System.IO;
+
 namespace WebApplication1.Controllers
 {
     
@@ -24,8 +25,7 @@ namespace WebApplication1.Controllers
         private Entities db = new Entities();      
         // GET: Demotivators
         public ActionResult Index()
-        {
-            
+        {           
             var demotivators = db.Demotivators.Include(d => d.AspNetUser);
             return View(demotivators.ToList());
         }
@@ -42,10 +42,10 @@ namespace WebApplication1.Controllers
                 {
                     demotivators.Add(item1);
                 }
-
             }
             return View(demotivators);
         }
+        [AllowAnonymous]     
         // GET: Demotivators/Details/5
         public ActionResult Details(int? id)
         {
@@ -82,11 +82,12 @@ namespace WebApplication1.Controllers
                 Demotivator dem = db.Demotivators.Add(demotivator);
                 AddTags(Tags, dem);
                 db.SaveChanges();
+
                 using (var elastic = new Elastic())
-                {
+                                    {
                     elastic.Add(dem);
-                }
-                    return RedirectToAction("Index");
+                                    }
+                                    return RedirectToAction("Index");
             }
 
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
@@ -108,6 +109,26 @@ namespace WebApplication1.Controllers
             ViewBag.AspNetUserId = new SelectList(db.AspNetUsers, "Id", "Email", demotivator.AspNetUserId);
             return View(demotivator);
         }
+        public int AddLike(int CommentId)
+        {
+            string UserId = User.Identity.GetUserId();
+            var LikeCheck = db.Likes.FirstOrDefault(x => x.CommentId == CommentId && x.AspNetUserId == UserId);
+            if(LikeCheck==null)
+            {
+                Like like = new Like();
+                like.CommentId = CommentId;
+                like.AspNetUserId = UserId;
+                db.Likes.Add(like);                   
+            }
+            else
+            {
+                db.Likes.Remove(LikeCheck);
+            }
+            db.SaveChanges();
+            int count = db.Comments.Find(CommentId).Likes.Count();
+            return (count);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,DemotivatorName,Rate,CreatorName,DemotivatorUrl,OriginalImageUrl,TopLine,BottomLine,AspNetUserId")] Demotivator demotivator, string Tags)
@@ -135,7 +156,9 @@ namespace WebApplication1.Controllers
             foreach (var item in comments)
             {
                 db.Comments.Remove(item);
+                DeleteLikes(item.Id);
             }
+            
         }
         public void DeleteTagsToDem(int id)
         {
@@ -153,6 +176,7 @@ namespace WebApplication1.Controllers
         }
         public void DeleteLikes(int id)
         {
+            
             var likes = db.Likes.Where(h => h.CommentId == id).ToList();
             foreach (var item in likes)
             {
@@ -161,14 +185,15 @@ namespace WebApplication1.Controllers
         }
         public void DeleteALL (int id)
         {
-            DeleteComments(id);
+            
             DeleteRate(id);
-            DeleteLikes(id);
             DeleteTagsToDem(id);
+            DeleteComments(id);
+
         }
         // GET: Demotivators/Delete/5
         public ActionResult Delete(int? id)
-        {
+        {                     
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -186,14 +211,15 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Demotivator demotivator = db.Demotivators.Find(id);
             db.Demotivators.Remove(demotivator);
             DeleteALL(id);
             using (var elastic = new Elastic())
-            {
+                            {
                 elastic.Delete(demotivator);
-            }
-                db.SaveChanges();
+                            }
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -244,6 +270,7 @@ namespace WebApplication1.Controllers
             }
 
         }
+        
         public ActionResult AutocompleteSearch(string term)
         {
             var models = db.tags.Where(a => a.Name.Contains(term))

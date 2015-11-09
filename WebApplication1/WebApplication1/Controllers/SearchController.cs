@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
                 {
                     response.Add(dem.DemotivatorName);
                 }
-                foreach(var user in users)
+                foreach (var user in users)
                 {
                     response.Add(user.UserName);
                 }

@@ -6,8 +6,6 @@
         return '';
     }
 }
-
-
 // Model
 function Post(data, hub) {
     var self = this;
@@ -22,6 +20,7 @@ function Post(data, hub) {
     self.PostComments = ko.observableArray();
     self.NewComments = ko.observableArray();
     self.newCommentMessage = ko.observable();
+    self.LikeCount = data.LikeCount;
     self.hub = hub;
     self.addComment = function () {
         self.hub.server.addComment({ "PostId": self.PostId, "Message": self.newCommentMessage() }).done(function (comment) {
@@ -30,6 +29,25 @@ function Post(data, hub) {
         }).fail(function (err) {
             self.error(err);
         });
+    }
+    self.addLike = function()
+    {
+        var formData = new FormData;
+        formData.append("CommentId", self.PostId)
+        $.ajax(
+            {
+                async: false,
+                url: '/Demotivators/AddLike',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data)
+                {
+                    document.getElementById(self.PostId).textContent = data;
+                }
+            });
+        
     }
 
     self.loadNewComments = function () {

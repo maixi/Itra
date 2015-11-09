@@ -9,6 +9,11 @@ using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using WebApplication1.Filters;
 using System.Globalization;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+using WebApplication1;
 namespace WebApplication1.Controllers
 {
     [Authorize]
@@ -16,8 +21,7 @@ namespace WebApplication1.Controllers
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
-
+        private ApplicationUserManager _userManager;       
         public ManageController()
         {
         }
@@ -68,15 +72,16 @@ namespace WebApplication1.Controllers
             var userId = User.Identity.GetUserId();
             var model = new IndexViewModel
             {
+                userId = User.Identity.GetUserId(),
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)  
+                                              
             };
             return View(model);
         }
-
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]
@@ -211,16 +216,14 @@ namespace WebApplication1.Controllers
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
-        }
-
+        }    
         //
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
         {
             return View();
         }
-
-        //
+                //
         // POST: /Manage/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]

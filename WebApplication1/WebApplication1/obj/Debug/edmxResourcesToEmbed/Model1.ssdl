@@ -160,6 +160,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsLiked" Type="bit" Nullable="false" />
     <Property Name="CommentId" Type="int" Nullable="false" />
     <Property Name="AspNetUserId" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>

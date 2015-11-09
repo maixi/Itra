@@ -279,4 +279,22 @@
   <data name="New" xml:space="preserve">
     <value>Новое</value>
   </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>Подтверждение почты</value>
+  </data>
+  <data name="EmailConfirmClick" xml:space="preserve">
+    <value>Щелкните здесь для входа</value>
+  </data>
+  <data name="EmailTy" xml:space="preserve">
+    <value>Благодарим за подтверждение электронной почти</value>
+  </data>
+  <data name="NewAccCreate" xml:space="preserve">
+    <value>Создайте новую учетную запись</value>
+  </data>
+  <data name="RegisterEnd" xml:space="preserve">
+    <value>Конец регистрации</value>
+  </data>
+  <data name="RegisterEndMessage" xml:space="preserve">
+    <value>Пожалуйста,проверьте свою почту ,чтобы закончить регистрацию</value>
+  </data>
 </root>

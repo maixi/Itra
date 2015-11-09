@@ -6,8 +6,8 @@ using Nest;
 using WebApplication1.Models;
 namespace WebApplication1
 {
-    
-    public class Elastic:IDisposable
+
+    public class Elastic : IDisposable
     {
         ElasticClient client;
         Uri uri;
@@ -22,7 +22,7 @@ namespace WebApplication1
         }
         public void Add(Object obj)
         {
-            if(obj is Demotivator) client.Index(obj as Demotivator);
+            if (obj is Demotivator) client.Index(obj as Demotivator);
             if (obj is ApplicationUser) client.Index(obj as ApplicationUser);
             client.Refresh();
         }
@@ -40,7 +40,7 @@ namespace WebApplication1
         {
             var result = client.Search<Demotivator>(s => s
                    .Index("2_index")
-                   .Query(q => q.QueryString(qs => qs.Query(term+"*")
+                   .Query(q => q.QueryString(qs => qs.Query(term + "*")
                    .OnFields(f => f.DemotivatorName))));
             return result.Hits.Select(t => t.Source).ToList();
         }

@@ -15,7 +15,7 @@ using WebApplication1;
 using System.IO;
 using WebApplication1.Filters;
 
-namespace IDemotivator.Hubs
+namespace WebApplication1.Hubs
 {
     public class PostHub : Hub
     {
@@ -71,6 +71,7 @@ namespace IDemotivator.Hubs
                                PostedByAvatar = imgFolder + defaultAvatar,
                                PostedDate = TimeAgo(post.PublicationDate),
                                PostId = post.Id,
+                               LikeCount = post.Likes.Count()
                            }).ToArray();
                 Clients.All.loadPosts(ret, DemId);
             }
@@ -93,10 +94,11 @@ namespace IDemotivator.Hubs
                     PostedByName = usr.UserName,
                     PostedByAvatar = imgFolder + defaultAvatar,
                     PostedDate = TimeAgo(post.PublicationDate),
-                    PostId = post.Id
+                    PostId = post.Id,
+                    LikeCount = post.Likes.Count()
                 };
 
-                Clients.Caller.addPost(ret);
+                Clients.Caller.addPost(ret, DemId1);
                 Clients.Others.newPost(ret, DemId1);
             }
         }

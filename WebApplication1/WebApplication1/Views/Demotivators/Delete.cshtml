@@ -8,90 +8,33 @@
 <h2>@Resources.Resource.DeleteTitle</h2>
 
 <h3>@Resources.Resource.DeleteSure</h3>
+@{
+    if (User.Identity.Name == Model.AspNetUser.UserName)
+        {
 <div>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal; col-xs-5">       
         <dt>
-            @Html.Label(Resources.Resource.DemoName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DemotivatorName)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.DemoRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rate)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.DemoDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.CreatorName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatorName)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.DemoUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DemotivatorUrl)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.OriginalDemoUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OriginalImageUrl)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.TopLine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TopLine)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.BottomLine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BottomLine)
-        </dd>
-
-        <dt>
-            @Html.Label(Resources.Resource.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AspNetUser.Email)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
+            @Html.Label(Resources.Resource.CreatorName) : 
+            @Html.DisplayFor(model => model.AspNetUser.UserName)
+                </dt>       
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value=@Resources.Resource.Delete class="btn btn-default" />
+            </div>
             @Html.ActionLink(Resources.Resource.BackToList, "Index")
-            <input type="submit" value=@Resources.Resource.Delete class="btn btn-default" />
-        </div>
-    }
+        }
+    </dl>
+    <div class="col-xs-7">
+        <img src="@Model.DemotivatorUrl" style="width:70%;height:70%;"/>
+    </div>
 </div>
+    }
+    else
+    {
+        <p>WHOOPS, U CANT DO IT SON</p>
+        @Html.ActionLink(Resources.Resource.BackToList, "Index")
+    }
+}

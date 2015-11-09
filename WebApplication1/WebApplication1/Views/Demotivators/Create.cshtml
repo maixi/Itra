@@ -74,7 +74,7 @@ else
                             <input type="text" id="TagLabel" class="form-control" disabled="disabled" value="Tags:" />
                         </div>
                         <div class="form-inline">
-                            <input type="text" class="form-control" id="TextTag" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Demotivators")'placeholder="Tag" />
+                            <input type="text" class="form-control" id="TextTag" data-autocomplete-source='@Url.Action("AutocompleteSearch", "Demotivators")' placeholder="Tag" />
                             <input type="button" class="btn btn-success" id="addTagBtn" value="Add" />
                         </div>
                     </div>
@@ -87,7 +87,7 @@ else
                 </div>
                 @Html.ActionLink(Resources.Resource.BackToList, "Index")
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm-7" >
                 <div id="canvas-container">
                     <canvas id="canvas"></canvas>
                 </div>

@@ -5,7 +5,7 @@ namespace WebApplication1.Models
 {
     public class UserAccountModel
     {
-        
+
         public AspNetUser User { get; set; }
         public ICollection<Demotivator> Demotivator { get; set; }
         public Double Rate { get; set; }

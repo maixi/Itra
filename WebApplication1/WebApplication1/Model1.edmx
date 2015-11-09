@@ -165,6 +165,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsLiked" Type="bit" Nullable="false" />
     <Property Name="CommentId" Type="int" Nullable="false" />
     <Property Name="AspNetUserId" Type="nvarchar" Nullable="false" MaxLength="128" />
   </EntityType>
@@ -561,6 +562,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsLiked" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Comment" Relationship="Model.CommentLike" FromRole="Like" ToRole="Comment" />
           <Property Name="CommentId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserLike" FromRole="Like" ToRole="AspNetUser" />
@@ -796,6 +798,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model.Like)">
         <MappingFragment StoreEntitySet="Likes">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsLiked" ColumnName="IsLiked" />
           <ScalarProperty Name="CommentId" ColumnName="CommentId" />
           <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
         </MappingFragment>

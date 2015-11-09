@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 11/08/2015 00:05:27
+-- Date Created: 11/07/2015 14:17:15
 -- Generated from EDMX file: C:\Users\George\Dropbox\Itransition\Itra\WebApplication1\WebApplication1\Model1.edmx
 -- --------------------------------------------------
 
@@ -49,6 +49,7 @@ GO
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
+
 
 
 IF OBJECT_ID(N'[dbo].[DemotivatorRates]', 'U') IS NOT NULL
@@ -164,6 +165,7 @@ GO
 -- Creating table 'Likes'
 CREATE TABLE [dbo].[Likes] (
     [Id] int IDENTITY(1,1) NOT NULL,
+    [IsLiked] bit  NOT NULL,
     [CommentId] int  NOT NULL,
     [AspNetUserId] nvarchar(128)  NOT NULL
 );

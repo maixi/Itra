@@ -1,29 +1,28 @@
 ﻿@model WebApplication1.Models.IndexViewModel
+
 @{
     ViewBag.Title = Resources.Resource.Management ;
+    var path = "";
 }
 
 <h2>@ViewBag.Title.</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>@Resources.Resource.ChangeParams</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        
-        <dt>@Resources.Resource.PassWord:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
+    <h4>@Resources.Resource.ChangeParams</h4>      
+    <h4>
+        @Resources.Resource.PassWord:
+        @if (Model.HasPassword)
             {
-                @Html.ActionLink(Resources.Resource.ChangePassword, "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink(Resources.Resource.Create, "SetPassword")
-            }
-            ]
-        </dd>
-       
-    </dl>
+            @Html.ActionLink(Resources.Resource.ChangePassword, "ChangePassword")
+        }
+        else
+        {
+            @Html.ActionLink(Resources.Resource.Create, "SetPassword")
+        }
+    </h4>
+               
+   <label>Click @Html.ActionLink(" here ", "UserAccount/" + @Model.userId, "Account") To open your profile</label>
+   
+    
 </div>

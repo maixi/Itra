@@ -206,6 +206,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsLiked" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Comment" Relationship="Model.CommentLike" FromRole="Like" ToRole="Comment" />
     <Property Name="CommentId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AspNetUser" Relationship="Model.AspNetUserLike" FromRole="Like" ToRole="AspNetUser" />

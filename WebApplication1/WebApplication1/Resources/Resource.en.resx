@@ -273,4 +273,22 @@
   <data name="New" xml:space="preserve">
     <value>New</value>
   </data>
+  <data name="EmailConfirm" xml:space="preserve">
+    <value>Email confirm</value>
+  </data>
+  <data name="EmailConfirmClick" xml:space="preserve">
+    <value>Click here to login</value>
+  </data>
+  <data name="EmailTy" xml:space="preserve">
+    <value>T.Y. for your email confirm</value>
+  </data>
+  <data name="NewAccCreate" xml:space="preserve">
+    <value>Create new account</value>
+  </data>
+  <data name="RegisterEnd" xml:space="preserve">
+    <value>Registration end</value>
+  </data>
+  <data name="RegisterEndMessage" xml:space="preserve">
+    <value>Please,end the  registration on your email</value>
+  </data>
 </root>

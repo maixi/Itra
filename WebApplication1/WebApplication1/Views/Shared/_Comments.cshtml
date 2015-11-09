@@ -10,10 +10,9 @@
 
 <ul id="msgHolder" data-bind="foreach: posts">
     <li class="postHolder">
-        <a data-bind="text: PostedByName, attr: {href: PostedBy}"></a>: <span data-bind="    html: Message"></span>
-        <div class="postFooter">
-            <abbr class="timeago" data-bind="text: PostedDate"></abbr>
-            <input type="button" value="like" id="likeBtn"/>
+        <img data-bind="attr: { src: PostedByAvatar }"><p><a id="lightbox" data-bind="text: PostedByName, attr: {href: PostedBy}"></a>: <span data-bind="    html: Message"></span></p>
+        <div class="postFooter" style="width: inherit;">
+            <abbr class="timeago" data-bind="text: PostedDate"></abbr><div style="display: inline; float: right"><button id="Like" data-bind="name: PostId, click: addLike" value="lois" /><span class="like_count" data-bind="text: LikeCount, attr: {id: PostId}"></span></div>
         </div>
     </li>
 </ul>

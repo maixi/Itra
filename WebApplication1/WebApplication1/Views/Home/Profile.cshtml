@@ -1,0 +1,12 @@
+﻿@model WebApplication1.Models.HomeViewModel
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profile</h2>
+
+@foreach (var tags in Model.tags)
+{
+    @Html.ActionLink(tags.Name, "TagResultDemosList", "Demotivators", new { @id = tags.Id }, new { })
+}

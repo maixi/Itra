@@ -3,7 +3,6 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
     string LightboxCommentsAndRate;
-
 }
 <a href="#x" class="overlay" id="win5"></a>
 <link rel="stylesheet" href="~/Content/lightbox.css" />
@@ -69,18 +68,22 @@
         </div>
     }
 </div>
-<footer>
-    <div id="myCanvasContainer" style="width:inherit;float:inherit;">
-
-        <canvas width="1138" height="300" id="myCanvas">
-            <!--       <p>Anything in here will be replaced on browsers that support the canvas element</p>-->
-            @foreach (var tags in Model.tags)
-            {
-          <!--  <li><a href="/Demotivators/TagResultDemosList/tags.Id">tags.Name</a></li>  -->
-                @Html.ActionLink(tags.Name, "TagResultDemosList", "Demotivators", new { @id = tags.Id }, new { @title = "Найдено демотиваторов: " })
-
-            }
-        </canvas>
+<footer>          
+         <div>     
+            <div id="myCanvasContainer" class="col-xs-5">
+                <canvas width="500" height="300" id="myCanvas">                  
+                    @foreach (var tags in Model.tags)
+                    {        
+                        @Html.ActionLink(tags.Name, "TagResultDemosList", "Demotivators", new { @id = tags.Id }, new { })
+                    }
+                </canvas>
+            </div>     
+        <div class="col-xs-4">
+            <p>Топ юзеров по рейтингу : </p>
+        </div>
+        <div class="col-xs-3">
+            <p>Best comment </p>
+        </div>
     </div>
 </footer>
 <script>

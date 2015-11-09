@@ -12,6 +12,7 @@ using WebApplication1.Models;
 using WebApplication1.Filters;
 using System.Collections.Generic;
 using System.Net;
+using WebApplication1.Resources;
 namespace WebApplication1.Controllers
 {
     [Authorize]
@@ -19,7 +20,7 @@ namespace WebApplication1.Controllers
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;    
+        private ApplicationUserManager _userManager;
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -55,18 +56,19 @@ namespace WebApplication1.Controllers
         }
         Entities db = new Entities();
         [AllowAnonymous]
-        public  ActionResult UserAccount (string id)
-        {       
-            AspNetUser user =  db.AspNetUsers.Find(id);          
+        public ActionResult UserAccount(string id)
+        {
+            AspNetUser user = db.AspNetUsers.Find(id);
             var demotivators = db.Demotivators.Where(d => d.AspNetUserId == user.Id).ToList();
             UserAccountModel User = new UserAccountModel();
             User.Demotivator = demotivators;
             double averageRate = 0;
-            foreach (var dem in demotivators)
+                        foreach (var dem in demotivators)
                 averageRate += getRating(dem.Rate);
-            if (demotivators.Count!=0) User.Rate = averageRate / demotivators.Count;
-            else User.Rate = 0;
+                       if (demotivators.Count != 0) User.Rate = averageRate / demotivators.Count;
+                       else User.Rate = 0;
             User.User = user;
+           // User.User.Id = user.Id;
             return View(User);
         }
         //
@@ -77,7 +79,7 @@ namespace WebApplication1.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-     
+
 
         //
         // POST: /Account/Login
@@ -178,10 +180,10 @@ namespace WebApplication1.Controllers
                     await UserManager.SendEmailAsync(user.Id, "email confirmation",
                                "Dear " + user.Email + " To complete the registration please click " + " <a href=\"" + callbackUrl + "\">HERE</a>");
                     using (var elastic = new Elastic())
-                    {
+                                            {
                         elastic.Add(user);
-                    }
-                        return View("DisplayEmail");
+                                            }
+                                            return View("DisplayEmail");
                 }
                 AddErrors(result);
             }
@@ -225,8 +227,15 @@ namespace WebApplication1.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
+
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -238,6 +247,8 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        //
+        // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
@@ -463,16 +474,16 @@ namespace WebApplication1.Controllers
             var rates = rateStr.Split(',').ToList();
             double rating = 0;
             int divider = 0;
-            for (int i = 0; i < rates.Count; i++)
+            for (int i = 0; i<rates.Count; i++)
             {
                 rating += Int32.Parse(rates[i]) * (i + 1);
                 divider += Int32.Parse(rates[i]);
             }
             if (divider != 0) rating /= divider;
-            else rating = 0;
+           else rating = 0;
             return rating;
         }
-        internal class ChallengeResult : HttpUnauthorizedResult
+internal class ChallengeResult : HttpUnauthorizedResult
         {
             public ChallengeResult(string provider, string redirectUri)
                 : this(provider, redirectUri, null)

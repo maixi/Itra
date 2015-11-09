@@ -99,6 +99,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(Model.Like)">
         <MappingFragment StoreEntitySet="Likes">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsLiked" ColumnName="IsLiked" />
           <ScalarProperty Name="CommentId" ColumnName="CommentId" />
           <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
         </MappingFragment>
